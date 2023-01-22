@@ -5,6 +5,8 @@ using UnityEngine;
 public class LevelGeneration : MonoBehaviour
 {
     public GameObject[] sections;
+    public GameObject Player;
+    public Transform spawnDistance;
     // Start is called before the first frame update
     void Start()
     {
@@ -14,6 +16,6 @@ public class LevelGeneration : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+
     }
 }
