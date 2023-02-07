@@ -33,11 +33,7 @@ public class MovePlayer : MonoBehaviour
         {
             if (playerPos < 2)
             {
-<<<<<<< HEAD
-                move.x = 3;
-=======
                 move.x = movePlayer;
->>>>>>> origin/main
                 playerPos++;
                 Debug.Log(playerPos);
             }
@@ -46,11 +42,7 @@ public class MovePlayer : MonoBehaviour
         {
             if (playerPos > 0)
             {
-<<<<<<< HEAD
-                move.x = -3;
-=======
                 move.x = -movePlayer;
->>>>>>> origin/main
                 playerPos--;
                 Debug.Log(playerPos);
             }
