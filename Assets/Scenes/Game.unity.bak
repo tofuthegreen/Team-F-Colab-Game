@@ -273,7 +273,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 50, y: -30, z: 0}
 --- !u!1 &963194225
 GameObject:
@@ -394,13 +394,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d1a6567ed4773d44185f147195ae455e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  levelGenerator: {fileID: 0}
+<<<<<<< HEAD
   speed: 50
-  movePlayer: 3
+  moveDistance: 100
   playerPos: 1
 --- !u!4 &2051696767 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 1422ecabcaf1cb0499c2f8f2be11c9a1, type: 3}
   m_PrefabInstance: {fileID: 2070670180}
+--- !u!143 &1704590531
+CharacterController:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+>>>>>>> Map-Generator
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &2070670180
 PrefabInstance:
@@ -411,7 +419,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: -8679921383154817045, guid: 1422ecabcaf1cb0499c2f8f2be11c9a1, type: 3}
       propertyPath: m_RootOrder
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 1422ecabcaf1cb0499c2f8f2be11c9a1, type: 3}
       propertyPath: m_LocalPosition.x
@@ -900,7 +908,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 3900366786414767420, guid: 68610d68784441d4eb3a5fe7d196967c, type: 3}
       propertyPath: m_RootOrder
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3900366786414767420, guid: 68610d68784441d4eb3a5fe7d196967c, type: 3}
       propertyPath: m_LocalScale.z
