@@ -31,7 +31,7 @@ public class MovePlayer : MonoBehaviour
         {
             if (playerPos < 2)
             {
-                move.x = 1;
+                move.x = 3;
                 playerPos++;
                 Debug.Log(playerPos);
             }
@@ -40,7 +40,7 @@ public class MovePlayer : MonoBehaviour
         {
             if (playerPos > 0)
             {
-                move.x = -1;
+                move.x = -3;
                 playerPos--;
                 Debug.Log(playerPos);
             }
