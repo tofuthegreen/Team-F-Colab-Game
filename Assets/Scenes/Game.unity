@@ -165,6 +165,7 @@ MonoBehaviour:
   pathLength: 0
   maxPathLength: 10
   currentDirection: 0
+  tileRND: 0
 --- !u!4 &683748055
 Transform:
   m_ObjectHideFlags: 0
@@ -472,8 +473,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   levelGenerator: {fileID: 0}
-  controller: {fileID: 1704590531}
-  speed: 50
+  speed: 10
+  moveDistance: 100
+  playerPos: 1
 --- !u!143 &1704590531
 CharacterController:
   m_ObjectHideFlags: 0
