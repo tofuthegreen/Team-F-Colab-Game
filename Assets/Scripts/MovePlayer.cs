@@ -4,15 +4,17 @@ using UnityEngine;
 
 public class MovePlayer : MonoBehaviour
 {
-    public LevelGeneration levelGenerator;
+    //public LevelGeneration levelGenerator;
     CharacterController characterController;
     // Start is called before the first frame update
-    
+
 
     [SerializeField]
     float speed = 5f;
-    public float moveDistance = 100;
+    [SerializeField]
+    int movePlayer = 3;
     public int playerPos = 1;
+    
 
     // Start is called before the first frame update
     void Start()
@@ -31,7 +33,7 @@ public class MovePlayer : MonoBehaviour
         {
             if (playerPos < 2)
             {
-                move.x = 1;
+                move.x = movePlayer;
                 playerPos++;
                 Debug.Log(playerPos);
             }
@@ -40,7 +42,7 @@ public class MovePlayer : MonoBehaviour
         {
             if (playerPos > 0)
             {
-                move.x = -1;
+                move.x = -movePlayer;
                 playerPos--;
                 Debug.Log(playerPos);
             }
