@@ -6374,11 +6374,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 3900366786414767420, guid: 68610d68784441d4eb3a5fe7d196967c, type: 3}
       propertyPath: m_RootOrder
-<<<<<<< HEAD
       value: 3
-=======
-      value: 0
->>>>>>> main
       objectReference: {fileID: 0}
     - target: {fileID: 3900366786414767420, guid: 68610d68784441d4eb3a5fe7d196967c, type: 3}
       propertyPath: m_LocalScale.z

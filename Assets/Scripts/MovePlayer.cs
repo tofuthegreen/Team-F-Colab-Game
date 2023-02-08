@@ -14,13 +14,14 @@ public class MovePlayer : MonoBehaviour
     [SerializeField]
     int movePlayer = 3;
     public int playerPos = 1;
-    
+    private Vector3 startingPos, currentPos;
+    public int distance;
 
     // Start is called before the first frame update
     void Start()
     {
         characterController = GetComponent<CharacterController>();
-
+        startingPos = transform.position;
     }
 
 
@@ -28,7 +29,7 @@ public class MovePlayer : MonoBehaviour
     void Update()
     {
         Vector3 move = new Vector3(0, 0, speed * Time.deltaTime);
-
+        currentPos = transform.position;
         if (Input.GetKeyDown(KeyCode.D))
         {
             if (playerPos < 2)
@@ -49,5 +50,6 @@ public class MovePlayer : MonoBehaviour
         }
 
         characterController.Move(move);
+        distance = (int)(currentPos - startingPos).magnitude;
     }
 }
