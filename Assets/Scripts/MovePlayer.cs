@@ -13,11 +13,8 @@ public class MovePlayer : MonoBehaviour
     float speed = 5f;
     public float moveDistance = 100;
     public int playerPos = 1;
-<<<<<<< Updated upstream
-=======
     private Vector3 startingPos, currentPos;
     public int distance;
->>>>>>> Stashed changes
 
     // Start is called before the first frame update
     void Start()
