@@ -13,12 +13,17 @@ public class MovePlayer : MonoBehaviour
     float speed = 5f;
     public float moveDistance = 100;
     public int playerPos = 1;
+<<<<<<< Updated upstream
+=======
+    private Vector3 startingPos, currentPos;
+    public int distance;
+>>>>>>> Stashed changes
 
     // Start is called before the first frame update
     void Start()
     {
         characterController = GetComponent<CharacterController>();
-
+        startingPos = transform.position;
     }
 
 
@@ -26,7 +31,7 @@ public class MovePlayer : MonoBehaviour
     void Update()
     {
         Vector3 move = new Vector3(0, 0, speed * Time.deltaTime);
-
+        currentPos = transform.position;
         if (Input.GetKeyDown(KeyCode.D))
         {
             if (playerPos < 2)
@@ -47,5 +52,6 @@ public class MovePlayer : MonoBehaviour
         }
 
         characterController.Move(move);
+        distance = (int)(currentPos - startingPos).magnitude;
     }
 }
