@@ -193,6 +193,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   levelGenerator: {fileID: 0}
+  player: {fileID: 0}
+  isTJunction: 0
+  inTile: 0
 --- !u!54 &-5397797265734086142
 Rigidbody:
   m_ObjectHideFlags: 0

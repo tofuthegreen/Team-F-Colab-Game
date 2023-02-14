@@ -1783,12 +1783,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sections:
-  - {fileID: 3141272421959855913, guid: 752f62a6a1c51c640ab1c07ff8e9043b, type: 3}
-  - {fileID: 2961457220920094687, guid: 7ec51c16b27424c4c9890eb182cd5c01, type: 3}
-  - {fileID: 1335844777866670709, guid: 53a8af0d0c331ff41a524418bfa475b0, type: 3}
-  - {fileID: 3025672074498827599, guid: 5c5dca21cbd2f094a9f6c931d95a6069, type: 3}
-  - {fileID: 8572535336965003665, guid: 9ce17100e87e52b4ab152c8a1fda8558, type: 3}
-  Player: {fileID: 2051696764}
+  - {fileID: 4861174702810976319, guid: b80a31c8b82f3dc4eaae009543d796e8, type: 3}
+  - {fileID: 4861174702810976319, guid: 9e65aacfaa5cc524ba5c5af2eb8c796c, type: 3}
+  - {fileID: 2218059179809510134, guid: 1398f132c9e770c49b630636cb64ca2f, type: 3}
+  - {fileID: 1044527647541491605, guid: d67bdca94347c0343acf62feee91b195, type: 3}
+  - {fileID: 246458007007158380, guid: 864e0691df6441d44871903389b87457, type: 3}
+  - {fileID: 3792183511062063347, guid: 69d3128610a47b3439a942e6ed849f6f, type: 3}
+  - {fileID: 6153496261002932922, guid: dedc35f3acb9a3645a5801db8c4e19fa, type: 3}
+  player: {fileID: 2051696766}
   spawnDistance: {fileID: 0}
   nextSpawnPoint: {x: 0, y: 0, z: 0}
   spawnCount: 0
@@ -1809,7 +1811,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &683870542
 GameObject:
@@ -5501,6 +5503,7 @@ MonoBehaviour:
   speed: 50
   movePlayer: 3
   playerPos: 1
+  distance: 0
 --- !u!4 &2051696767 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 1422ecabcaf1cb0499c2f8f2be11c9a1, type: 3}
@@ -5667,7 +5670,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 1422ecabcaf1cb0499c2f8f2be11c9a1, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 14.29
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 1422ecabcaf1cb0499c2f8f2be11c9a1, type: 3}
       propertyPath: m_LocalPosition.y
@@ -5675,7 +5678,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 1422ecabcaf1cb0499c2f8f2be11c9a1, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -17.25
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 1422ecabcaf1cb0499c2f8f2be11c9a1, type: 3}
       propertyPath: m_LocalRotation.w
