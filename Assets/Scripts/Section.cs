@@ -5,7 +5,7 @@ using UnityEngine;
 public class Section : MonoBehaviour
 {
     public LevelGeneration levelGenerator;
-    public PlayerController player;
+    public MovePlayer player;
     public bool isTJunction;
     public bool inTile;
     // Start is called before the first frame update
