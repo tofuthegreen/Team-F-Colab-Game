@@ -6293,6 +6293,7 @@ MonoBehaviour:
   movePlayer: 3
   playerPos: 1
   distance: 0
+  movePositions: fdffffff0000000003000000
 --- !u!4 &2051696767 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 1422ecabcaf1cb0499c2f8f2be11c9a1, type: 3}
