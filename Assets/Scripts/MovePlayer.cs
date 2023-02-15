@@ -4,22 +4,28 @@ using UnityEngine;
 
 public class MovePlayer : MonoBehaviour
 {
-    //public LevelGeneration levelGenerator;
+    //Calls the character controller functionality
     CharacterController characterController;
-    // Start is called before the first frame update
 
-
+    /// <summary>
+    /// 
+    /// </summary>
+    [SerializeField]
+    float initialSpeed = 10f;
     [SerializeField]
     float speed = 10f;
     [SerializeField]
     int movePlayer = 3;
+    [SerializeField]
+    int maxSpeed = 50;
+    [SerializeField]
+    float dodgeSpeed = 0.3f;
     public int playerPos = 1;
     private Vector3 startingPos, currentPos;
     public int distance;
     [SerializeField]
     int[] movePositions = new int[3];
-
-    float lerpDuration = 0.1f;
+    
 
     // Start is called before the first frame update
     void Start()
@@ -32,6 +38,7 @@ public class MovePlayer : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        CheckSpeed();
         Vector3 move = new Vector3(0, 0, speed);
         currentPos = transform.position;
         if (Input.GetKeyDown(KeyCode.D))
@@ -39,7 +46,7 @@ public class MovePlayer : MonoBehaviour
             if (playerPos < 2)
             {               
                 playerPos++;
-                StartCoroutine(LerpPosition(new Vector3(movePositions[playerPos], transform.position.y, transform.position.z + speed * lerpDuration), lerpDuration));
+                StartCoroutine(LerpPosition(new Vector3(movePositions[playerPos], transform.position.y, transform.position.z + speed * dodgeSpeed), dodgeSpeed));
                 Debug.Log(playerPos);
             }
         }
@@ -49,7 +56,7 @@ public class MovePlayer : MonoBehaviour
             {
                 
                 playerPos--;
-                StartCoroutine(LerpPosition(new Vector3(movePositions[playerPos], transform.position.y, transform.position.z + speed * lerpDuration), lerpDuration));
+                StartCoroutine(LerpPosition(new Vector3(movePositions[playerPos], transform.position.y, transform.position.z + speed * dodgeSpeed), dodgeSpeed));
                 Debug.Log(playerPos);
             }
         }
@@ -70,5 +77,22 @@ public class MovePlayer : MonoBehaviour
         }
         Debug.Log(playerPos);
         transform.position = targetPosition;
+    }
+    
+    void CheckSpeed()
+    {
+        if (distance > 0f)
+        {
+            if (speed != maxSpeed)
+            {
+                float multiplier = distance / 100f;
+                speed = initialSpeed + multiplier;
+            }
+            else
+            {
+                speed = maxSpeed;
+            }
+            
+        }
     }
 }
