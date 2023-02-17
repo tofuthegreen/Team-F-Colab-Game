@@ -74,7 +74,11 @@ public class LevelGeneration : MonoBehaviour
             }
             else
             {
-                if (player.distance < 5000)
+                if(player.distance < 100)
+                {
+                    tileRND = 0;
+                }
+                else if (player.distance < 5000)
                 {
                     tileRND = Random.Range(0, (sections.Length / 2));
                 }
