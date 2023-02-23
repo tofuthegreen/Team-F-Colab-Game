@@ -7,9 +7,8 @@ public class MovePlayer : MonoBehaviour
     //Calls the character controller functionality
     CharacterController characterController;
 
-    /// <summary>
-    /// 
-    /// </summary>
+    //contains all variables for player movement
+    #region playerVariables
     [SerializeField]
     float initialSpeed = 10f;
     [SerializeField]
@@ -21,11 +20,14 @@ public class MovePlayer : MonoBehaviour
     [SerializeField]
     float dodgeSpeed = 0.3f;
     public int playerPos = 1;
+    #endregion  
     private Vector3 startingPos, currentPos;
     public int distance;
+    //Array for the lanes the playe can move between
     [SerializeField]
     int[] movePositions = new int[3];
-    
+
+    public int coins;
 
     // Start is called before the first frame update
     void Start()
@@ -63,6 +65,7 @@ public class MovePlayer : MonoBehaviour
 
         characterController.Move(move * Time.deltaTime);
         distance = (int)(currentPos - startingPos).magnitude;
+        
     }
 
     IEnumerator LerpPosition(Vector3 targetPosition, float duration)

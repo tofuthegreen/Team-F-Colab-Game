@@ -11,7 +11,6 @@ GameObject:
   - component: {fileID: 835286443805953083}
   - component: {fileID: 4339309556788085662}
   - component: {fileID: 2007660149973399380}
-  - component: {fileID: 3710356372916491749}
   - component: {fileID: 1013949249279468430}
   m_Layer: 0
   m_Name: RoadSection1
@@ -86,19 +85,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!65 &3710356372916491749
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 62021478500046465}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 0.010561139, y: 1, z: 0.009999998}
-  m_Center: {x: 0, y: 0.4, z: 0}
 --- !u!114 &1013949249279468430
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -231,7 +217,7 @@ BoxCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 9177231191659846303}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 7, y: 7, z: 30}
