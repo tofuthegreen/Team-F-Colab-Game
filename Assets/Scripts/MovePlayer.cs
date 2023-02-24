@@ -34,6 +34,7 @@ public class MovePlayer : MonoBehaviour
     {
         characterController = GetComponent<CharacterController>();
         startingPos = transform.position;
+        
     }
 
 
@@ -91,10 +92,7 @@ public class MovePlayer : MonoBehaviour
                 float multiplier = distance / 100f;
                 speed = initialSpeed + multiplier;
             }
-            else
-            {
-                speed = maxSpeed;
-            }
+            
             
         }
     }

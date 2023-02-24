@@ -130,6 +130,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   value: 1
+  playerReference: {fileID: 9200728547462943273, guid: 085da75c2c41c144cb13305532007e07, type: 3}
 --- !u!135 &3426753428613902746
 SphereCollider:
   m_ObjectHideFlags: 0
