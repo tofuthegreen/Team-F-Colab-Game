@@ -11,8 +11,7 @@ public class MovePlayer : MonoBehaviour
     #region playerVariables
     [SerializeField]
     float initialSpeed = 10f;
-    [SerializeField]
-    float speed = 10f;
+    public float speed = 10f;
     [SerializeField]
     int movePlayer = 3;
     [SerializeField]
@@ -41,7 +40,7 @@ public class MovePlayer : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        CheckSpeed();
+        //CheckSpeed();
         Vector3 move = new Vector3(0, 0, speed);
         currentPos = transform.position;
         if (Input.GetKeyDown(KeyCode.D))
