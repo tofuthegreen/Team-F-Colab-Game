@@ -40,7 +40,7 @@ public class MovePlayer : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        //CheckSpeed();
+        CheckSpeed();
         Vector3 move = new Vector3(0, 0, speed);
         currentPos = transform.position;
         if (Input.GetKeyDown(KeyCode.D))
