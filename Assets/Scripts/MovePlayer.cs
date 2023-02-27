@@ -26,6 +26,9 @@ public class MovePlayer : MonoBehaviour
     [SerializeField]
     int[] movePositions = new int[3];
 
+
+    public bool nitroActive = false;
+    float speedBoost = 1.5f;
     public int coins;
 
     // Start is called before the first frame update
@@ -34,19 +37,25 @@ public class MovePlayer : MonoBehaviour
         characterController = GetComponent<CharacterController>();
         startingPos = transform.position;
         
+        speed = 10;
     }
 
 
     // Update is called once per frame
     void Update()
     {
-        CheckSpeed();
+        if (nitroActive == false)
+        {
+            CheckSpeed();
+        }
+       
+
         Vector3 move = new Vector3(0, 0, speed);
         currentPos = transform.position;
         if (Input.GetKeyDown(KeyCode.D))
         {
             if (playerPos < 2)
-            {               
+            {
                 playerPos++;
                 StartCoroutine(LerpPosition(new Vector3(movePositions[playerPos], transform.position.y, transform.position.z + speed * dodgeSpeed), dodgeSpeed));
                 Debug.Log(playerPos);
@@ -56,12 +65,13 @@ public class MovePlayer : MonoBehaviour
         {
             if (playerPos > 0)
             {
-                
+
                 playerPos--;
                 StartCoroutine(LerpPosition(new Vector3(movePositions[playerPos], transform.position.y, transform.position.z + speed * dodgeSpeed), dodgeSpeed));
                 Debug.Log(playerPos);
             }
         }
+
 
         characterController.Move(move * Time.deltaTime);
         distance = (int)(currentPos - startingPos).magnitude;
@@ -81,6 +91,7 @@ public class MovePlayer : MonoBehaviour
         Debug.Log(playerPos);
         transform.position = targetPosition;
     }
+
     
     void CheckSpeed()
     {
@@ -94,5 +105,19 @@ public class MovePlayer : MonoBehaviour
             
             
         }
+    }
+
+    public IEnumerator NitroBoost()
+    {
+        nitroActive = true;
+        speed *= speedBoost;
+        Debug.Log("Whoosh");
+
+        yield return new WaitForSeconds(.5f);
+
+        speed /= speedBoost;
+        nitroActive = false;
+        
+        
     }
 }

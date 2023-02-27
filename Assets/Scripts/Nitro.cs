@@ -21,19 +21,8 @@ public class Nitro : MonoBehaviour
         {
             
             Debug.Log(player.speed);
-            StartCoroutine(NitroBoost());
+            StartCoroutine(player.NitroBoost());
         }
-    }
-
-    IEnumerator NitroBoost()
-    {
-
-        player.speed *= speedBoost;
-        Debug.Log("Whoosh");
-
-        yield return new WaitForSeconds(1f);
-
-        player.speed /= speedBoost;
     }
 
     
