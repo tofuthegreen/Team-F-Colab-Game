@@ -360,6 +360,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Nitro
       objectReference: {fileID: 0}
+    - target: {fileID: 2343354839522077488, guid: 026533c5c1306064eae6fc8175d130dd, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8928184950060237320, guid: 026533c5c1306064eae6fc8175d130dd, type: 3}
       propertyPath: m_RootOrder
       value: 6

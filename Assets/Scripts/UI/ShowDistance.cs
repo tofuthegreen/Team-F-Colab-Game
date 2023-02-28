@@ -8,7 +8,7 @@ using UnityEngine;
 
 public class ShowDistance : MonoBehaviour
 {
-    public static float distance;
+    public static int distance;
     public TextMeshProUGUI distanceText;
     public static void LoadPlayer()
     {
@@ -17,8 +17,8 @@ public class ShowDistance : MonoBehaviour
         {
             BinaryFormatter formatter = new BinaryFormatter();
             FileStream stream = new FileStream(path, FileMode.Open);
-
-           distance  = (float)formatter.Deserialize(stream);
+            distance = (int)formatter.Deserialize(stream);
+            
            stream.Close();
 
         }

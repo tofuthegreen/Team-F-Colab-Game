@@ -35,6 +35,7 @@ public class MovePlayer : MonoBehaviour
 
 
     public int health;
+    public int maxHealth;
     public bool beenHit;
     float healTime;
 
@@ -46,7 +47,7 @@ public class MovePlayer : MonoBehaviour
 
         
         speed = 10;
-        health = 1;
+        health = maxHealth;
         healTime = 3;
 
     }
@@ -55,7 +56,7 @@ public class MovePlayer : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (nitroActive == false)
+        if (nitroActive == false || beenHit == true)
         {
             CheckSpeed();
         }
@@ -94,7 +95,7 @@ public class MovePlayer : MonoBehaviour
             healTime -= Time.deltaTime;
             if(healTime <= 0)
             {
-                health = 1;
+                health = maxHealth;
                 beenHit = false;
                 healTime = 3f;
             }
@@ -140,10 +141,10 @@ public class MovePlayer : MonoBehaviour
     {
         if (distance > 0f)
         {
-            if (speed != maxSpeed)
+            if (speed < maxSpeed)
             {
-                float multiplier = distance / 100f;
-                speed = initialSpeed + multiplier;
+                    float multiplier = 0.001f;
+                    speed += multiplier;
             }
             
             
@@ -161,9 +162,14 @@ public class MovePlayer : MonoBehaviour
 
         speed /= speedBoost;
         nitroActive = false;
+<<<<<<< HEAD
 
     }   
+=======
+>>>>>>> skyboxandstuff
 
+
+    }
    public void SaveGame()
     {
         SaveSystem.SaveGame(distance);
