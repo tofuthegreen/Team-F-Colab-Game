@@ -16,10 +16,9 @@ public class LevelGeneration : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        maxPathLength = Random.Range(5, 15);
-        for(int i = 0; i < maxPathLength; i++)
+        for (int i = 0; i < 5; i++)
         {
-            SpawnTile();
+            StartTiles();
         }
     }
     public void SpawnTile()
@@ -74,11 +73,7 @@ public class LevelGeneration : MonoBehaviour
             }
             else
             {
-                if(player.distance < 100)
-                {
-                    tileRND = 0;
-                }
-                else if (player.distance < 5000)
+                if (player.distance < 500)
                 {
                     tileRND = Random.Range(0, (sections.Length / 2));
                 }
@@ -91,5 +86,11 @@ public class LevelGeneration : MonoBehaviour
             nextSpawnPoint = temp.transform.GetChild(currentDirection).transform.position;
             Debug.Log("Section " + spawnCount + " spawned");
             spawnCount++;
+    }
+    public void StartTiles()
+    {
+        tileRND = 0;
+        GameObject temp = Instantiate(sections[tileRND], nextSpawnPoint, Quaternion.identity);
+        nextSpawnPoint = temp.transform.GetChild(currentDirection).transform.position;
     }
 }

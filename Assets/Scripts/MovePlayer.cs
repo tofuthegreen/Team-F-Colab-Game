@@ -1,7 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
-using UnityEngine;
 
+using UnityEngine;
+using UnityEngine.SceneManagement;
 public class MovePlayer : MonoBehaviour
 {
     //Calls the character controller functionality
@@ -25,13 +26,16 @@ public class MovePlayer : MonoBehaviour
     public int distance;
     [SerializeField]
     int[] movePositions = new int[3];
-    
-
+    public int health;
+    public bool beenHit;
+    float healTime;
     // Start is called before the first frame update
     void Start()
     {
         characterController = GetComponent<CharacterController>();
         startingPos = transform.position;
+        health = 1;
+        healTime = 3;
     }
 
 
@@ -63,6 +67,16 @@ public class MovePlayer : MonoBehaviour
 
         characterController.Move(move * Time.deltaTime);
         distance = (int)(currentPos - startingPos).magnitude;
+        if(beenHit == true)
+        {
+            healTime -= Time.deltaTime;
+            if(healTime <= 0)
+            {
+                health = 1;
+                beenHit = false;
+                healTime = 3f;
+            }
+        }
     }
 
     IEnumerator LerpPosition(Vector3 targetPosition, float duration)
@@ -78,7 +92,25 @@ public class MovePlayer : MonoBehaviour
         Debug.Log(playerPos);
         transform.position = targetPosition;
     }
-    
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.CompareTag("Obstacle"))
+        {
+            health--;
+            if(health < 0)
+            {
+                Debug.Log("You died");
+                SaveGame();
+                SceneManager.LoadScene("Main Menu");
+            }
+            else
+            {
+                Debug.Log("Been Hit");
+                speed = 10f;
+                beenHit = true;
+            }
+        }
+    }
     void CheckSpeed()
     {
         if (distance > 0f)
@@ -94,5 +126,9 @@ public class MovePlayer : MonoBehaviour
             }
             
         }
+    }
+   public void SaveGame()
+    {
+        SaveSystem.SaveGame(distance);
     }
 }
