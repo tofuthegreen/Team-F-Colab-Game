@@ -161,8 +161,8 @@ public class MovePlayer : MonoBehaviour
 
         speed /= speedBoost;
         nitroActive = false;
-        
-        
+
+    }   
 
    public void SaveGame()
     {
