@@ -1,6 +1,5 @@
 using System.Collections;
 using System.Collections.Generic;
-
 using UnityEngine;
 using UnityEngine.SceneManagement;
 public class MovePlayer : MonoBehaviour
@@ -21,7 +20,7 @@ public class MovePlayer : MonoBehaviour
     float dodgeSpeed = 0.3f;
     public int playerPos = 1;
     #endregion  
-    private Vector3 startingPos, currentPos;
+    Vector3 startingPos, currentPos;
     public int distance;
     //Array for the lanes the playe can move between
     [SerializeField]
@@ -58,7 +57,7 @@ public class MovePlayer : MonoBehaviour
     {
         if (nitroActive == false || beenHit == true)
         {
-            CheckSpeed();
+            //CheckSpeed();
         }
        
 
@@ -70,7 +69,6 @@ public class MovePlayer : MonoBehaviour
             {
                 playerPos++;
                 StartCoroutine(LerpPosition(new Vector3(movePositions[playerPos], transform.position.y, transform.position.z + speed * dodgeSpeed), dodgeSpeed));
-                Debug.Log(playerPos);
             }
         }
         else if (Input.GetKeyDown(KeyCode.A))
@@ -80,7 +78,6 @@ public class MovePlayer : MonoBehaviour
 
                 playerPos--;
                 StartCoroutine(LerpPosition(new Vector3(movePositions[playerPos], transform.position.y, transform.position.z + speed * dodgeSpeed), dodgeSpeed));
-                Debug.Log(playerPos);
             }
         }
 
@@ -145,8 +142,7 @@ public class MovePlayer : MonoBehaviour
             {
                     float multiplier = 0.001f;
                     speed += multiplier;
-            }
-            
+            } 
             
         }
     }
@@ -154,24 +150,17 @@ public class MovePlayer : MonoBehaviour
 
     public IEnumerator NitroBoost()
     {
-        nitroActive = true;
-        speed *= speedBoost;
-        Debug.Log("Whoosh");
+        Debug.Log("Start");
+        speed = 15f;
 
-        yield return new WaitForSeconds(.5f);
+        yield return new WaitForSeconds(1f);
 
-        speed /= speedBoost;
-        nitroActive = false;
-<<<<<<< HEAD
+        Debug.Log("End");
 
-    }   
-=======
->>>>>>> skyboxandstuff
+    }  
 
-
-    }
    public void SaveGame()
-    {
+   {
         SaveSystem.SaveGame(distance);
 
     }

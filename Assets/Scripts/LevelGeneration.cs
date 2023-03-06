@@ -5,6 +5,7 @@ using UnityEngine;
 public class LevelGeneration : MonoBehaviour
 {
     public GameObject[] sections;
+    public GameObject[] coinSpawns;
     public MovePlayer player;
     public Transform spawnDistance;
     public Vector3 nextSpawnPoint;
