@@ -162,14 +162,11 @@ public class MovePlayer : MonoBehaviour
 
         speed /= speedBoost;
         nitroActive = false;
-<<<<<<< HEAD
-
     }   
-=======
->>>>>>> skyboxandstuff
 
 
-    }
+
+    
    public void SaveGame()
     {
         SaveSystem.SaveGame(distance);
