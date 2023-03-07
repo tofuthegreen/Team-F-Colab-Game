@@ -8,11 +8,33 @@ public class Section : MonoBehaviour
     public MovePlayer player;
     public bool isTJunction;
     public bool inTile;
+    public GameObject[] coinSpawnPoints;
+    public GameObject coinGroup,coin;
     // Start is called before the first frame update
     void Start()
     {
         levelGenerator = GameObject.FindObjectOfType<LevelGeneration>();
+        CoinSpawn();
+    }
 
+    public void CoinSpawn()
+    {
+        for(int i = 0; i < coinSpawnPoints.Length; i++)
+        {
+            int rnd = Random.Range(1, 10);
+            if(rnd < 5)
+            {
+                int coinRnd = Random.Range(0, 2);
+                if(coinRnd == 1)
+                {
+                    Instantiate(coinGroup, coinSpawnPoints[i].transform.position, Quaternion.identity);
+                }
+                else
+                {
+                    Instantiate(coin, coinSpawnPoints[i].transform.position, Quaternion.identity);
+                }
+            }
+        }
     }
 
     private void OnTriggerExit(Collider other)

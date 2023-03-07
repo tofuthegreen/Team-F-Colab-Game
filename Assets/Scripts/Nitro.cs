@@ -19,11 +19,21 @@ public class Nitro : MonoBehaviour
     {
         if (other.tag == "Player")
         {
-            
+            player = other.gameObject.GetComponent<MovePlayer>();
             Debug.Log(player.speed);
-            StartCoroutine(player.NitroBoost());
+            StartCoroutine(NitroBoost(player));
         }
     }
 
-    
+    public IEnumerator NitroBoost(MovePlayer player)
+    {
+        player.nitroActive = true;
+        player.speed *= speedBoost;
+        Debug.Log("Whoosh");
+
+        yield return new WaitForSeconds(.5f);
+
+        player.speed /= speedBoost;
+        player.nitroActive = false;
+    }
 }
