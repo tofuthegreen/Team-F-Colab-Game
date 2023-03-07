@@ -32,7 +32,7 @@ public class MovePlayer : MonoBehaviour
     public bool nitroActive = false;
     float speedBoost = 1.5f;
     public int coins;
-
+    int value = 1;
 
     public int health;
     public int maxHealth;
@@ -135,6 +135,12 @@ public class MovePlayer : MonoBehaviour
                 beenHit = true;
             }
         }
+        else if (other.tag == "Coin")
+        {
+            coins += value;
+            Destroy(other.gameObject);
+            Debug.Log(coins);
+        }
     }
 
     void CheckSpeed()
@@ -152,24 +158,14 @@ public class MovePlayer : MonoBehaviour
     }
 
 
-    public IEnumerator NitroBoost()
-    {
-        nitroActive = true;
-        speed *= speedBoost;
-        Debug.Log("Whoosh");
-
-        yield return new WaitForSeconds(.5f);
-
-        speed /= speedBoost;
-        nitroActive = false;
-    }   
+      
 
 
 
     
    public void SaveGame()
     {
-        SaveSystem.SaveGame(distance);
-
+        SaveSystem.CompareDistance(distance, SaveSystem.LoadDistance());
+        SaveSystem.AddCoins(coins, SaveSystem.LoadCoins());
     }
 }

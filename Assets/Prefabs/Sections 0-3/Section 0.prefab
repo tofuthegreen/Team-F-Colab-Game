@@ -292,6 +292,9 @@ MonoBehaviour:
   player: {fileID: 0}
   isTJunction: 0
   inTile: 0
+  coinSpawnPoints: []
+  coinGroup: {fileID: 0}
+  coin: {fileID: 0}
 --- !u!1 &5471708006837560404
 GameObject:
   m_ObjectHideFlags: 0
@@ -393,6 +396,9 @@ MonoBehaviour:
   player: {fileID: 0}
   isTJunction: 0
   inTile: 0
+  coinSpawnPoints: []
+  coinGroup: {fileID: 0}
+  coin: {fileID: 0}
 --- !u!1 &5560084698224511635
 GameObject:
   m_ObjectHideFlags: 0
