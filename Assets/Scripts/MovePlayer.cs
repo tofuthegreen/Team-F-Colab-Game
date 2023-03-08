@@ -11,8 +11,7 @@ public class MovePlayer : MonoBehaviour
     //contains all variables for player movement
     #region playerVariables
     [SerializeField]
-    float initialSpeed = 10f;
-    public float speed = 10f;
+    public float speed;
     [SerializeField]
     int movePlayer = 3;
     [SerializeField]
@@ -45,11 +44,9 @@ public class MovePlayer : MonoBehaviour
         characterController = GetComponent<CharacterController>();
         startingPos = transform.position;
 
-        
-        speed = 10;
-        health = maxHealth;
-        healTime = 3;
 
+        speed = VariableTransfer.speed;
+        coins = VariableTransfer.coins;
     }
 
 
