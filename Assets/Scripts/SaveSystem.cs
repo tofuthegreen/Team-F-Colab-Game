@@ -65,7 +65,6 @@ public static class SaveSystem
             BinaryFormatter formatter = new BinaryFormatter();
             FileStream stream = new FileStream(path, FileMode.Open);
             int coins = (int)formatter.Deserialize(stream);
-
             stream.Close();
             return coins;
         }

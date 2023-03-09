@@ -26,7 +26,8 @@ public class MovePlayer : MonoBehaviour
     [SerializeField]
     int[] movePositions = new int[3];
 
-
+    public AudioClip coinPickUp;
+    public AudioSource audioSource;
 
     public bool nitroActive = false;
     float speedBoost = 1.5f;
@@ -43,10 +44,10 @@ public class MovePlayer : MonoBehaviour
     {
         characterController = GetComponent<CharacterController>();
         startingPos = transform.position;
-
+        health = maxHealth;
 
         speed = VariableTransfer.speed;
-        coins = VariableTransfer.coins;
+        coins = SaveSystem.LoadCoins();
     }
 
 
@@ -119,7 +120,7 @@ public class MovePlayer : MonoBehaviour
         if (other.CompareTag("Obstacle"))
         {
             health--;
-            if(health < 0)
+            if(health <= -1)
             {
                 Debug.Log("You died");
                 SaveGame();
@@ -132,11 +133,14 @@ public class MovePlayer : MonoBehaviour
                 beenHit = true;
             }
         }
-        else if (other.tag == "Coin")
+        else if (other.CompareTag("Coin"))
         {
+            audioSource.clip = coinPickUp;
+            audioSource.Play();
             coins += value;
             Destroy(other.gameObject);
             Debug.Log(coins);
+            
         }
     }
 
