@@ -1,26 +1,34 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class Upgrades : MonoBehaviour
 {
+    public TextMeshProUGUI coinsText;
     int speedLvl = 1;
     int speedCost = 5;
+    int coins;
+
+    void Start()
+    {
+       coins = SaveSystem.LoadCoins();
+    }
 
     public void SpeedUpgrade()
     {
+        coinsText.text = SaveSystem.LoadCoins().ToString();
+        costCalculator(speedCost, speedLvl);
 
-
-
-        if (VariableTransfer.coins >= speedCost && speedLvl != 5)
+        if (coins >= speedCost && speedLvl != 5)
         {
-            VariableTransfer.speed += 5;
-            VariableTransfer.coins -= speedCost;
+            VariableTransfer.speed += 2;
+            coins -= speedCost;
             speedLvl++;
-            speedCost += 10;
+            
             
         }
-        else if (VariableTransfer.coins < speedCost)
+        else if (coins < speedCost)
         {
             Debug.Log("Cant afford");
         }
@@ -29,6 +37,11 @@ public class Upgrades : MonoBehaviour
             Debug.Log("Maxed Out");
         }
 
+    }
+
+    public void OnClose()
+    {
+        SaveSystem.SaveCoins(coins);
     }
 
     void costCalculator(float cost, int lvl)

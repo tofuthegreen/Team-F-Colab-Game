@@ -9,7 +9,7 @@ public class ShowDistance : MonoBehaviour
     public TextMeshProUGUI distanceText;
     public TextMeshProUGUI coinsText;
     
-    public void Start()
+    public void Update()
     {
         distanceText.text = SaveSystem.LoadDistance().ToString();
         coinsText.text = SaveSystem.LoadCoins().ToString();
