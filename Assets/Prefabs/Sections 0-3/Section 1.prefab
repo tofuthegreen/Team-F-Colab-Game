@@ -104,6 +104,8 @@ MonoBehaviour:
   coinSpawnPoints: []
   coinGroup: {fileID: 0}
   coin: {fileID: 0}
+  nitro: {fileID: 0}
+  nitroSpawns: []
 --- !u!1 &872908762969932107
 GameObject:
   m_ObjectHideFlags: 0
@@ -165,12 +167,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1326897081551066392}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 2.54, y: 0.5, z: 2.38}
+  m_LocalPosition: {x: 3.183619, y: -13.562938, z: 3.946413}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 4100652520387684604}
-  m_RootOrder: 14
+  m_Father: {fileID: 5278611094894142984}
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2134740507165759885
 GameObject:
@@ -196,12 +198,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2134740507165759885}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.5, z: 9.69}
+  m_LocalPosition: {x: 0.64361906, y: -13.562938, z: 11.2564125}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 4100652520387684604}
-  m_RootOrder: 13
+  m_Father: {fileID: 5278611094894142984}
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2441519135504893296
 GameObject:
@@ -227,10 +229,76 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2441519135504893296}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.01, y: 0.5, z: -7}
+  m_LocalPosition: {x: 0.65361905, y: -13.562938, z: -5.433587}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
+  m_Father: {fileID: 5278611094894142984}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &3094338967861904785
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 5704423101374938912}
+  m_Layer: 0
+  m_Name: NitroSpawnPoints
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &5704423101374938912
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3094338967861904785}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -0.64361906, y: 14.062938, z: -1.566413}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 4100652520387684604}
+  m_RootOrder: 12
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &3626942130206405396
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 5278611094894142984}
+  m_Layer: 0
+  m_Name: CoinSpawnPoints
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &5278611094894142984
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3626942130206405396}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -0.64361906, y: 14.062938, z: -1.566413}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 7749002318388239022}
+  - {fileID: 1773914609297022315}
+  - {fileID: 409050855132517199}
+  - {fileID: 1924755167259878469}
   m_Father: {fileID: 4100652520387684604}
   m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -352,12 +420,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4389646655232660287}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -2.77, y: 0.5, z: -4.89}
+  m_LocalPosition: {x: -2.126381, y: -13.562938, z: -3.323587}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 4100652520387684604}
-  m_RootOrder: 12
+  m_Father: {fileID: 5278611094894142984}
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &5350691321939390951
 GameObject:
@@ -713,10 +781,8 @@ Transform:
   - {fileID: 3680549789057251044}
   - {fileID: 846951079244304356}
   - {fileID: 7737874922874674771}
-  - {fileID: 7749002318388239022}
-  - {fileID: 1773914609297022315}
-  - {fileID: 409050855132517199}
-  - {fileID: 1924755167259878469}
+  - {fileID: 5278611094894142984}
+  - {fileID: 5704423101374938912}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -756,6 +822,9 @@ MonoBehaviour:
   - {fileID: 1326897081551066392}
   coinGroup: {fileID: 424198541073534025, guid: 65187b6850a97154fb443bfa25ec4fd1, type: 3}
   coin: {fileID: 4041073809281567357, guid: 21704ac9108df1548ac61913b0ee1027, type: 3}
+  nitro: {fileID: 2343354839522077488, guid: 026533c5c1306064eae6fc8175d130dd, type: 3}
+  nitroSpawns:
+  - {fileID: 0}
 --- !u!1001 &872908762812934754
 PrefabInstance:
   m_ObjectHideFlags: 0

@@ -27,6 +27,7 @@ public class Nitro : MonoBehaviour
 
     public IEnumerator NitroBoost(MovePlayer player)
     {
+        
         player.nitroActive = true;
         player.speed *= speedBoost;
         Debug.Log("Whoosh");
@@ -35,5 +36,6 @@ public class Nitro : MonoBehaviour
 
         player.speed /= speedBoost;
         player.nitroActive = false;
+        Destroy(gameObject);
     }
 }

@@ -4,18 +4,17 @@ using UnityEngine;
 
 public class Coins : MonoBehaviour
 {
+    public MovePlayer player;
+
     public int value = 1;
-    void Start()
-    {
-    }
 
     void OnTriggerEnter(Collider other)
     {
         if (other.tag == "Player")
         {
-            VariableTransfer.coins += value;
+            player.coins += value;
             Destroy(gameObject);
-            Debug.Log(VariableTransfer.coins);
+            Debug.Log(player.coins);
         }
     }
 

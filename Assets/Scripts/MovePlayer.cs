@@ -158,11 +158,6 @@ public class MovePlayer : MonoBehaviour
         }
     }
 
-
-      
-
-
-
     
    public void SaveGame()
     {

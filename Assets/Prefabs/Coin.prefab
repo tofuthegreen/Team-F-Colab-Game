@@ -92,9 +92,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1818394421712133183}
-  - component: {fileID: -8354544604133236215}
   - component: {fileID: 3426753428613902746}
   - component: {fileID: 8419079276886060259}
+  - component: {fileID: 4368417364970613818}
   m_Layer: 0
   m_Name: Coin
   m_TagString: Coin
@@ -118,21 +118,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &-8354544604133236215
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4041073809281567357}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 47afde46ec52d2b4b87985c24062dee8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  value: 1
-  coinPickUp: {fileID: 8300000, guid: 8b81ce2fdfdb68144ba03873bd2ae31a, type: 3}
-  audioSource: {fileID: 8419079276886060259}
 --- !u!135 &3426753428613902746
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -242,3 +227,16 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &4368417364970613818
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4041073809281567357}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 47afde46ec52d2b4b87985c24062dee8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  value: 1

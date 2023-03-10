@@ -9,12 +9,15 @@ public class Section : MonoBehaviour
     public bool isTJunction;
     public bool inTile;
     public GameObject[] coinSpawnPoints;
-    public GameObject coinGroup,coin;
+    public GameObject coinGroup, coin, nitro;
+
+    public GameObject[] nitroSpawns;
     // Start is called before the first frame update
     void Start()
     {
         levelGenerator = GameObject.FindObjectOfType<LevelGeneration>();
         CoinSpawn();
+        NitroSpawn();
     }
 
     public void CoinSpawn()
@@ -33,6 +36,19 @@ public class Section : MonoBehaviour
                 {
                     Instantiate(coin, coinSpawnPoints[i].transform.position, Quaternion.identity);
                 }
+            }
+        }
+    }
+
+    public void NitroSpawn()
+    {
+        for (int i = 0; i < nitroSpawns.Length; i++)
+        {
+            int rnd = Random.Range(1, 10);
+            if (rnd < 7)
+            {
+                Instantiate(nitro, nitroSpawns[i].transform.position, Quaternion.identity);
+
             }
         }
     }
