@@ -16,7 +16,7 @@ public class HUD : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        coins.text = player.coins.ToString();
+        coins.text = player.displayCoins.ToString();
         distance.text = player.distance.ToString();
     }
 }

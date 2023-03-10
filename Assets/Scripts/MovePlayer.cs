@@ -31,7 +31,7 @@ public class MovePlayer : MonoBehaviour
 
     public bool nitroActive = false;
     float speedBoost = 1.5f;
-    public int coins;
+    public int coins,displayCoins;
     int value = 1;
 
     public int health;
@@ -47,7 +47,8 @@ public class MovePlayer : MonoBehaviour
         health = maxHealth;
 
         speed = VariableTransfer.speed;
-        coins = SaveSystem.LoadCoins();
+        displayCoins = SaveSystem.LoadCoins();
+        coins = 0;
     }
 
 
@@ -137,6 +138,7 @@ public class MovePlayer : MonoBehaviour
         {
             audioSource.clip = coinPickUp;
             audioSource.Play();
+            displayCoins += value;
             coins += value;
             Destroy(other.gameObject);
             Debug.Log(coins);
