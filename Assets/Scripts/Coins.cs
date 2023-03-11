@@ -12,7 +12,7 @@ public class Coins : MonoBehaviour
     {
         if (other.tag == "Player")
         {
-            player.coins += value;
+            //player.coins += value;
             Destroy(gameObject);
             Debug.Log(player.coins);
         }

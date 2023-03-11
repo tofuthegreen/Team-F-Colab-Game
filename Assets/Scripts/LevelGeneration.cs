@@ -73,13 +73,17 @@ public class LevelGeneration : MonoBehaviour
             }
             else
             {
-                if (player.distance < 500)
+                if (spawnCount < 1500)
                 {
-                    tileRND = Random.Range(0, (sections.Length / 2));
+                    tileRND = Random.Range(1, 4);
+                }
+                else if(spawnCount < 5000)
+                {
+                    tileRND = Random.Range(1,7);
                 }
                 else
                 {
-                    tileRND = Random.Range(0, sections.Length);
+                tileRND = Random.Range(1, sections.Length);
                 }
             }
             GameObject temp = Instantiate(sections[tileRND], nextSpawnPoint, Quaternion.identity);

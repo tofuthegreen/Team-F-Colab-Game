@@ -130,7 +130,11 @@ public class MovePlayer : MonoBehaviour
             else
             {
                 Debug.Log("Been Hit");
-                speed = 10f;
+                speed /=2;
+                if(speed < 10f)
+                {
+                    speed = 10f;
+                }
                 beenHit = true;
             }
         }
