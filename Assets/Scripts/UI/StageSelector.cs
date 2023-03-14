@@ -9,10 +9,17 @@ using UnityEngine.SceneManagement;
 public class StageSelector : MonoBehaviour
 {
     //Methods to change to different levels
+    public void MainMenu()
+    {
+        SceneManager.LoadScene(0);
+    }
+
     public void Mainlevel()
     {
         SceneManager.LoadScene(1);
     }
+
+
     //Extra stuff if we want to do other modes
 
     /*

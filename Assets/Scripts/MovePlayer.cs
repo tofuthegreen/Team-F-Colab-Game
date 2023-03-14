@@ -125,7 +125,7 @@ public class MovePlayer : MonoBehaviour
             {
                 Debug.Log("You died");
                 SaveGame();
-                SceneManager.LoadScene("Main Menu");
+                SceneManager.LoadScene(2);
             }
             else
             {
