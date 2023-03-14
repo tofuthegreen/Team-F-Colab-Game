@@ -39,7 +39,32 @@ public static class SaveSystem
         stream.Close();
     }
 
-    public static int LoadDistance()
+    public static void SavePlayer(int speed)
+    {
+        BinaryFormatter formatter = new BinaryFormatter();
+        string path = Application.persistentDataPath + "/SaveCoins.txt";
+        FileStream stream = new FileStream(path, FileMode.Create);
+
+        formatter.Serialize(stream, speed);
+        stream.Close();
+    }
+    public static void LoadPlayer()
+    {
+        string path = Application.persistentDataPath + "/Save.txt";
+        if (File.Exists(path))
+        {
+            BinaryFormatter formatter = new BinaryFormatter();
+            FileStream stream = new FileStream(path, FileMode.Open);
+            int speed = (int)formatter.Deserialize(stream);
+
+            stream.Close();
+        }
+        else
+        {
+            Debug.LogError("No save file in " + path);
+        }
+    }
+        public static int LoadDistance()
     {
         string path = Application.persistentDataPath + "/Save.txt";
         if (File.Exists(path))
