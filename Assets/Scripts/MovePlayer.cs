@@ -10,12 +10,10 @@ public class MovePlayer : MonoBehaviour
 
     //contains all variables for player movement
     #region playerVariables
-    [SerializeField]
     public float speed;
     [SerializeField]
     int movePlayer = 3;
-    [SerializeField]
-    int maxSpeed = 50;
+    public int maxSpeed = 40;
     [SerializeField]
     float dodgeSpeed = 0.3f;
     public int playerPos = 1;
@@ -25,12 +23,13 @@ public class MovePlayer : MonoBehaviour
     //Array for the lanes the playe can move between
     [SerializeField]
     int[] movePositions = new int[3];
+    [SerializeField]
+    Animator shipTurning;
 
     public AudioClip coinPickUp;
     public AudioSource audioSource;
 
     public bool nitroActive = false;
-    float speedBoost = 1.5f;
     public int coins,displayCoins;
     int value = 1;
 
@@ -38,6 +37,8 @@ public class MovePlayer : MonoBehaviour
     public int maxHealth;
     public bool beenHit;
     float healTime;
+
+    bool moveInProgress;
 
     // Start is called before the first frame update
     void Start()
@@ -49,39 +50,44 @@ public class MovePlayer : MonoBehaviour
         speed = VariableTransfer.speed;
         displayCoins = SaveSystem.LoadCoins();
         coins = 0;
+
+        shipTurning.speed = (1 - dodgeSpeed) + 1;
     }
 
 
     // Update is called once per frame
     void Update()
     {
-        if (nitroActive == false || beenHit == true)
-        {
-            CheckSpeed();
-        }
+        CheckSpeed();
        
 
         Vector3 move = new Vector3(0, 0, speed);
         currentPos = transform.position;
-        if (Input.GetKeyDown(KeyCode.D))
+        if (moveInProgress == false)
         {
-            if (playerPos < 2)
+            if (Input.GetKeyDown(KeyCode.D))
             {
-                playerPos++;
-                StartCoroutine(LerpPosition(new Vector3(movePositions[playerPos], transform.position.y, transform.position.z + speed * dodgeSpeed), dodgeSpeed));
-                Debug.Log(playerPos);
+                if (playerPos < 2)
+                {
+                    playerPos++;
+                    StartCoroutine(LerpPosition(new Vector3(movePositions[playerPos], transform.position.y, transform.position.z + speed * dodgeSpeed), dodgeSpeed, "TurnRight"));
+                    Debug.Log(playerPos);
+                }
             }
-        }
-        else if (Input.GetKeyDown(KeyCode.A))
-        {
-            if (playerPos > 0)
+            else if (Input.GetKeyDown(KeyCode.A))
             {
+                if (playerPos > 0)
+                {
 
-                playerPos--;
-                StartCoroutine(LerpPosition(new Vector3(movePositions[playerPos], transform.position.y, transform.position.z + speed * dodgeSpeed), dodgeSpeed));
-                Debug.Log(playerPos);
+                    playerPos--;
+                    shipTurning.SetBool("TurnLeft", true);
+                    StartCoroutine(LerpPosition(new Vector3(movePositions[playerPos], transform.position.y, transform.position.z + speed * dodgeSpeed), dodgeSpeed, "TurnLeft"));
+
+                    Debug.Log(playerPos);
+                }
             }
         }
+        
 
 
         characterController.Move(move * Time.deltaTime);
@@ -102,19 +108,26 @@ public class MovePlayer : MonoBehaviour
 
     }
 
-    IEnumerator LerpPosition(Vector3 targetPosition, float duration)
+    IEnumerator LerpPosition(Vector3 targetPosition, float duration, string animation)
     {
+        moveInProgress = true;
+        shipTurning.SetTrigger(animation);
         float time = 0f;
         Vector3 startPosition = transform.position;
         while (time < duration + 0.03)
         {
+            
             transform.position = Vector3.Lerp(startPosition, targetPosition, time / duration);
             time += Time.deltaTime;
+            
             yield return null;
         }
-        Debug.Log(playerPos);
+        
         transform.position = targetPosition;
+        moveInProgress = false;
     }
+
+    
 
     private void OnTriggerEnter(Collider other)
     {
@@ -130,7 +143,7 @@ public class MovePlayer : MonoBehaviour
             else
             {
                 Debug.Log("Been Hit");
-                speed /=2;
+                speed /= 2;
                 if(speed < 10f)
                 {
                     speed = 10f;
