@@ -1,7 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
 public class Nitro : MonoBehaviour
 {
     MovePlayer player;
@@ -28,44 +27,16 @@ public class Nitro : MonoBehaviour
 
     public IEnumerator NitroBoost(MovePlayer player)
     {
-        currentSpeed = player.speed;
-        if (player.speed <= (player.maxSpeed / speedBoost))
+        player.nitroActive = true;
+        player.speed *= speedBoost;
+        Debug.Log("Whoosh");
+        yield return new WaitForSeconds(.5f);
+        player.speed /= speedBoost;
+        if(player.speed < 10)
         {
-            player.nitroActive = true;
-            player.speed *= speedBoost;
-            Debug.Log("Whoosh");
-
-            yield return new WaitForSeconds(duration);
-
-            player.speed /= speedBoost;
-            player.nitroActive = false;
-            Destroy(gameObject);
+            player.speed = 10;
         }
-        else if (player.speed >= player.maxSpeed)
-        {
-            player.nitroActive = true;
-            player.speed += 5;
-            Debug.Log("Whoosh");
-
-            yield return new WaitForSeconds(duration);
-
-            player.speed = player.maxSpeed;
-            player.nitroActive = false;
-            Destroy(gameObject);
-        }
-        else
-        {
-            player.nitroActive = true;
-            player.speed = player.maxSpeed;
-            Debug.Log("Whoosh");
-
-            yield return new WaitForSeconds(duration);
-
-            player.speed = currentSpeed;
-            player.nitroActive = false;
-            Destroy(gameObject);
-        }
+        player.nitroActive = false;
+        Destroy(gameObject);
     }
-        
-    
 }

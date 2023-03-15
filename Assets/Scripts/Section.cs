@@ -10,12 +10,14 @@ public class Section : MonoBehaviour
     public bool inTile;
     public GameObject[] coinSpawnPoints;
     public GameObject coinGroup, coin, nitro;
+    public GameObject[] coins;
 
     public GameObject[] nitroSpawns;
     // Start is called before the first frame update
     void Start()
     {
         levelGenerator = GameObject.FindObjectOfType<LevelGeneration>();
+        coins = new GameObject[10];
         CoinSpawn();
         NitroSpawn();
     }
@@ -30,11 +32,12 @@ public class Section : MonoBehaviour
                 int coinRnd = Random.Range(0, 2);
                 if(coinRnd == 1)
                 {
-                    Instantiate(coinGroup, coinSpawnPoints[i].transform.position, Quaternion.identity);
+                    coins[i] = Instantiate(coinGroup, coinSpawnPoints[i].transform.position, Quaternion.identity);
+                    
                 }
                 else
                 {
-                    Instantiate(coin, coinSpawnPoints[i].transform.position, Quaternion.identity);
+                    coins[i] = Instantiate(coin, coinSpawnPoints[i].transform.position, Quaternion.identity);
                 }
             }
         }
@@ -59,6 +62,10 @@ public class Section : MonoBehaviour
         {
             Debug.Log("Leaving section");
             levelGenerator.SpawnTile();
+            for(int i = 0; i < coins.Length; i++)
+            {
+                Destroy(coins[i]);
+            }
             Destroy(gameObject,1);
             inTile = false;
         }

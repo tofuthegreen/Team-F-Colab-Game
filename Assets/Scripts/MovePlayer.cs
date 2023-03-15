@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
-
+using UnityEngine.Rendering;
+using UnityEngine.Rendering.Universal;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 public class MovePlayer : MonoBehaviour
@@ -40,12 +41,16 @@ public class MovePlayer : MonoBehaviour
 
     bool moveInProgress;
 
+    public Volume playerVolume;
+    VolumeProfile playerProfile;
+    MotionBlur motionBlur;
     // Start is called before the first frame update
     void Start()
     {
         characterController = GetComponent<CharacterController>();
         startingPos = transform.position;
         health = maxHealth;
+        playerProfile = playerVolume.profile;
 
         speed = VariableTransfer.speed;
         displayCoins = SaveSystem.LoadCoins();
@@ -58,6 +63,29 @@ public class MovePlayer : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (nitroActive == false || beenHit == true)
+        {
+            CheckSpeed();
+        }
+        if(nitroActive == true)
+        {
+            MotionBlur tmp;
+            if (playerProfile.TryGet<MotionBlur>(out tmp))
+            {
+                motionBlur = tmp;
+                motionBlur.active = true;
+            }
+        }
+        else if(nitroActive == false)
+        {
+            MotionBlur tmp;
+            if (playerProfile.TryGet<MotionBlur>(out tmp))
+            {
+                motionBlur = tmp;
+                motionBlur.active = false;
+            }
+        }
+
         CheckSpeed();
        
 
@@ -131,7 +159,7 @@ public class MovePlayer : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag("Obstacle"))
+        if (other.CompareTag("Obstacle") && nitroActive == false)
         {
             health--;
             if(health <= -1)
