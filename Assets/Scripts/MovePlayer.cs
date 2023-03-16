@@ -25,7 +25,7 @@ public class MovePlayer : MonoBehaviour
     [SerializeField]
     int[] movePositions = new int[3];
     [SerializeField]
-    Animator shipTurning;
+    Animator ship;
 
     public AudioClip coinPickUp;
     public AudioSource audioSource;
@@ -56,17 +56,14 @@ public class MovePlayer : MonoBehaviour
         displayCoins = SaveSystem.LoadCoins();
         coins = 0;
 
-        shipTurning.speed = (1 - dodgeSpeed) + 1;
+        ship.speed = (1 - dodgeSpeed) + 1;
     }
 
 
     // Update is called once per frame
     void Update()
     {
-        if (nitroActive == false || beenHit == true)
-        {
-            CheckSpeed();
-        }
+        
         if(nitroActive == true)
         {
             MotionBlur tmp;
@@ -99,19 +96,14 @@ public class MovePlayer : MonoBehaviour
                 {
                     playerPos++;
                     StartCoroutine(LerpPosition(new Vector3(movePositions[playerPos], transform.position.y, transform.position.z + speed * dodgeSpeed), dodgeSpeed, "TurnRight"));
-                    Debug.Log(playerPos);
                 }
             }
             else if (Input.GetKeyDown(KeyCode.A))
             {
                 if (playerPos > 0)
                 {
-
                     playerPos--;
-                    shipTurning.SetBool("TurnLeft", true);
                     StartCoroutine(LerpPosition(new Vector3(movePositions[playerPos], transform.position.y, transform.position.z + speed * dodgeSpeed), dodgeSpeed, "TurnLeft"));
-
-                    Debug.Log(playerPos);
                 }
             }
         }
@@ -139,7 +131,7 @@ public class MovePlayer : MonoBehaviour
     IEnumerator LerpPosition(Vector3 targetPosition, float duration, string animation)
     {
         moveInProgress = true;
-        shipTurning.SetTrigger(animation);
+        ship.SetTrigger(animation);
         float time = 0f;
         Vector3 startPosition = transform.position;
         while (time < duration + 0.03)
@@ -174,6 +166,7 @@ public class MovePlayer : MonoBehaviour
                 speed /= 2;
                 if(speed < 10f)
                 {
+                    ship.SetTrigger("TakesDamage");
                     speed = 10f;
                 }
                 beenHit = true;
@@ -186,7 +179,6 @@ public class MovePlayer : MonoBehaviour
             displayCoins += value;
             coins += value;
             Destroy(other.gameObject);
-            Debug.Log(coins);
             
         }
     }
