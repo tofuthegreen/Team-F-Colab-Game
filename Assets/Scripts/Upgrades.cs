@@ -13,6 +13,7 @@ public class Upgrades : MonoBehaviour
     void Start()
     {
        coins = SaveSystem.LoadCoins();
+       
     }
 
     public void SpeedUpgrade()

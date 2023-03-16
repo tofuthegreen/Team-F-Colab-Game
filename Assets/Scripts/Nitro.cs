@@ -28,15 +28,46 @@ public class Nitro : MonoBehaviour
     public IEnumerator NitroBoost(MovePlayer player)
     {
         player.nitroActive = true;
-        player.speed *= speedBoost;
-        Debug.Log("Whoosh");
-        yield return new WaitForSeconds(.5f);
-        player.speed /= speedBoost;
-        if(player.speed < 10)
+        currentSpeed = player.speed;
+        if (player.speed <= (player.maxSpeed / speedBoost))
         {
-            player.speed = 10;
+            player.nitroActive = true;
+            player.speed *= speedBoost;
+            Debug.Log("Whoosh");
+
+            yield return new WaitForSeconds(duration);
+
+            player.speed /= speedBoost;
+            player.nitroActive = false;
+            Destroy(gameObject);
         }
-        player.nitroActive = false;
-        Destroy(gameObject);
+        else if (player.speed >= player.maxSpeed)
+        {
+            player.nitroActive = true;
+            player.speed += 5;
+            Debug.Log("Whoosh");
+
+            yield return new WaitForSeconds(.5f);
+            yield return new WaitForSeconds(duration);
+
+            player.speed /= speedBoost;
+            player.nitroActive = false;
+            Destroy(gameObject);
+            player.speed = player.maxSpeed;
+            player.nitroActive = false;
+            Destroy(gameObject);
+        }
+        else
+        {
+            player.nitroActive = true;
+            player.speed = player.maxSpeed;
+            Debug.Log("Whoosh");
+
+            yield return new WaitForSeconds(duration);
+
+            player.speed = currentSpeed;
+            player.nitroActive = false;
+            Destroy(gameObject);
+        }
     }
 }
