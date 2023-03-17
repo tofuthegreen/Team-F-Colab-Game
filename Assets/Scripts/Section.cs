@@ -48,7 +48,7 @@ public class Section : MonoBehaviour
         for (int i = 0; i < nitroSpawns.Length; i++)
         {
             int rnd = Random.Range(1, 10);
-            if (rnd < 7)
+            if (rnd < 2)
             {
                 Instantiate(nitro, nitroSpawns[i].transform.position, Quaternion.identity);
 

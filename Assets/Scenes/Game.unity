@@ -2946,7 +2946,10 @@ MonoBehaviour:
   dodgeSpeed: 0.3
   playerPos: 1
   distance: 0
-  movePositions: fdffffff0000000003000000
+  movePositions:
+  - -2.7
+  - 0
+  - 2.7
   ship: {fileID: 2145952759}
   coinPickUp: {fileID: 8300000, guid: 8b81ce2fdfdb68144ba03873bd2ae31a, type: 3}
   audioSource: {fileID: 2051696770}

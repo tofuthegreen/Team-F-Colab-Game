@@ -23,7 +23,7 @@ public class MovePlayer : MonoBehaviour
     public int distance;
     //Array for the lanes the playe can move between
     [SerializeField]
-    int[] movePositions = new int[3];
+    float[] movePositions = new float[3];
     [SerializeField]
     Animator ship;
 
@@ -172,17 +172,8 @@ public class MovePlayer : MonoBehaviour
                 beenHit = true;
             }
         }
-        else if (other.CompareTag("Coin"))
-        {
-            audioSource.clip = coinPickUp;
-            audioSource.Play();
-            displayCoins += value;
-            coins += value;
-            Destroy(other.gameObject);
-            
-        }
-    }
 
+    }
     void CheckSpeed()
     {
         if (distance > 0f)

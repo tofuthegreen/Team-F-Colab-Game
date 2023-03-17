@@ -21,57 +21,42 @@ public class Nitro : MonoBehaviour
         {
             player = other.gameObject.GetComponent<MovePlayer>();
             Debug.Log(player.speed);
-            StartCoroutine(NitroBoost(player));
+            NitroBoost(player);
         }
     }
 
-    public IEnumerator NitroBoost(MovePlayer player)
+    public void NitroBoost(MovePlayer player)
     {
         if (player.nitroActive != true)
         {
             player.nitroActive = true;
             currentSpeed = player.speed;
+
             if (player.speed <= (player.maxSpeed / speedBoost))
             {
-                player.nitroActive = true;
-                player.speed *= speedBoost;
-                Debug.Log("Whoosh");
-
-                yield return new WaitForSeconds(duration);
-
-                player.speed /= speedBoost;
-                player.nitroActive = false;
-                Destroy(gameObject);
+                StartCoroutine(Boost(duration, (player.speed *= speedBoost), (player.speed /= speedBoost)));
             }
             else if (player.speed >= player.maxSpeed)
             {
-                player.nitroActive = true;
-                player.speed += 5;
-                Debug.Log("Whoosh");
-
-                yield return new WaitForSeconds(.5f);
-                yield return new WaitForSeconds(duration);
-
-                player.speed /= speedBoost;
-                player.nitroActive = false;
-                Destroy(gameObject);
-                player.speed = player.maxSpeed;
-                player.nitroActive = false;
-                Destroy(gameObject);
+                StartCoroutine(Boost(duration, (player.speed += 5), player.maxSpeed));
             }
             else
             {
-                player.nitroActive = true;
-                player.speed = player.maxSpeed;
-                Debug.Log("Whoosh");
-
-                yield return new WaitForSeconds(duration);
-
-                player.speed = currentSpeed;
-                player.nitroActive = false;
-                Destroy(gameObject);
+                StartCoroutine(Boost(duration, player.maxSpeed, currentSpeed));
             }
         }
         
+    }
+    IEnumerator Boost(float time, float targetSpeed, float returnSpeed)
+    {
+        player.nitroActive = true;
+        player.speed = targetSpeed;
+        Debug.Log("Whoosh");
+
+        yield return new WaitForSeconds(time);
+
+        player.speed = returnSpeed;
+        player.nitroActive = false;
+        Destroy(gameObject);
     }
 }
