@@ -16,64 +16,26 @@ public class LevelGeneration : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        for (int i = 0; i < 5; i++)
+        for (int i = 0; i < 10; i++)
         {
-            StartTiles();
+            Debug.Log("starting spawncount is " + spawnCount);
+            SpawnTile();
         }
     }
     public void SpawnTile()
     {
-            pathLength++;
-            if (pathLength >= maxPathLength)
-            {
-
-                int rnd = 0;//Random.Range(0, 4);
-                //while (rnd == currentDirection)
-                //{
-                    //rnd = Random.Range(0, 4);
-                //}
-                if (rnd == 0)
-                {
-                    currentDirection = 0;
-                    maxPathLength = Random.Range(5, 15);
-                }
-                else if (rnd == 1)
-                {
-                    if (currentDirection == 2)
-                    {
-                        currentDirection = 0;
-                    }
-                    else
-                    {
-                        currentDirection = 1;
-                    }
-
-                    maxPathLength = Random.Range(5, 15);
-                }
-                else if (rnd == 2)
-                {
-                    if (currentDirection == 1)
-                    {
-                        currentDirection = 0;
-                    }
-                    else
-                    {
-                        currentDirection = 2;
-                    }
-
-                    maxPathLength = Random.Range(5, 15);
-
-                }
-                pathLength = 0;
-            }
             int emptyRoadChance = Random.Range(1, 6);
-            if (emptyRoadChance == 1)
+            if (emptyRoadChance == 1 && spawnCount > 5)
             {
                 tileRND = 0;
             }
             else
             {
-                if (spawnCount < 1500)
+                if(spawnCount < 5)
+                {
+                    tileRND = 0;
+                }
+                else if (spawnCount < 1500)
                 {
                     tileRND = Random.Range(1, 4);
                 }
