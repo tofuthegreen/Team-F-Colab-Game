@@ -2952,6 +2952,7 @@ MonoBehaviour:
   - 2.7
   ship: {fileID: 2145952759}
   coinPickUp: {fileID: 8300000, guid: 8b81ce2fdfdb68144ba03873bd2ae31a, type: 3}
+  hurtSound: {fileID: 8300000, guid: 5e68469ba2434d84b9fc8fbd56253f06, type: 3}
   audioSource: {fileID: 2051696770}
   nitroActive: 0
   coins: 0

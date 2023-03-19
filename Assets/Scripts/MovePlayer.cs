@@ -27,7 +27,7 @@ public class MovePlayer : MonoBehaviour
     [SerializeField]
     Animator ship;
 
-    public AudioClip coinPickUp;
+    public AudioClip coinPickUp,hurtSound;
     public AudioSource audioSource;
 
     public bool nitroActive = false;
@@ -156,6 +156,8 @@ public class MovePlayer : MonoBehaviour
             health--;
             if(health <= -1)
             {
+                audioSource.clip = hurtSound;
+                audioSource.Play();
                 Debug.Log("You died");
                 SaveGame();
                 SceneManager.LoadScene(2);
@@ -164,6 +166,8 @@ public class MovePlayer : MonoBehaviour
             {
                 Debug.Log("Been Hit");
                 speed /= 2;
+                audioSource.clip = hurtSound;
+                audioSource.Play();
                 if(speed < 10f)
                 {
                     ship.SetTrigger("TakesDamage");

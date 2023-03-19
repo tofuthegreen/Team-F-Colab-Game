@@ -13,12 +13,10 @@ public class Upgrades : MonoBehaviour
     void Start()
     {
        coins = SaveSystem.LoadCoins();
-       
+       coinsText.text = coins.ToString();
     }
-
     public void SpeedUpgrade()
     {
-        coinsText.text = SaveSystem.LoadCoins().ToString();
         costCalculator(speedCost, speedLvl);
 
         if (coins >= speedCost && speedLvl != 5)
@@ -26,8 +24,8 @@ public class Upgrades : MonoBehaviour
             VariableTransfer.speed += 2;
             coins -= speedCost;
             speedLvl++;
-            
-            
+            coinsText.text = coins.ToString();
+
         }
         else if (coins < speedCost)
         {
