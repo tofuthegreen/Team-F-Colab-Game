@@ -8,6 +8,7 @@ using UnityEngine.SceneManagement;
 /// </summary>
 public class StageSelector : MonoBehaviour
 {
+
     //Methods to change to different levels
     public void MainMenu()
     {

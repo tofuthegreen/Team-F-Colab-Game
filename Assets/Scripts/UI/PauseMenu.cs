@@ -10,7 +10,7 @@ public class PauseMenu : MonoBehaviour
 {
     private bool gamePaused = false;
 
-    [SerializeField] GameObject uiPause;
+    [SerializeField] GameObject[] uiPause;
 
     void Update()
     {
@@ -33,7 +33,10 @@ public class PauseMenu : MonoBehaviour
     /// </summary>
     public void Resume()
     {
-        uiPause.SetActive(false);
+        foreach (var i in uiPause)
+        {
+            i.SetActive(false);
+        }
 
         Time.timeScale = 1f;
         gamePaused = false;
@@ -44,7 +47,7 @@ public class PauseMenu : MonoBehaviour
     /// </summary>
     public void Pause()
     {
-        uiPause.SetActive(true);
+        uiPause[0].SetActive(true);
 
         Time.timeScale = 0f;
         gamePaused = true;
