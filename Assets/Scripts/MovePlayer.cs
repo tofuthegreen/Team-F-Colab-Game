@@ -21,7 +21,7 @@ public class MovePlayer : MonoBehaviour
     #endregion  
     private Vector3 startingPos, currentPos;
     public int distance;
-    //Array for the lanes the playe can move between
+    //Array for the lanes the player can move between
     [SerializeField]
     float[] movePositions = new float[3];
     [SerializeField]
