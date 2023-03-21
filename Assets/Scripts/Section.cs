@@ -30,7 +30,6 @@ public class Section : MonoBehaviour
         if (emptyRoad == false)
         {
             SpawnObstacles();
-            
         }
 
         CoinSpawn();
@@ -42,7 +41,7 @@ public class Section : MonoBehaviour
         obstacles = new GameObject[obstaclesTest.Length];
         for (int i = 0; i < obstaclesTest.Length; i++)
         {
-            int spawnRND = Random.Range(0, 2+levelGenerator.difficulty);
+            int spawnRND = Random.Range(0, 3+levelGenerator.difficulty);
             if(spawnRND == 0)
             {
                 obstaclesTest[i] = 1;
@@ -54,50 +53,50 @@ public class Section : MonoBehaviour
         }
         if(obstaclesTest[1] == 1 && obstaclesTest[0] == 1 && obstaclesTest[2] == 1)
         {
-            int rnd = Random.Range(0, 2);
+            int rnd = Random.Range(0, 3);
             if(rnd == 0)
             {
                 obstaclesTest[0] = 0;
+            }
+            else if (rnd == 0)
+            {
+                obstaclesTest[1] = 0;
             }
             else
             {
                 obstaclesTest[2] = 0;
             }
         }
-        else if(obstaclesTest[5] == 1 && obstaclesTest[6] == 1 && obstaclesTest[7] == 1)
+        else if(obstaclesTest[3] == 1 && obstaclesTest[4] == 1 && obstaclesTest[5] == 1)
         {
-            int rnd = Random.Range(0, 2);
+            int rnd = Random.Range(0, 3);
+            if (rnd == 0)
+            {
+                obstaclesTest[5] = 0;
+            }
+            else if (rnd == 1)
+            {
+                obstaclesTest[4] = 0;
+            }
+            else
+            {
+                obstaclesTest[3] = 0;
+            }
+        }
+        else if (obstaclesTest[6] == 1 && obstaclesTest[7] == 1 && obstaclesTest[8] == 1)
+        {
+            int rnd = Random.Range(0, 3);
             if (rnd == 0)
             {
                 obstaclesTest[6] = 0;
             }
-            else
+            else if (rnd == 1)
             {
                 obstaclesTest[7] = 0;
             }
-        }
-        else if (obstaclesTest[8] == 1 && obstaclesTest[9] == 1 && obstaclesTest[11] == 1)
-        {
-            int rnd = Random.Range(0, 2);
-            if (rnd == 0)
-            {
-                obstaclesTest[11] = 0;
-            }
             else
             {
-                obstaclesTest[9] = 0;
-            }
-        }
-        else if (obstaclesTest[4] == 1 && obstaclesTest[3] == 1 && obstaclesTest[10] == 1)
-        {
-            int rnd = Random.Range(0, 2);
-            if (rnd == 0)
-            {
-                obstaclesTest[3] = 0;
-            }
-            else
-            {
-                obstaclesTest[10] = 0;
+                obstaclesTest[8] = 0;
             }
         }
         for (int j = 0; j < obstaclesTest.Length; j++)
@@ -127,52 +126,13 @@ public class Section : MonoBehaviour
             }
         }
     }
-    public void ObstacleSpawn()
-    {
-        switch (levelGenerator.difficulty)
-        {
-            case 1:
-                obstaclesSpawn = easyObstacles;
-                break;
-            case 2:
-                obstaclesSpawn = medObstacles;
-                break;
-            case 3:
-                obstaclesSpawn = hardObstacles;
-                break;
-
-        }
-        obstacles = new GameObject[obstaclesSpawn.Length];
-        for (int i = 0; i < obstacles.Length; i++)
-        {
-            int spawnRND = Random.Range(0, 2);
-            if (spawnRND == 0)
-            {
-                int obstacleRND = Random.Range(0, 3);
-                if (obstacleRND == 0)
-                {
-                    obstacles[i] = Instantiate(rock, new Vector3(obstaclesSpawn[i].transform.position.x, obstaclesSpawn[i].transform.position.y + 0.5f, obstaclesSpawn[i].transform.position.z), Quaternion.identity);
-                    Debug.Log("Spawned obstacle");
-                }
-                else if (obstacleRND == 1)
-                {
-                    obstacles[i] = Instantiate(rock2, new Vector3(obstaclesSpawn[i].transform.position.x, obstaclesSpawn[i].transform.position.y + 0.5f, obstaclesSpawn[i].transform.position.z), Quaternion.identity);
-                    Debug.Log("Spawned obstacle");
-                }
-                else
-                {
-                    obstacles[i] = Instantiate(spike, obstaclesSpawn[i].transform.position, Quaternion.identity);
-                    Debug.Log("Spawned obstacle");
-                }
-            }
-        }
-    }
+    
     public void CoinSpawn()
     {
         for(int i = 0; i < coinSpawnPoints.Length; i++)
         {
-            int rnd = Random.Range(1, 10);
-            if(rnd < 5)
+            int rnd = Random.Range(1, 11);
+            if(rnd > 5 + levelGenerator.difficulty)
             {
                 int coinRnd = Random.Range(0, 2);
                 if(coinRnd == 1)

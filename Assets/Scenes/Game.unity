@@ -17,7 +17,7 @@ RenderSettings:
   m_Fog: 1
   m_FogColor: {r: 0, g: 0, b: 0, a: 1}
   m_FogMode: 3
-  m_FogDensity: 0.01
+  m_FogDensity: 0.012
   m_LinearFogStart: 0
   m_LinearFogEnd: 300
   m_AmbientSkyColor: {r: 0.212, g: 0.227, b: 0.259, a: 1}
@@ -1767,6 +1767,7 @@ MonoBehaviour:
   maxPathLength: 10
   currentDirection: 0
   tileRND: 0
+  difficulty: 0
 --- !u!4 &683748055
 Transform:
   m_ObjectHideFlags: 0
@@ -2615,7 +2616,7 @@ Camera:
   m_Enabled: 1
   serializedVersion: 2
   m_ClearFlags: 1
-  m_BackGroundColor: {r: 0.19215687, g: 0.3019608, b: 0.4745098, a: 0}
+  m_BackGroundColor: {r: 0.16037738, g: 0.16037738, b: 0.16037738, a: 0}
   m_projectionMatrixMode: 1
   m_GateFitMode: 2
   m_FOVAxisMode: 0
@@ -2990,7 +2991,7 @@ MonoBehaviour:
     m_Bits: 1
   m_VolumeTrigger: {fileID: 0}
   m_VolumeFrameworkUpdateModeOption: 2
-  m_RenderPostProcessing: 0
+  m_RenderPostProcessing: 1
   m_Antialiasing: 0
   m_AntialiasingQuality: 2
   m_StopNaN: 0
@@ -3013,7 +3014,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_IsGlobal: 1
-  priority: 0
+  priority: 1
   blendDistance: 0
   weight: 1
   sharedProfile: {fileID: 11400000, guid: d2553e82693d4e442852ec1909a7abf2, type: 2}
@@ -5139,6 +5140,36 @@ MonoBehaviour:
   - 0
   - 2.7
   ship: {fileID: 2145952759}
+  shipParts:
+  - {fileID: 5438533552406472321}
+  - {fileID: 6675710884116685247}
+  - {fileID: 7052491610618067694}
+  - {fileID: 3206545233051386827}
+  - {fileID: 7367068993238043354}
+  - {fileID: 1616997169806796519}
+  - {fileID: 4958033387149538207}
+  - {fileID: 7484468417785857167}
+  - {fileID: 987595975689699251}
+  TransParentShipParts:
+  - {fileID: 2100000, guid: 63138a44302db9a43b1af2db1c4605cd, type: 2}
+  - {fileID: 2100000, guid: 470d730532790474bb4226b20e19cef2, type: 2}
+  - {fileID: 2100000, guid: 3dcceced22141f843b5187c10dfbd3b4, type: 2}
+  - {fileID: 2100000, guid: 3dcceced22141f843b5187c10dfbd3b4, type: 2}
+  - {fileID: 2100000, guid: f3652fe029b3d7a40ad7ca3e762257cb, type: 2}
+  - {fileID: 2100000, guid: 3dcceced22141f843b5187c10dfbd3b4, type: 2}
+  - {fileID: 2100000, guid: 3dcceced22141f843b5187c10dfbd3b4, type: 2}
+  - {fileID: 2100000, guid: 63138a44302db9a43b1af2db1c4605cd, type: 2}
+  - {fileID: 2100000, guid: db110af0ba20b124185a02533175f68a, type: 2}
+  NormalShipParts:
+  - {fileID: 2100000, guid: 650dfb85e2fa4d74c8085ffc6bb9db1a, type: 2}
+  - {fileID: 2100000, guid: 1f3a3fbdf2973054b94228692270f2e5, type: 2}
+  - {fileID: 2100000, guid: 17e744dfe81d263458cafd27fdfa3ef7, type: 2}
+  - {fileID: 2100000, guid: 17e744dfe81d263458cafd27fdfa3ef7, type: 2}
+  - {fileID: 2100000, guid: 23b2e87ae1a46904c8a89e3788acdf63, type: 2}
+  - {fileID: 2100000, guid: 17e744dfe81d263458cafd27fdfa3ef7, type: 2}
+  - {fileID: 2100000, guid: 17e744dfe81d263458cafd27fdfa3ef7, type: 2}
+  - {fileID: 2100000, guid: 650dfb85e2fa4d74c8085ffc6bb9db1a, type: 2}
+  - {fileID: 2100000, guid: f47e635f77b3877499a3d04f426eeb09, type: 2}
   coinPickUp: {fileID: 8300000, guid: 8b81ce2fdfdb68144ba03873bd2ae31a, type: 3}
   hurtSound: {fileID: 8300000, guid: 5e68469ba2434d84b9fc8fbd56253f06, type: 3}
   audioSource: {fileID: 319389140}
@@ -5149,6 +5180,7 @@ MonoBehaviour:
   maxHealth: 1
   beenHit: 0
   playerVolume: {fileID: 1061196267}
+  levelGenerator: {fileID: 683748054}
 --- !u!1 &2054650071
 GameObject:
   m_ObjectHideFlags: 0

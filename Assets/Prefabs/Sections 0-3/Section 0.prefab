@@ -253,15 +253,17 @@ MonoBehaviour:
   coinGroup: {fileID: 424198541073534025, guid: 65187b6850a97154fb443bfa25ec4fd1, type: 3}
   coin: {fileID: 4041073809281567357, guid: 21704ac9108df1548ac61913b0ee1027, type: 3}
   nitro: {fileID: 2343354839522077488, guid: 026533c5c1306064eae6fc8175d130dd, type: 3}
-  rock: {fileID: 0}
-  rock2: {fileID: 0}
-  spike: {fileID: 0}
+  rock: {fileID: 8511242091552838057, guid: 5f84e797c2432af4d86ec4a588af5765, type: 3}
+  rock2: {fileID: 3488885341827510097, guid: 45faad927a6cd16419bc050521df110f, type: 3}
+  spike: {fileID: 3179588847852289726, guid: 272d4b6b0a9e44b4db4aa2e595e6fa56, type: 3}
   coins: []
   easyObstacles: []
   medObstacles: []
   hardObstacles: []
   obstaclesSpawn: []
   obstacles: []
+  obstaclesParent: {fileID: 0}
+  obstaclesTest: 
   emptyRoad: 1
   nitroSpawns:
   - {fileID: 3193550562154588752}
@@ -276,7 +278,6 @@ GameObject:
   - component: {fileID: 4658052275670286062}
   - component: {fileID: 8578057979898229067}
   - component: {fileID: 5832043874676704641}
-  - component: {fileID: 4981390470536335707}
   m_Layer: 0
   m_Name: RoadSection 0
   m_TagString: Untagged
@@ -350,37 +351,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!114 &4981390470536335707
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5471708006837560404}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5ae4d2302fb41f8499aaf39ff267ca40, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  levelGenerator: {fileID: 0}
-  player: {fileID: 0}
-  isTJunction: 0
-  inTile: 0
-  coinSpawnPoints: []
-  coinGroup: {fileID: 0}
-  coin: {fileID: 0}
-  nitro: {fileID: 0}
-  rock: {fileID: 0}
-  rock2: {fileID: 0}
-  spike: {fileID: 0}
-  coins: []
-  easyObstacles: []
-  medObstacles: []
-  hardObstacles: []
-  obstaclesSpawn: []
-  obstacles: []
-  emptyRoad: 0
-  nitroSpawns: []
 --- !u!1 &5560084698224511635
 GameObject:
   m_ObjectHideFlags: 0

@@ -25,36 +25,28 @@ public class LevelGeneration : MonoBehaviour
     }
     public void SpawnTile()
     {
-            int emptyRoadChance = Random.Range(1, 6);
-            if (emptyRoadChance == 1 && spawnCount > 5)
-            {
-                tileRND = 0;
-            }
-            else
-            {
                 if(spawnCount < 5)
                 {
                     tileRND = 0;
                 }
-                else if (spawnCount < 1500)
+                else if (spawnCount < 70)
                 {
                     tileRND = 1;
                     difficulty = 0;
                     //tileRND = Random.Range(1, 4);
                 }
-                else if(spawnCount < 5000)
+                else if(spawnCount < 150)
                 {
                     tileRND = 1;
-                    difficulty = 2;
+                    difficulty = 1;
                     //tileRND = Random.Range(1,7);
                 }
                 else
                 {
                     tileRND = 1;
-                    difficulty = 3;
+                    difficulty = 2;
                     //tileRND = Random.Range(1, sections.Length);
                 }
-            }
             GameObject temp = Instantiate(sections[tileRND], nextSpawnPoint, Quaternion.identity);
             nextSpawnPoint = temp.transform.GetChild(currentDirection).transform.position;
             Debug.Log("Section " + spawnCount + " spawned");

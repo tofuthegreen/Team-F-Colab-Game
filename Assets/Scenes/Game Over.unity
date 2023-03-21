@@ -196,7 +196,6 @@ GameObject:
   - component: {fileID: 61982236}
   - component: {fileID: 61982239}
   - component: {fileID: 61982238}
-  - component: {fileID: 61982237}
   m_Layer: 0
   m_Name: RoadSection1
   m_TagString: Untagged
@@ -219,28 +218,6 @@ Transform:
   m_Father: {fileID: 472078854}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &61982237
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 61982235}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5ae4d2302fb41f8499aaf39ff267ca40, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  levelGenerator: {fileID: 0}
-  player: {fileID: 0}
-  isTJunction: 0
-  inTile: 0
-  coinSpawnPoints: []
-  coinGroup: {fileID: 0}
-  coin: {fileID: 0}
-  nitro: {fileID: 0}
-  coins: []
-  nitroSpawns: []
 --- !u!23 &61982238
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -4832,7 +4809,6 @@ GameObject:
   - component: {fileID: 739781307}
   - component: {fileID: 739781310}
   - component: {fileID: 739781309}
-  - component: {fileID: 739781308}
   m_Layer: 0
   m_Name: RoadSection1
   m_TagString: Untagged
@@ -4855,28 +4831,6 @@ Transform:
   m_Father: {fileID: 466431902}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &739781308
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 739781306}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5ae4d2302fb41f8499aaf39ff267ca40, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  levelGenerator: {fileID: 0}
-  player: {fileID: 0}
-  isTJunction: 0
-  inTile: 0
-  coinSpawnPoints: []
-  coinGroup: {fileID: 0}
-  coin: {fileID: 0}
-  nitro: {fileID: 0}
-  coins: []
-  nitroSpawns: []
 --- !u!23 &739781309
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -6777,7 +6731,6 @@ GameObject:
   - component: {fileID: 1203239424}
   - component: {fileID: 1203239427}
   - component: {fileID: 1203239426}
-  - component: {fileID: 1203239425}
   m_Layer: 0
   m_Name: RoadSection1
   m_TagString: Untagged
@@ -6800,28 +6753,6 @@ Transform:
   m_Father: {fileID: 1200185223}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1203239425
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1203239423}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5ae4d2302fb41f8499aaf39ff267ca40, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  levelGenerator: {fileID: 0}
-  player: {fileID: 0}
-  isTJunction: 0
-  inTile: 0
-  coinSpawnPoints: []
-  coinGroup: {fileID: 0}
-  coin: {fileID: 0}
-  nitro: {fileID: 0}
-  coins: []
-  nitroSpawns: []
 --- !u!23 &1203239426
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -10065,7 +9996,6 @@ GameObject:
   - component: {fileID: 1656624557}
   - component: {fileID: 1656624560}
   - component: {fileID: 1656624559}
-  - component: {fileID: 1656624558}
   m_Layer: 0
   m_Name: RoadSection1
   m_TagString: Untagged
@@ -10088,28 +10018,6 @@ Transform:
   m_Father: {fileID: 1113945397}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1656624558
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1656624556}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5ae4d2302fb41f8499aaf39ff267ca40, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  levelGenerator: {fileID: 0}
-  player: {fileID: 0}
-  isTJunction: 0
-  inTile: 0
-  coinSpawnPoints: []
-  coinGroup: {fileID: 0}
-  coin: {fileID: 0}
-  nitro: {fileID: 0}
-  coins: []
-  nitroSpawns: []
 --- !u!23 &1656624559
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -11245,7 +11153,6 @@ GameObject:
   - component: {fileID: 1869944451}
   - component: {fileID: 1869944454}
   - component: {fileID: 1869944453}
-  - component: {fileID: 1869944452}
   m_Layer: 0
   m_Name: RoadSection1
   m_TagString: Untagged
@@ -11268,28 +11175,6 @@ Transform:
   m_Father: {fileID: 868547236}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1869944452
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1869944450}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5ae4d2302fb41f8499aaf39ff267ca40, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  levelGenerator: {fileID: 0}
-  player: {fileID: 0}
-  isTJunction: 0
-  inTile: 0
-  coinSpawnPoints: []
-  coinGroup: {fileID: 0}
-  coin: {fileID: 0}
-  nitro: {fileID: 0}
-  coins: []
-  nitroSpawns: []
 --- !u!23 &1869944453
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -12453,7 +12338,6 @@ GameObject:
   - component: {fileID: 2036231145}
   - component: {fileID: 2036231148}
   - component: {fileID: 2036231147}
-  - component: {fileID: 2036231146}
   m_Layer: 0
   m_Name: RoadSection1
   m_TagString: Untagged
@@ -12476,28 +12360,6 @@ Transform:
   m_Father: {fileID: 2090666196}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &2036231146
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2036231144}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5ae4d2302fb41f8499aaf39ff267ca40, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  levelGenerator: {fileID: 0}
-  player: {fileID: 0}
-  isTJunction: 0
-  inTile: 0
-  coinSpawnPoints: []
-  coinGroup: {fileID: 0}
-  coin: {fileID: 0}
-  nitro: {fileID: 0}
-  coins: []
-  nitroSpawns: []
 --- !u!23 &2036231147
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -12887,7 +12749,6 @@ GameObject:
   - component: {fileID: 835286443092633863}
   - component: {fileID: 4339309558019352226}
   - component: {fileID: 2007660148048499304}
-  - component: {fileID: 1013949248371099314}
   m_Layer: 0
   m_Name: RoadSection1
   m_TagString: Untagged
@@ -13375,28 +13236,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &1013949248371099314
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 62021478266975165}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5ae4d2302fb41f8499aaf39ff267ca40, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  levelGenerator: {fileID: 0}
-  player: {fileID: 0}
-  isTJunction: 0
-  inTile: 0
-  coinSpawnPoints: []
-  coinGroup: {fileID: 0}
-  coin: {fileID: 0}
-  nitro: {fileID: 0}
-  coins: []
-  nitroSpawns: []
 --- !u!108 &1261675157644026048
 Light:
   m_ObjectHideFlags: 0

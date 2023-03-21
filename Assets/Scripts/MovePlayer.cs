@@ -27,6 +27,10 @@ public class MovePlayer : MonoBehaviour
     [SerializeField]
     Animator ship;
 
+    public MeshRenderer[] shipParts;
+    public Material[] TransParentShipParts;
+    public Material[] NormalShipParts;
+
     public AudioClip coinPickUp,hurtSound;
     public AudioSource audioSource;
 
@@ -44,6 +48,8 @@ public class MovePlayer : MonoBehaviour
     public Volume playerVolume;
     VolumeProfile playerProfile;
     MotionBlur motionBlur;
+
+    public LevelGeneration levelGenerator;
     // Start is called before the first frame update
     void Start()
     {
@@ -120,6 +126,10 @@ public class MovePlayer : MonoBehaviour
             healTime -= Time.deltaTime;
             if(healTime <= 0)
             {
+                for (int i = 0; i < shipParts.Length; i++)
+                {
+                    shipParts[i].material = NormalShipParts[i];
+                }
                 health = maxHealth;
                 beenHit = false;
                 healTime = 3f;
@@ -151,7 +161,7 @@ public class MovePlayer : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag("Obstacle") && nitroActive == false)
+        if (other.CompareTag("Obstacle") && nitroActive == false && beenHit == false)
         {
             health--;
             if(health <= -1)
@@ -168,7 +178,11 @@ public class MovePlayer : MonoBehaviour
                 speed /= 2;
                 audioSource.clip = hurtSound;
                 audioSource.Play();
-                if(speed < 10f)
+                for (int i = 0; i < shipParts.Length; i++)
+                {
+                    shipParts[i].material = TransParentShipParts[i];
+                }
+                if (speed < 10f)
                 {
                     ship.SetTrigger("TakesDamage");
                     speed = 10f;
@@ -184,7 +198,7 @@ public class MovePlayer : MonoBehaviour
         {
             if (speed < maxSpeed)
             {
-                    float multiplier = 1f * Time.deltaTime;
+                    float multiplier = (1f + levelGenerator.difficulty)* Time.deltaTime;
                     speed += multiplier;
             }
             
