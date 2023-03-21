@@ -15,7 +15,7 @@ RenderSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 9
   m_Fog: 1
-  m_FogColor: {r: 0.18867922, g: 0.17532927, b: 0.17532927, a: 1}
+  m_FogColor: {r: 0, g: 0, b: 0, a: 1}
   m_FogMode: 3
   m_FogDensity: 0.01
   m_LinearFogStart: 0
@@ -23,7 +23,7 @@ RenderSettings:
   m_AmbientSkyColor: {r: 0.212, g: 0.227, b: 0.259, a: 1}
   m_AmbientEquatorColor: {r: 0.114, g: 0.125, b: 0.133, a: 1}
   m_AmbientGroundColor: {r: 0.047, g: 0.043, b: 0.035, a: 1}
-  m_AmbientIntensity: 0.91
+  m_AmbientIntensity: 0.5
   m_AmbientMode: 0
   m_SubtractiveShadowColor: {r: 0.42, g: 0.478, b: 0.627, a: 1}
   m_SkyboxMaterial: {fileID: 2100000, guid: ed80a27752f6b9546a784edd415cda36, type: 2}
@@ -98,7 +98,7 @@ LightmapSettings:
     m_TrainingDataDestination: TrainingData
     m_LightProbeSampleCountMultiplier: 4
   m_LightingDataAsset: {fileID: 112000000, guid: dda07cabfc87b2641978d9240c8cf9c4, type: 2}
-  m_LightingSettings: {fileID: 0}
+  m_LightingSettings: {fileID: 4890085278179872738, guid: b8de43b9897e5df4b877ccc5e3814e97, type: 2}
 --- !u!196 &4
 NavMeshSettings:
   serializedVersion: 2
@@ -4167,6 +4167,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: AudioManager
       objectReference: {fileID: 0}
+    - target: {fileID: 1627658226714843627, guid: 6a4962c2f9419894899ab6ac1b678781, type: 3}
+      propertyPath: m_Volume
+      value: 0.431
+      objectReference: {fileID: 0}
     - target: {fileID: 4953646656802871373, guid: 6a4962c2f9419894899ab6ac1b678781, type: 3}
       propertyPath: m_Volume
       value: 0.503
@@ -5609,6 +5613,7 @@ GameObject:
   - component: {fileID: 543450651671563407}
   - component: {fileID: 2051696765}
   - component: {fileID: 2051696766}
+  - component: {fileID: 919132148003690038}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -5616,6 +5621,22 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!114 &919132148003690038
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 919132148003690037}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b647a0647406c34418207115b8598b28, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dark: 0
+  normal: 0.5
+  fogDark: 0.1
+  fogNormal: 0.01
 --- !u!23 &987595975689699251
 MeshRenderer:
   m_ObjectHideFlags: 0
