@@ -18,6 +18,11 @@ public class StageSelector : MonoBehaviour
     public void Mainlevel()
     {
         SceneManager.LoadScene(1);
+    }    
+    
+    public void Testlevel()
+    {
+        SceneManager.LoadScene(3);
     }
 
 
