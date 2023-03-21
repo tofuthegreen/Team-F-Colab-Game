@@ -184,7 +184,7 @@ public class MovePlayer : MonoBehaviour
         {
             if (speed < maxSpeed)
             {
-                    float multiplier = 0.001f;
+                    float multiplier = 1f * Time.deltaTime;
                     speed += multiplier;
             }
             

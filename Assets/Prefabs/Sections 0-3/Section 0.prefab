@@ -253,7 +253,16 @@ MonoBehaviour:
   coinGroup: {fileID: 424198541073534025, guid: 65187b6850a97154fb443bfa25ec4fd1, type: 3}
   coin: {fileID: 4041073809281567357, guid: 21704ac9108df1548ac61913b0ee1027, type: 3}
   nitro: {fileID: 2343354839522077488, guid: 026533c5c1306064eae6fc8175d130dd, type: 3}
+  rock: {fileID: 0}
+  rock2: {fileID: 0}
+  spike: {fileID: 0}
   coins: []
+  easyObstacles: []
+  medObstacles: []
+  hardObstacles: []
+  obstaclesSpawn: []
+  obstacles: []
+  emptyRoad: 1
   nitroSpawns:
   - {fileID: 3193550562154588752}
 --- !u!1 &5471708006837560404
@@ -361,7 +370,16 @@ MonoBehaviour:
   coinGroup: {fileID: 0}
   coin: {fileID: 0}
   nitro: {fileID: 0}
+  rock: {fileID: 0}
+  rock2: {fileID: 0}
+  spike: {fileID: 0}
   coins: []
+  easyObstacles: []
+  medObstacles: []
+  hardObstacles: []
+  obstaclesSpawn: []
+  obstacles: []
+  emptyRoad: 0
   nitroSpawns: []
 --- !u!1 &5560084698224511635
 GameObject:
