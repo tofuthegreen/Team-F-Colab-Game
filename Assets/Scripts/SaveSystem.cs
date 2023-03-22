@@ -20,6 +20,15 @@ public static class SaveSystem
         SaveCoins(loadedCoins);
     }
 
+    public static void SavePlayer()
+    {
+        BinaryFormatter formatter = new BinaryFormatter();
+        string path = Application.persistentDataPath + "/Save.txt";
+        FileStream stream = new FileStream(path, FileMode.Create);
+
+        stream.Close();
+    }
+
     public static void SaveDistance(int distance)
     {
         BinaryFormatter formatter = new BinaryFormatter();

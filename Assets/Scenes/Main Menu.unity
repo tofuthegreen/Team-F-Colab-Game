@@ -7784,7 +7784,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1881475683}
-  m_LocalRotation: {x: 0.18910751, y: -0.000000018890205, z: 0.0000000036379209, w: 0.9819564}
+  m_LocalRotation: {x: 0.18910751, y: 0.000000018890207, z: -0.0000000036379213, w: 0.9819564}
   m_LocalPosition: {x: -0.16299999, y: 10.655, z: -11.089001}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -9104,7 +9104,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2080886235}
-  m_LocalRotation: {x: 0.18910751, y: -0.000000018890205, z: 0.0000000036379209, w: 0.9819564}
+  m_LocalRotation: {x: 0.18910751, y: 0.000000018890207, z: -0.0000000036379213, w: 0.9819564}
   m_LocalPosition: {x: -0.16299999, y: 10.655, z: -11.089001}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -24273,171 +24273,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!114 &4981390470580384056
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5471708006793511991}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5ae4d2302fb41f8499aaf39ff267ca40, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  levelGenerator: {fileID: 0}
-  player: {fileID: 0}
-  isTJunction: 0
-  inTile: 0
-  coinSpawnPoints: []
-  coinGroup: {fileID: 0}
-  coin: {fileID: 0}
-  nitro: {fileID: 0}
-  rock: {fileID: 0}
-  rock2: {fileID: 0}
-  spike: {fileID: 0}
-  coins: []
-  easyObstacles: []
-  medObstacles: []
-  hardObstacles: []
-  obstaclesSpawn: []
-  obstacles: []
-  obstaclesParent: {fileID: 0}
-  obstaclesTest: 
-  emptyRoad: 0
-  nitroSpawns: []
---- !u!114 &4981390471056912441
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5471708007391806774}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5ae4d2302fb41f8499aaf39ff267ca40, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  levelGenerator: {fileID: 0}
-  player: {fileID: 0}
-  isTJunction: 0
-  inTile: 0
-  coinSpawnPoints: []
-  coinGroup: {fileID: 0}
-  coin: {fileID: 0}
-  nitro: {fileID: 0}
-  rock: {fileID: 0}
-  rock2: {fileID: 0}
-  spike: {fileID: 0}
-  coins: []
-  easyObstacles: []
-  medObstacles: []
-  hardObstacles: []
-  obstaclesSpawn: []
-  obstacles: []
-  obstaclesParent: {fileID: 0}
-  obstaclesTest: 
-  emptyRoad: 0
-  nitroSpawns: []
---- !u!114 &4981390471279717334
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5471708007098719961}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5ae4d2302fb41f8499aaf39ff267ca40, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  levelGenerator: {fileID: 0}
-  player: {fileID: 0}
-  isTJunction: 0
-  inTile: 0
-  coinSpawnPoints: []
-  coinGroup: {fileID: 0}
-  coin: {fileID: 0}
-  nitro: {fileID: 0}
-  rock: {fileID: 0}
-  rock2: {fileID: 0}
-  spike: {fileID: 0}
-  coins: []
-  easyObstacles: []
-  medObstacles: []
-  hardObstacles: []
-  obstaclesSpawn: []
-  obstacles: []
-  obstaclesParent: {fileID: 0}
-  obstaclesTest: 
-  emptyRoad: 0
-  nitroSpawns: []
---- !u!114 &4981390471783357618
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5471708007468018109}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5ae4d2302fb41f8499aaf39ff267ca40, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  levelGenerator: {fileID: 0}
-  player: {fileID: 0}
-  isTJunction: 0
-  inTile: 0
-  coinSpawnPoints: []
-  coinGroup: {fileID: 0}
-  coin: {fileID: 0}
-  nitro: {fileID: 0}
-  rock: {fileID: 0}
-  rock2: {fileID: 0}
-  spike: {fileID: 0}
-  coins: []
-  easyObstacles: []
-  medObstacles: []
-  hardObstacles: []
-  obstaclesSpawn: []
-  obstacles: []
-  obstaclesParent: {fileID: 0}
-  obstaclesTest: 
-  emptyRoad: 0
-  nitroSpawns: []
---- !u!114 &4981390471863637113
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5471708007657218422}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5ae4d2302fb41f8499aaf39ff267ca40, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  levelGenerator: {fileID: 0}
-  player: {fileID: 0}
-  isTJunction: 0
-  inTile: 0
-  coinSpawnPoints: []
-  coinGroup: {fileID: 0}
-  coin: {fileID: 0}
-  nitro: {fileID: 0}
-  rock: {fileID: 0}
-  rock2: {fileID: 0}
-  spike: {fileID: 0}
-  coins: []
-  easyObstacles: []
-  medObstacles: []
-  hardObstacles: []
-  obstaclesSpawn: []
-  obstacles: []
-  obstaclesParent: {fileID: 0}
-  obstaclesTest: 
-  emptyRoad: 0
-  nitroSpawns: []
 --- !u!33 &4991426600442631093
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -25715,7 +25550,6 @@ GameObject:
   - component: {fileID: 4658052275613654669}
   - component: {fileID: 8578057979975815464}
   - component: {fileID: 5832043874754307554}
-  - component: {fileID: 4981390470580384056}
   m_Layer: 0
   m_Name: RoadSection 0
   m_TagString: Untagged
@@ -25734,7 +25568,6 @@ GameObject:
   - component: {fileID: 4658052276524926051}
   - component: {fileID: 8578057980685634502}
   - component: {fileID: 5832043874455404300}
-  - component: {fileID: 4981390471279717334}
   m_Layer: 0
   m_Name: RoadSection 0
   m_TagString: Untagged
@@ -25753,7 +25586,6 @@ GameObject:
   - component: {fileID: 4658052276224499596}
   - component: {fileID: 8578057980451262505}
   - component: {fileID: 5832043874156045539}
-  - component: {fileID: 4981390471056912441}
   m_Layer: 0
   m_Name: RoadSection 0
   m_TagString: Untagged
@@ -25772,7 +25604,6 @@ GameObject:
   - component: {fileID: 4658052277095559943}
   - component: {fileID: 8578057979309718690}
   - component: {fileID: 5832043875965143144}
-  - component: {fileID: 4981390471783357618}
   m_Layer: 0
   m_Name: RoadSection 0
   m_TagString: Untagged
@@ -25791,7 +25622,6 @@ GameObject:
   - component: {fileID: 4658052277031009228}
   - component: {fileID: 8578057979112125545}
   - component: {fileID: 5832043876038082723}
-  - component: {fileID: 4981390471863637113}
   m_Layer: 0
   m_Name: RoadSection 0
   m_TagString: Untagged

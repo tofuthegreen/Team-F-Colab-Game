@@ -22,6 +22,8 @@ public class Section : MonoBehaviour
     public int[] obstaclesTest;
     public bool emptyRoad;
     public GameObject[] nitroSpawns;
+    int maxObstacleCount = 5;
+    public int currentObstacleCount;
     // Start is called before the first frame update
     void Start()
     {
@@ -39,16 +41,20 @@ public class Section : MonoBehaviour
     {
         obstaclesTest = new int[obstaclesSpawn.Length];
         obstacles = new GameObject[obstaclesTest.Length];
-        for (int i = 0; i < obstaclesTest.Length; i++)
+        while (currentObstacleCount < maxObstacleCount) 
         {
-            int spawnRND = Random.Range(0, 3+levelGenerator.difficulty);
-            if(spawnRND == 0)
+            for (int i = 0; i < obstaclesTest.Length; i++)
             {
-                obstaclesTest[i] = 1;
-            }
-            else
-            {
-                obstaclesTest[i] = 0;
+                int spawnRND = Random.Range(0, 3);
+                if (spawnRND == 0 && obstaclesTest[i] != 1)
+                {
+                    obstaclesTest[i] = 1;
+                    currentObstacleCount++;
+                }
+                else
+                {
+                    obstaclesTest[i] = 0;
+                }
             }
         }
         if(obstaclesTest[1] == 1 && obstaclesTest[0] == 1 && obstaclesTest[2] == 1)
@@ -67,7 +73,7 @@ public class Section : MonoBehaviour
                 obstaclesTest[2] = 0;
             }
         }
-        else if(obstaclesTest[3] == 1 && obstaclesTest[4] == 1 && obstaclesTest[5] == 1)
+        if(obstaclesTest[3] == 1 && obstaclesTest[4] == 1 && obstaclesTest[5] == 1)
         {
             int rnd = Random.Range(0, 3);
             if (rnd == 0)
@@ -83,7 +89,7 @@ public class Section : MonoBehaviour
                 obstaclesTest[3] = 0;
             }
         }
-        else if (obstaclesTest[6] == 1 && obstaclesTest[7] == 1 && obstaclesTest[8] == 1)
+        if (obstaclesTest[6] == 1 && obstaclesTest[7] == 1 && obstaclesTest[8] == 1)
         {
             int rnd = Random.Range(0, 3);
             if (rnd == 0)
