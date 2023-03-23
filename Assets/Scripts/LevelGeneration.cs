@@ -48,6 +48,7 @@ public class LevelGeneration : MonoBehaviour
                     //tileRND = Random.Range(1, sections.Length);
                 }
             GameObject temp = Instantiate(sections[tileRND], nextSpawnPoint, Quaternion.identity);
+            temp.name = "Section " + spawnCount;
             nextSpawnPoint = temp.transform.GetChild(currentDirection).transform.position;
             Debug.Log("Section " + spawnCount + " spawned");
             spawnCount++;

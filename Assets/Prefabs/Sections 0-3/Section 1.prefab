@@ -438,7 +438,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3094338967861904785}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.04, y: 0.5, z: 0.73}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -1114,7 +1114,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   levelGenerator: {fileID: 0}
   player: {fileID: 0}
-  isTJunction: 0
   inTile: 0
   coinSpawnPoints:
   - {fileID: 2441519135504893296}
@@ -1128,22 +1127,7 @@ MonoBehaviour:
   rock2: {fileID: 3488885341827510097, guid: 45faad927a6cd16419bc050521df110f, type: 3}
   spike: {fileID: 3179588847852289726, guid: 272d4b6b0a9e44b4db4aa2e595e6fa56, type: 3}
   coins: []
-  easyObstacles:
-  - {fileID: 2401727562265959326}
-  - {fileID: 2060840933417372468}
-  - {fileID: 0}
-  - {fileID: 7534392149845219085}
-  - {fileID: 7338655287975798952}
-  medObstacles:
-  - {fileID: 2401727562265959326}
-  - {fileID: 3401430468063591969}
-  - {fileID: 0}
-  - {fileID: 7534392149845219085}
-  - {fileID: 6076589173042501776}
-  hardObstacles:
-  - {fileID: 0}
-  - {fileID: 7791207893918720311}
-  - {fileID: 6076589173042501776}
+  currentObstacleCount: 0
   obstaclesSpawn:
   - {fileID: 2401727562265959326}
   - {fileID: 2060840933417372468}
@@ -1156,7 +1140,9 @@ MonoBehaviour:
   - {fileID: 4589146209385763952}
   obstacles: []
   obstaclesParent: {fileID: 872908762969932106}
-  obstaclesTest: 
+  coinsParent: {fileID: 5278611094894142984}
+  nitroParent: {fileID: 5704423101374938912}
+  obstaclesTest: 000000000000000000000000000000000000000000000000000000000000000000000000
   emptyRoad: 0
   nitroSpawns:
   - {fileID: 347698432931687926}
