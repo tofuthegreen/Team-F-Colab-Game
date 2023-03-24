@@ -170,7 +170,7 @@ public class Section : MonoBehaviour
 
     private void OnTriggerExit(Collider other)
     {
-        if(other.gameObject.CompareTag("Player") && inTile == true)
+        if(other.gameObject.CompareTag("Player"))
         {
             Debug.Log("Leaving section");
             levelGenerator.SpawnTile();

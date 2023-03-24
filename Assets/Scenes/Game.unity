@@ -553,9 +553,9 @@ RectTransform:
   m_Father: {fileID: 996842446}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -293, y: 184}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: -243, y: 134}
   m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &233373321
@@ -769,9 +769,9 @@ RectTransform:
   m_Father: {fileID: 996842446}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -287.8, y: 149}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: -237.79999, y: 99}
   m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &324597628
@@ -4206,7 +4206,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1510754733}
-  m_LocalRotation: {x: 0.15339357, y: 0.000000017002748, z: -0.0000000026393487, w: 0.9881652}
+  m_LocalRotation: {x: 0.15339357, y: -0.000000017002744, z: 0.0000000026393483, w: 0.9881652}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -5140,36 +5140,6 @@ MonoBehaviour:
   - 0
   - 2.7
   ship: {fileID: 2145952759}
-  shipParts:
-  - {fileID: 5438533552406472321}
-  - {fileID: 6675710884116685247}
-  - {fileID: 7052491610618067694}
-  - {fileID: 3206545233051386827}
-  - {fileID: 7367068993238043354}
-  - {fileID: 1616997169806796519}
-  - {fileID: 4958033387149538207}
-  - {fileID: 7484468417785857167}
-  - {fileID: 987595975689699251}
-  TransParentShipParts:
-  - {fileID: 2100000, guid: 63138a44302db9a43b1af2db1c4605cd, type: 2}
-  - {fileID: 2100000, guid: 470d730532790474bb4226b20e19cef2, type: 2}
-  - {fileID: 2100000, guid: 3dcceced22141f843b5187c10dfbd3b4, type: 2}
-  - {fileID: 2100000, guid: 3dcceced22141f843b5187c10dfbd3b4, type: 2}
-  - {fileID: 2100000, guid: f3652fe029b3d7a40ad7ca3e762257cb, type: 2}
-  - {fileID: 2100000, guid: 3dcceced22141f843b5187c10dfbd3b4, type: 2}
-  - {fileID: 2100000, guid: 3dcceced22141f843b5187c10dfbd3b4, type: 2}
-  - {fileID: 2100000, guid: 63138a44302db9a43b1af2db1c4605cd, type: 2}
-  - {fileID: 2100000, guid: db110af0ba20b124185a02533175f68a, type: 2}
-  NormalShipParts:
-  - {fileID: 2100000, guid: 650dfb85e2fa4d74c8085ffc6bb9db1a, type: 2}
-  - {fileID: 2100000, guid: 1f3a3fbdf2973054b94228692270f2e5, type: 2}
-  - {fileID: 2100000, guid: 17e744dfe81d263458cafd27fdfa3ef7, type: 2}
-  - {fileID: 2100000, guid: 17e744dfe81d263458cafd27fdfa3ef7, type: 2}
-  - {fileID: 2100000, guid: 23b2e87ae1a46904c8a89e3788acdf63, type: 2}
-  - {fileID: 2100000, guid: 17e744dfe81d263458cafd27fdfa3ef7, type: 2}
-  - {fileID: 2100000, guid: 17e744dfe81d263458cafd27fdfa3ef7, type: 2}
-  - {fileID: 2100000, guid: 650dfb85e2fa4d74c8085ffc6bb9db1a, type: 2}
-  - {fileID: 2100000, guid: f47e635f77b3877499a3d04f426eeb09, type: 2}
   coinPickUp: {fileID: 8300000, guid: 8b81ce2fdfdb68144ba03873bd2ae31a, type: 3}
   hurtSound: {fileID: 8300000, guid: 5e68469ba2434d84b9fc8fbd56253f06, type: 3}
   audioSource: {fileID: 319389140}
