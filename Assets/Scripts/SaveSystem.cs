@@ -10,14 +10,16 @@ public static class SaveSystem
     {
         if(currentDistance > loadedDistance)
         {
-            SaveDistance(currentDistance);
+            string savename = "distance";
+            SaveData(currentDistance,savename);
         }
     }
 
     public static void AddCoins(int newCoins, int loadedCoins)
     {
         loadedCoins += newCoins;
-        SaveCoins(loadedCoins);
+        string savename = "coins";
+        SaveData(loadedCoins, savename);
     }
 
     public static void SavePlayer()
@@ -29,28 +31,19 @@ public static class SaveSystem
         stream.Close();
     }
 
-    public static void SaveDistance(int distance)
+    public static void SaveData(int value, string saveType)
     {
         BinaryFormatter formatter = new BinaryFormatter();
-        string path = Application.persistentDataPath + "/Save.txt";
+        string path = Application.persistentDataPath + "/"+ saveType + ".txt";
         FileStream stream = new FileStream(path, FileMode.Create);
 
-        formatter.Serialize(stream,distance);
-        stream.Close();
-    }
-    public static void SaveCoins(int coins)
-    {
-        BinaryFormatter formatter = new BinaryFormatter();
-        string path = Application.persistentDataPath + "/SaveCoins.txt";
-        FileStream stream = new FileStream(path, FileMode.Create);
-
-        formatter.Serialize(stream, coins);
+        formatter.Serialize(stream,value);
         stream.Close();
     }
 
-    public static int LoadDistance()
+    public static int LoadData(string filename)
     {
-        string path = Application.persistentDataPath + "/Save.txt";
+        string path = Application.persistentDataPath + "/"+ filename +".txt";
         if (File.Exists(path))
         {
             BinaryFormatter formatter = new BinaryFormatter();
@@ -59,23 +52,6 @@ public static class SaveSystem
 
             stream.Close();
             return distance;
-        }
-        else
-        {
-            Debug.LogError("No save file in " + path);
-            return 0;
-        }
-    }
-    public static int LoadCoins()//Shouldnt duplicate save and loads find way to make them two functions
-    {
-        string path = Application.persistentDataPath + "/SaveCoins.txt";
-        if (File.Exists(path))
-        {
-            BinaryFormatter formatter = new BinaryFormatter();
-            FileStream stream = new FileStream(path, FileMode.Open);
-            int coins = (int)formatter.Deserialize(stream);
-            stream.Close();
-            return coins;
         }
         else
         {

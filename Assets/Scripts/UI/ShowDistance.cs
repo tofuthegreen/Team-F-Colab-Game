@@ -11,7 +11,7 @@ public class ShowDistance : MonoBehaviour
     
     public void Update()
     {
-        distanceText.text = SaveSystem.LoadDistance().ToString();
-        coinsText.text = SaveSystem.LoadCoins().ToString();
+        distanceText.text = SaveSystem.LoadData("distance").ToString();
+        coinsText.text = SaveSystem.LoadData("coins").ToString();
     }
 }

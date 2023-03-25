@@ -55,7 +55,7 @@ public class MovePlayer : MonoBehaviour
         playerProfile = playerVolume.profile;
 
         speed = VariableTransfer.speed;
-        displayCoins = SaveSystem.LoadCoins();
+        displayCoins = SaveSystem.LoadData("coins");
         coins = 0;
 
         ship.speed = (1 - dodgeSpeed) + 1;
@@ -197,7 +197,7 @@ public class MovePlayer : MonoBehaviour
     
    public void SaveGame()
     {
-        SaveSystem.CompareDistance(distance, SaveSystem.LoadDistance());
-        SaveSystem.AddCoins(coins, SaveSystem.LoadCoins());
+        SaveSystem.CompareDistance(distance, SaveSystem.LoadData("distance"));
+        SaveSystem.AddCoins(coins, SaveSystem.LoadData("coins"));
     }
 }

@@ -12,7 +12,7 @@ public class Upgrades : MonoBehaviour
 
     void Start()
     {
-       coins = SaveSystem.LoadCoins();
+       coins = SaveSystem.LoadData("coins");
        coinsText.text = coins.ToString();
     }
     public void SpeedUpgrade()
@@ -40,7 +40,7 @@ public class Upgrades : MonoBehaviour
 
     public void OnClose()
     {
-        SaveSystem.SaveCoins(coins);
+        SaveSystem.SaveData(coins,"coins");
     }
 
     void costCalculator(float cost, int lvl)
