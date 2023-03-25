@@ -28,13 +28,13 @@ public class LightsOut : MonoBehaviour
 
         if (timer > lap)
         {
+            
             LightsOff();
             StartCoroutine(Duration());
             timer = -5;
             lap = Random.Range(10, 30);
         }
     }
-
     public IEnumerator Duration()
     {
         yield return new WaitForSeconds(5);

@@ -54,7 +54,7 @@ public class MovePlayer : MonoBehaviour
         health = maxHealth;
         playerProfile = playerVolume.profile;
 
-        speed = VariableTransfer.speed;
+        SaveSystem.LoadPlayer(this);
         displayCoins = SaveSystem.LoadData("coins");
         coins = 0;
 

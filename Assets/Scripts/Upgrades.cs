@@ -5,15 +5,18 @@ using TMPro;
 
 public class Upgrades : MonoBehaviour
 {
-    public TextMeshProUGUI coinsText;
-    int speedLvl = 1;
-    int speedCost = 5;
-    int coins;
+   public TextMeshProUGUI coinsText,speedText,CostText;
+   public int speedLvl = 1;
+   public int speedCost = 5;
+   int coins;
 
     void Start()
     {
-       coins = SaveSystem.LoadData("coins");
-       coinsText.text = coins.ToString();
+        coins = SaveSystem.LoadData("coins");
+        coinsText.text = coins.ToString();
+        SaveSystem.LoadShop(this);
+        speedText.text = "Speed Level: " + speedLvl;
+        CostText.text = "Cost: " + speedCost;
     }
     public void SpeedUpgrade()
     {
@@ -24,23 +27,35 @@ public class Upgrades : MonoBehaviour
             VariableTransfer.speed += 2;
             coins -= speedCost;
             speedLvl++;
+            speedCost =+ (speedLvl * 2);
             coinsText.text = coins.ToString();
+            speedText.text = "Speed Level: " + speedLvl;
+            CostText.text = "Cost: " + speedCost;
 
         }
         else if (coins < speedCost)
         {
-            Debug.Log("Cant afford");
+            float time = 3f;
+            while (time > 0)
+            {
+                CostText.text = "Low Coins";
+                time -= Time.deltaTime;
+            }
+            speedText.text = "Speed Level: " + speedLvl;
         }
         else if (speedLvl == 5)
         {
-            Debug.Log("Maxed Out");
+            CostText.text = "Maxed out"; 
         }
 
     }
 
+
     public void OnClose()
     {
+        SaveSystem.SavePlayer(VariableTransfer.speed);
         SaveSystem.SaveData(coins,"coins");
+        SaveSystem.SaveShop(speedLvl, speedCost);
     }
 
     void costCalculator(float cost, int lvl)

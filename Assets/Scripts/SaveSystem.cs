@@ -8,10 +8,10 @@ public static class SaveSystem
 {
     public static void CompareDistance(int currentDistance, int loadedDistance)
     {
-        if(currentDistance > loadedDistance)
+        if (currentDistance > loadedDistance)
         {
             string savename = "distance";
-            SaveData(currentDistance,savename);
+            SaveData(currentDistance, savename);
         }
     }
 
@@ -22,41 +22,82 @@ public static class SaveSystem
         SaveData(loadedCoins, savename);
     }
 
-    public static void SavePlayer()
+    public static void SavePlayer(float speed)
     {
         BinaryFormatter formatter = new BinaryFormatter();
-        string path = Application.persistentDataPath + "/Save.txt";
+        string path = Application.persistentDataPath + "/player.txt";
         FileStream stream = new FileStream(path, FileMode.Create);
-
+        formatter.Serialize(stream, speed);
         stream.Close();
     }
+    public static void LoadPlayer(MovePlayer player)
+    {
+        string path = Application.persistentDataPath + "/player.txt";
+        if (File.Exists(path))
+        {
+            BinaryFormatter formatter = new BinaryFormatter();
+            FileStream stream = new FileStream(path, FileMode.Open);
+            player.speed = (float)formatter.Deserialize(stream);
 
+            stream.Close();
+        }
+        else
+        {
+            Debug.LogError("No save file in " + path);
+        }
+    }
     public static void SaveData(int value, string saveType)
     {
         BinaryFormatter formatter = new BinaryFormatter();
-        string path = Application.persistentDataPath + "/"+ saveType + ".txt";
+        string path = Application.persistentDataPath + "/" + saveType + ".txt";
         FileStream stream = new FileStream(path, FileMode.Create);
 
-        formatter.Serialize(stream,value);
+        formatter.Serialize(stream, value);
         stream.Close();
     }
 
     public static int LoadData(string filename)
     {
-        string path = Application.persistentDataPath + "/"+ filename +".txt";
+        string path = Application.persistentDataPath + "/" + filename + ".txt";
         if (File.Exists(path))
         {
             BinaryFormatter formatter = new BinaryFormatter();
             FileStream stream = new FileStream(path, FileMode.Open);
-            int distance = (int)formatter.Deserialize(stream);
+            int data = (int)formatter.Deserialize(stream);
 
             stream.Close();
-            return distance;
+            return data;
         }
         else
         {
             Debug.LogError("No save file in " + path);
             return 0;
+        }
+    }
+    public static void SaveShop(int speedLvl, int speedCost)
+    {
+        BinaryFormatter formatter = new BinaryFormatter();
+        string path = Application.persistentDataPath + "/shop.txt";
+        FileStream stream = new FileStream(path, FileMode.Create);
+        formatter.Serialize(stream, speedLvl);
+        formatter.Serialize(stream, speedCost);
+        stream.Close();
+    }
+    public static void LoadShop(Upgrades shop)
+    {
+        string path = Application.persistentDataPath + "/shop.txt";
+        if (File.Exists(path))
+        {
+            BinaryFormatter formatter = new BinaryFormatter();
+            FileStream stream = new FileStream(path, FileMode.Open);
+            shop.speedLvl = (int)formatter.Deserialize(stream);
+            shop.speedCost = (int)formatter.Deserialize(stream);
+
+            stream.Close();
+        }
+        else
+        {
+            Debug.LogError("No save file in " + path);
         }
     }
 }
