@@ -136,34 +136,43 @@ public class Section : MonoBehaviour
     
     public void CoinSpawn()
     {
-        for(int i = 0; i < coinSpawnPoints.Length; i++)
+        for (int i = 0; i < obstaclesTest.Length; i++)
         {
-            int rnd = Random.Range(1, 11);
-            if(rnd > 5 + levelGenerator.difficulty)
+            if (obstaclesTest[i] == 0)
             {
-                int coinRnd = Random.Range(0, 2);
-                if(coinRnd == 1)
+                int rnd = Random.Range(0, 100);
+                if (rnd > 80 + levelGenerator.difficulty)
                 {
-                    coins[i] = Instantiate(coinGroup, coinSpawnPoints[i].transform.position, Quaternion.identity,coinsParent);
-                    
+                    int coinRnd = Random.Range(0, 2);
+                    if (coinRnd == 1)
+                    {
+                        coins[i] = Instantiate(coinGroup, new Vector3(obstaclesSpawn[i].transform.position.x, obstaclesSpawn[i].transform.position.y + 1f, obstaclesSpawn[i].transform.position.z), Quaternion.identity, coinsParent);
+
+                    }
+                    else
+                    {
+                        coins[i] = Instantiate(coin, new Vector3(obstaclesSpawn[i].transform.position.x, obstaclesSpawn[i].transform.position.y + 1f, obstaclesSpawn[i].transform.position.z), Quaternion.identity, coinsParent);
+                    }
+                    obstaclesTest[i] = 2;
                 }
-                else
-                {
-                    coins[i] = Instantiate(coin, coinSpawnPoints[i].transform.position, Quaternion.identity,coinsParent);
-                }
+                
             }
         }
     }
 
     public void NitroSpawn()
     {
-        for (int i = 0; i < nitroSpawns.Length; i++)
+        for (int i = 0; i < obstaclesTest.Length; i++)
         {
-            int rnd = Random.Range(1, 10);
-            if (rnd < 2)
+            if (obstaclesTest[i] == 0)
             {
-                Instantiate(nitro, nitroSpawns[i].transform.position, Quaternion.identity,nitroParent);
-
+                int rnd = Random.Range(1, 10);
+                if (rnd < 2)
+                {
+                    Instantiate(nitro, new Vector3(obstaclesSpawn[i].transform.position.x, obstaclesSpawn[i].transform.position.y + 1f, obstaclesSpawn[i].transform.position.z), Quaternion.identity, nitroParent);
+                    obstaclesTest[i] = 3;
+                }
+                
             }
         }
     }

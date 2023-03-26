@@ -7,7 +7,7 @@ public class Upgrades : MonoBehaviour
 {
    public TextMeshProUGUI coinsText,speedText,CostText;
    public int speedLvl = 1;
-   public int speedCost = 5;
+   public int speedCost = 100;
    int coins;
 
     void Start()
@@ -27,7 +27,7 @@ public class Upgrades : MonoBehaviour
             VariableTransfer.speed += 2;
             coins -= speedCost;
             speedLvl++;
-            speedCost =+ (speedLvl * 2);
+            speedCost *= speedLvl;
             coinsText.text = coins.ToString();
             speedText.text = "Speed Level: " + speedLvl;
             CostText.text = "Cost: " + speedCost;
