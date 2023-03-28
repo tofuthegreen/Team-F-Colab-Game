@@ -3573,7 +3573,6 @@ MonoBehaviour:
   coins: {fileID: 791079148}
   distance: {fileID: 718030789}
   player: {fileID: 2051696766}
-<<<<<<< HEAD
 --- !u!1 &1015766016
 GameObject:
   m_ObjectHideFlags: 0
@@ -3687,8 +3686,6 @@ VisualEffect:
       m_Array: []
     m_Bool:
       m_Array: []
-=======
->>>>>>> b505fd14db742c5b8506d0777a433f8492c1b406
 --- !u!1 &1019738099
 GameObject:
   m_ObjectHideFlags: 3
