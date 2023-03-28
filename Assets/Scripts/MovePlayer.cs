@@ -27,6 +27,7 @@ public class MovePlayer : MonoBehaviour
     float[] movePositions = new float[3];
     [SerializeField]
     Animator ship;
+    public Light shipLight,shipLightDamage;
 
     public VisualEffect sparks;
 
@@ -61,7 +62,7 @@ public class MovePlayer : MonoBehaviour
         coins = 0;
 
         sparks.Stop();
-
+        shipLightDamage.enabled = false;
         ship.speed = (1 - dodgeSpeed) + 1;
     }
 
@@ -124,6 +125,8 @@ public class MovePlayer : MonoBehaviour
             healTime -= Time.deltaTime;
             if(healTime <= 0)
             {
+                shipLightDamage.enabled = false;
+                shipLight.enabled = true;
                 sparks.Stop();
                 health = maxHealth;
                 beenHit = false;
@@ -170,6 +173,8 @@ public class MovePlayer : MonoBehaviour
             else
             {
                 Debug.Log("Been Hit");
+                shipLightDamage.enabled = true;
+                shipLight.enabled = false;
                 sparks.Play();
                 speed /= 2;
                 audioSource.clip = hurtSound;
