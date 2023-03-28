@@ -29,21 +29,7 @@ public class Nitro : MonoBehaviour
     {
         if (player.nitroActive != true)
         {
-            player.nitroActive = true;
-            currentSpeed = player.speed;
-
-            if (player.speed <= (player.maxSpeed / speedBoost))
-            {
-                StartCoroutine(Boost(duration, (player.speed *= speedBoost), (player.speed /= speedBoost)));
-            }
-            else if (player.speed >= player.maxSpeed)
-            {
-                StartCoroutine(Boost(duration, (player.speed += 5), player.maxSpeed));
-            }
-            else
-            {
-                StartCoroutine(Boost(duration, player.maxSpeed, currentSpeed));
-            }
+            player.speed += 3;
         }
         
     }

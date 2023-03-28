@@ -65,8 +65,8 @@ public class MovePlayer : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
-        if(nitroActive == true)
+
+        if (nitroActive == true)
         {
             MotionBlur tmp;
             if (playerProfile.TryGet<MotionBlur>(out tmp))
@@ -75,7 +75,7 @@ public class MovePlayer : MonoBehaviour
                 motionBlur.active = true;
             }
         }
-        else if(nitroActive == false)
+        else if (nitroActive == false)
         {
             MotionBlur tmp;
             if (playerProfile.TryGet<MotionBlur>(out tmp))
@@ -84,8 +84,6 @@ public class MovePlayer : MonoBehaviour
                 motionBlur.active = false;
             }
         }
-
-        CheckSpeed();
        
 
         Vector3 move = new Vector3(0, 0, speed);

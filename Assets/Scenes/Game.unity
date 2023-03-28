@@ -5129,10 +5129,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d1a6567ed4773d44185f147195ae455e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 10
+  speed: 20
   movePlayer: 3
   maxSpeed: 40
-  dodgeSpeed: 0.3
+  dodgeSpeed: 0.15
   playerPos: 1
   distance: 0
   movePositions:
