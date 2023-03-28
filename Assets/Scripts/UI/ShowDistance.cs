@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
+using Unity.VisualScripting;
 using UnityEngine;
 
 
@@ -8,8 +9,8 @@ public class ShowDistance : MonoBehaviour
 {
     public TextMeshProUGUI distanceText;
     public TextMeshProUGUI coinsText;
-    
-    public void Update()
+
+    void Start()
     {
         distanceText.text = SaveSystem.LoadData("distance").ToString();
         coinsText.text = SaveSystem.LoadData("coins").ToString();
