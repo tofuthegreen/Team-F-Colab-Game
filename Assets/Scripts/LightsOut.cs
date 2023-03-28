@@ -18,7 +18,7 @@ public class LightsOut : MonoBehaviour
     private float fogNormal;
 
     private float timer;
-    private float lap = 10;
+    private float lap = 25;
 
     //Method for triggering lights out after an amount of time and setting
     //a new random time
@@ -28,7 +28,6 @@ public class LightsOut : MonoBehaviour
 
         if (timer > lap)
         {
-            
             LightsOff();
             StartCoroutine(Duration());
             timer = -5;
