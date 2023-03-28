@@ -5401,13 +5401,14 @@ MonoBehaviour:
   - 0
   - 2.7
   ship: {fileID: 2145952759}
+  sparks: {fileID: 1015766019}
   coinPickUp: {fileID: 8300000, guid: 8b81ce2fdfdb68144ba03873bd2ae31a, type: 3}
   hurtSound: {fileID: 8300000, guid: 5e68469ba2434d84b9fc8fbd56253f06, type: 3}
   audioSource: {fileID: 319389140}
   nitroActive: 0
   coins: 0
   displayCoins: 0
-  health: 0
+  health: 1
   maxHealth: 1
   beenHit: 0
   playerVolume: {fileID: 1061196267}

@@ -4,6 +4,7 @@ using UnityEngine.Rendering;
 using UnityEngine.Rendering.Universal;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.VFX;
 public class MovePlayer : MonoBehaviour
 {
     //Calls the character controller functionality
@@ -26,6 +27,8 @@ public class MovePlayer : MonoBehaviour
     float[] movePositions = new float[3];
     [SerializeField]
     Animator ship;
+
+    public VisualEffect sparks;
 
     public AudioClip coinPickUp,hurtSound;
     public AudioSource audioSource;
@@ -51,12 +54,13 @@ public class MovePlayer : MonoBehaviour
     {
         characterController = GetComponent<CharacterController>();
         startingPos = transform.position;
-        health = maxHealth;
         playerProfile = playerVolume.profile;
 
         SaveSystem.LoadPlayer(this);
         displayCoins = SaveSystem.LoadData("coins");
         coins = 0;
+
+        sparks.Stop();
 
         ship.speed = (1 - dodgeSpeed) + 1;
     }
@@ -122,6 +126,7 @@ public class MovePlayer : MonoBehaviour
             healTime -= Time.deltaTime;
             if(healTime <= 0)
             {
+                sparks.Stop();
                 health = maxHealth;
                 beenHit = false;
                 healTime = 3f;
@@ -153,7 +158,7 @@ public class MovePlayer : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag("Obstacle") && nitroActive == false)
+        if (other.CompareTag("Obstacle"))
         {
             health--;
             if(health <= -1)
@@ -167,13 +172,14 @@ public class MovePlayer : MonoBehaviour
             else
             {
                 Debug.Log("Been Hit");
+                sparks.Play();
                 speed /= 2;
                 audioSource.clip = hurtSound;
                 audioSource.Play();
-                if (speed < 10f)
+                ship.SetTrigger("TakesDamage");
+                if (speed < 20f)
                 {
-                    ship.SetTrigger("TakesDamage");
-                    speed = 10f;
+                    speed = 20f;
                 }
                 beenHit = true;
             }
