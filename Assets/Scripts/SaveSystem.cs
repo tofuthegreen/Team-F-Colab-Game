@@ -6,12 +6,18 @@ using UnityEngine;
 
 public static class SaveSystem
 {
+    public static bool highscore;
     public static void CompareDistance(int currentDistance, int loadedDistance)
     {
         if (currentDistance > loadedDistance)
         {
             string savename = "distance";
             SaveData(currentDistance, savename);
+            highscore = true;
+        }
+        else
+        {
+            highscore = false;
         }
     }
 

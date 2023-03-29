@@ -167,6 +167,7 @@ public class MovePlayer : MonoBehaviour
                 audioSource.clip = hurtSound;
                 audioSource.Play();
                 Debug.Log("You died");
+                VariableTransfer.distance = distance;
                 SaveGame();
                 SceneManager.LoadScene(2);
             }

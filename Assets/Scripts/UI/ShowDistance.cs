@@ -12,7 +12,7 @@ public class ShowDistance : MonoBehaviour
 
     void Start()
     {
-        distanceText.text = SaveSystem.LoadData("distance" + "km").ToString();
+        distanceText.text = SaveSystem.LoadData("distance").ToString() + "km";
         coinsText.text = SaveSystem.LoadData("coins").ToString();
     }
 }
