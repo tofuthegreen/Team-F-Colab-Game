@@ -11,7 +11,10 @@ public class OptionsMenu : MonoBehaviour
 {
     public AudioMixer audioMixer;
 
-    //Methods to allow user to change volumes with sliders
+    /// <summary>
+    /// Methods to allow user to change volumes with sliders
+    /// </summary>
+    /// <param value to pass into audio mixer="volume"></param>
     public void ChangeVolume(float volume)
     {
         audioMixer.SetFloat("Volume", volume); ;

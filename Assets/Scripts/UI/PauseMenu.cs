@@ -53,6 +53,9 @@ public class PauseMenu : MonoBehaviour
         gamePaused = true;
     }
 
+    /// <summary>
+    /// Method to return to main menu
+    /// </summary>
     public void Exit()
     {
         SceneManager.LoadScene(0);

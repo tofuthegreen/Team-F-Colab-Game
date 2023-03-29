@@ -2,13 +2,15 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEditor;
+using Unity.Collections;
 
 /// <summary>
 /// Class for changing lighting in game
 /// </summary>
 public class LightsOut : MonoBehaviour
 {
-    [SerializeField]
+    [Tooltip("Fog and lighting values for normal and lights out")]
+    [SerializeField]    
     private float dark;
     [SerializeField]
     private float normal;
@@ -18,10 +20,13 @@ public class LightsOut : MonoBehaviour
     private float fogNormal;
 
     private float timer;
+
+    //Lap starts at 25 to give player a period from start to get ready (can be adjusted for difficulty)
     private float lap = 25;
 
-    //Method for triggering lights out after an amount of time and setting
-    //a new random time
+    /// <summary>
+    /// Method for triggering lights out after an amount of time and setting a new random time. Sets timer to -5 so it doesn't interupt the delta time timer
+    /// </summary>
     void Update()
     {
         timer += Time.deltaTime;
@@ -30,10 +35,15 @@ public class LightsOut : MonoBehaviour
         {
             LightsOff();
             StartCoroutine(Duration());
+
             timer = -5;
             lap = Random.Range(10, 30);
         }
     }
+    /// <summary>
+    /// Ienumerator to control blackout duration
+    /// </summary>
+    /// <returns></returns>
     public IEnumerator Duration()
     {
         yield return new WaitForSeconds(5);
