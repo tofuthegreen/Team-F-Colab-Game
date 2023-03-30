@@ -1297,6 +1297,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   audioMixer: {fileID: 24100000, guid: a539881b777285b4a8b36a2cd9c9f41a, type: 2}
+  audioManager: {fileID: 815428386}
+  mainVolume: 0
+  sfxVolume: 0
+  musicVolume: 0
 --- !u!114 &365013497
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2607,6 +2611,30 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 791079146}
   m_CullTransparentMesh: 1
+--- !u!1 &815428381 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1627658226714843626, guid: 6a4962c2f9419894899ab6ac1b678781, type: 3}
+  m_PrefabInstance: {fileID: 1479910726}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &815428386
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 815428381}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c93251724f5b771489cad79588ec09da, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mainVolume: 0
+  sfxVolume: 0
+  musicVolume: 0
+  audioMixer: {fileID: 24100000, guid: a539881b777285b4a8b36a2cd9c9f41a, type: 2}
+  main: {fileID: 595503497}
+  sfx: {fileID: 705059691}
+  music: {fileID: 1354463646}
 --- !u!1 &817323696
 GameObject:
   m_ObjectHideFlags: 0
@@ -5366,7 +5394,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1510754733}
-  m_LocalRotation: {x: 0.15339357, y: 0.000000017002744, z: -0.0000000026393483, w: 0.9881652}
+  m_LocalRotation: {x: 0.15339357, y: -0.000000017002748, z: 0.0000000026393487, w: 0.9881652}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -6481,16 +6509,39 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 20
+  skinNum: 0
   movePlayer: 3
   maxSpeed: 40
   dodgeSpeed: 0.15
   playerPos: 1
+  defaultSkin:
+  - {fileID: 2100000, guid: f47e635f77b3877499a3d04f426eeb09, type: 2}
+  - {fileID: 2100000, guid: 650dfb85e2fa4d74c8085ffc6bb9db1a, type: 2}
+  - {fileID: 2100000, guid: 17e744dfe81d263458cafd27fdfa3ef7, type: 2}
+  - {fileID: 2100000, guid: 23b2e87ae1a46904c8a89e3788acdf63, type: 2}
+  - {fileID: 2100000, guid: 1f3a3fbdf2973054b94228692270f2e5, type: 2}
+  transparentSkin:
+  - {fileID: 2100000, guid: db110af0ba20b124185a02533175f68a, type: 2}
+  - {fileID: 2100000, guid: 63138a44302db9a43b1af2db1c4605cd, type: 2}
+  - {fileID: 2100000, guid: 3dcceced22141f843b5187c10dfbd3b4, type: 2}
+  - {fileID: 2100000, guid: f3652fe029b3d7a40ad7ca3e762257cb, type: 2}
+  - {fileID: 2100000, guid: 470d730532790474bb4226b20e19cef2, type: 2}
   distance: 0
   movePositions:
   - -2.7
   - 0
   - 2.7
   ship: {fileID: 2145952759}
+  mesh:
+  - {fileID: 5438533552406472321}
+  - {fileID: 6675710884116685247}
+  - {fileID: 7052491610618067694}
+  - {fileID: 3206545233051386827}
+  - {fileID: 7367068993238043354}
+  - {fileID: 1616997169806796519}
+  - {fileID: 4958033387149538207}
+  - {fileID: 7484468417785857167}
+  - {fileID: 987595975689699251}
   shipLight: {fileID: 1965893373}
   shipLightDamage: {fileID: 1362636923}
   sparks: {fileID: 1432937075}
@@ -6665,6 +6716,18 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
+      - m_Target: {fileID: 365013496}
+        m_TargetAssemblyTypeName: OptionsMenu, Assembly-CSharp
+        m_MethodName: OnClose
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
       - m_Target: {fileID: 365013494}
         m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
         m_MethodName: SetActive

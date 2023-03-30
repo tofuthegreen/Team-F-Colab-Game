@@ -7,6 +7,7 @@ using UnityEngine;
 public static class SaveSystem
 {
     public static bool highscore;
+
     public static void CompareDistance(int currentDistance, int loadedDistance)
     {
         if (currentDistance > loadedDistance)
@@ -44,7 +45,6 @@ public static class SaveSystem
             BinaryFormatter formatter = new BinaryFormatter();
             FileStream stream = new FileStream(path, FileMode.Open);
             player.speed = (float)formatter.Deserialize(stream);
-
             stream.Close();
         }
         else
@@ -78,6 +78,38 @@ public static class SaveSystem
         {
             Debug.LogError("No save file in " + path);
             return 0;
+        }
+    }
+    public static void SaveAudio(float main,float sfx,float music)
+    {
+        BinaryFormatter formatter = new BinaryFormatter();
+        string path = Application.persistentDataPath + "/audio.txt";
+        FileStream stream = new FileStream(path, FileMode.Create);
+
+        formatter.Serialize(stream, main);
+        formatter.Serialize(stream, sfx);
+        formatter.Serialize(stream, music);
+        stream.Close();
+        Debug.Log("Saved audio main " + main + " sfx " + sfx + " music " + music);
+    }
+
+    public static void LoadAudio(AudioManager audio)
+    {
+        string path = Application.persistentDataPath + "/audio.txt";
+        if (File.Exists(path))
+        {
+            BinaryFormatter formatter = new BinaryFormatter();
+            FileStream stream = new FileStream(path, FileMode.Open);
+            audio.mainVolume = (float)formatter.Deserialize(stream);
+            audio.sfxVolume = (float)formatter.Deserialize(stream);
+            audio.musicVolume = (float)formatter.Deserialize(stream);
+
+            stream.Close();
+
+        }
+        else
+        {
+            Debug.LogError("No save file in " + path);
         }
     }
     public static void SaveShop(int speedLvl, int speedCost)

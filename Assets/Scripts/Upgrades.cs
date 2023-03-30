@@ -9,7 +9,9 @@ public class Upgrades : MonoBehaviour
    public int speedLvl = 1;
    public int speedCost = 100;
    int coins;
-
+   public Material[] defualtSkin;
+   public Material[] transparentSkin;
+    public ChangeSkin skinChanger;
     void Start()
     {
         coins = SaveSystem.LoadData("coins");
@@ -49,11 +51,16 @@ public class Upgrades : MonoBehaviour
         }
 
     }
-
+    public void HandleInputData(int val)
+    {
+        VariableTransfer.skinnum = val;
+        skinChanger.skinNum = val;
+    }
 
     public void OnClose()
     {
         SaveSystem.SavePlayer(VariableTransfer.speed);
+        SaveSystem.SaveData(VariableTransfer.skinnum, "skin");
         SaveSystem.SaveData(coins,"coins");
         SaveSystem.SaveShop(speedLvl, speedCost);
     }

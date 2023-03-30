@@ -13,13 +13,20 @@ public class MovePlayer : MonoBehaviour
     //contains all variables for player movement
     #region playerVariables
     public float speed;
+    public int skinNum;
     [SerializeField]
     int movePlayer = 3;
     public int maxSpeed = 40;
     [SerializeField]
     float dodgeSpeed = 0.3f;
     public int playerPos = 1;
-    #endregion  
+    #endregion
+
+    #region skins
+    public Material[] defaultSkin;
+    public Material[] transparentSkin;
+
+    #endregion
     private Vector3 startingPos, currentPos;
     public int distance;
     //Array for the lanes the player can move between
@@ -27,6 +34,8 @@ public class MovePlayer : MonoBehaviour
     float[] movePositions = new float[3];
     [SerializeField]
     Animator ship;
+
+    public MeshRenderer[] mesh;
     public Light shipLight,shipLightDamage;
 
     public VisualEffect sparks;
@@ -53,11 +62,14 @@ public class MovePlayer : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        Cursor.visible = false;
+        Cursor.lockState = CursorLockMode.Locked;
         characterController = GetComponent<CharacterController>();
         startingPos = transform.position;
         playerProfile = playerVolume.profile;
-
         SaveSystem.LoadPlayer(this);
+        skinNum = SaveSystem.LoadData("skin");
+        SkinChange(skinNum);
         displayCoins = SaveSystem.LoadData("coins");
         coins = 0;
 
@@ -169,6 +181,8 @@ public class MovePlayer : MonoBehaviour
                 Debug.Log("You died");
                 VariableTransfer.distance = distance;
                 SaveGame();
+                Cursor.visible = false;
+                Cursor.lockState = CursorLockMode.None;
                 SceneManager.LoadScene(2);
             }
             else
@@ -209,5 +223,33 @@ public class MovePlayer : MonoBehaviour
     {
         SaveSystem.CompareDistance(distance, SaveSystem.LoadData("distance"));
         SaveSystem.AddCoins(coins, SaveSystem.LoadData("coins"));
+    }
+    public void SkinChange(int skin)
+    {
+        switch (skin)
+        {
+            case 0:
+                mesh[0].material = defaultSkin[1];
+                mesh[1].material = defaultSkin[4];
+                mesh[2].material = defaultSkin[2];
+                mesh[3].material = defaultSkin[2];
+                mesh[4].material = defaultSkin[3];
+                mesh[5].material = defaultSkin[2];
+                mesh[6].material = defaultSkin[2];
+                mesh[7].material = defaultSkin[1];
+                mesh[8].material = defaultSkin[0];
+                break;
+            case 1:
+                mesh[0].material = transparentSkin[1];
+                mesh[1].material = transparentSkin[4];
+                mesh[2].material = transparentSkin[2];
+                mesh[3].material = transparentSkin[2];
+                mesh[4].material = transparentSkin[3];
+                mesh[5].material = transparentSkin[2];
+                mesh[6].material = transparentSkin[2];
+                mesh[7].material = transparentSkin[1];
+                mesh[8].material = transparentSkin[0];
+                break;
+        }
     }
 }
