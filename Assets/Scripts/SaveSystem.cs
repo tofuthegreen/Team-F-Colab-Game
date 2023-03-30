@@ -61,7 +61,6 @@ public static class SaveSystem
         formatter.Serialize(stream, value);
         stream.Close();
     }
-
     public static int LoadData(string filename)
     {
         string path = Application.persistentDataPath + "/" + filename + ".txt";
@@ -112,13 +111,14 @@ public static class SaveSystem
             Debug.LogError("No save file in " + path);
         }
     }
-    public static void SaveShop(int speedLvl, int speedCost)
+    public static void SaveShop(int speedLvl, int speedCost,bool[]boughtskins)
     {
         BinaryFormatter formatter = new BinaryFormatter();
         string path = Application.persistentDataPath + "/shop.txt";
         FileStream stream = new FileStream(path, FileMode.Create);
         formatter.Serialize(stream, speedLvl);
         formatter.Serialize(stream, speedCost);
+        formatter.Serialize(stream, boughtskins);
         stream.Close();
     }
     public static void LoadShop(Upgrades shop)
@@ -130,6 +130,7 @@ public static class SaveSystem
             FileStream stream = new FileStream(path, FileMode.Open);
             shop.speedLvl = (int)formatter.Deserialize(stream);
             shop.speedCost = (int)formatter.Deserialize(stream);
+            shop.boughtSkin = (bool[])formatter.Deserialize(stream);
 
             stream.Close();
         }

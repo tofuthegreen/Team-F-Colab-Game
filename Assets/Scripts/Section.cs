@@ -11,15 +11,12 @@ public class Section : MonoBehaviour
     public GameObject coinGroup, coin, nitro, rock, rock2,spike;
     public GameObject[] coins;
 
-    public int currentObstacleCount;
-
     public GameObject[] obstaclesSpawn;
     public GameObject[] obstacles;
     public Transform obstaclesParent,coinsParent, nitroParent;
     public int[] obstaclesTest;
     public bool emptyRoad;
     public GameObject[] nitroSpawns;
-    int maxObstacleCount = 5;
     // Start is called before the first frame update
     void Start()
     {
@@ -36,26 +33,19 @@ public class Section : MonoBehaviour
     }
     public void SpawnObstacles()
     {
-        while (currentObstacleCount <= maxObstacleCount) 
-        {
             for (int i = 0; i < obstaclesTest.Length; i++)
             {
-                int spawnRND = Random.Range(0, 3);
+                int spawnRND = Random.Range(0, 3 + levelGenerator.difficulty);
                 if (spawnRND == 0 && obstaclesTest[i] != 1)
                 {
                     obstaclesTest[i] = 1;
-                    Debug.Log("Road " + gameObject.name + " Obstacle " + currentObstacleCount + " spawned at " + obstaclesTest[i]);
-                    currentObstacleCount++;
                 }
                 else
                 {
                     obstaclesTest[i] = 0;
                 }
-            }
             if (obstaclesTest[1] == 1 && obstaclesTest[0] == 1 && obstaclesTest[2] == 1)
             {
-                Debug.Log("Road " + gameObject.name + " Obstacle " + currentObstacleCount + " removed");
-                currentObstacleCount--;
                 int rnd = Random.Range(0, 3);
                 if (rnd == 0)
                 {
@@ -72,8 +62,6 @@ public class Section : MonoBehaviour
             }
             if (obstaclesTest[3] == 1 && obstaclesTest[4] == 1 && obstaclesTest[5] == 1)
             {
-                Debug.Log("Road " + gameObject.name + " Obstacle " + currentObstacleCount + " removed");
-                currentObstacleCount--;
                 int rnd = Random.Range(0, 3);
                 if (rnd == 0)
                 {
@@ -91,8 +79,6 @@ public class Section : MonoBehaviour
             }
             if (obstaclesTest[6] == 1 && obstaclesTest[7] == 1 && obstaclesTest[8] == 1)
             {
-                Debug.Log("Road " + gameObject.name + " Obstacle " + currentObstacleCount + " removed");
-                currentObstacleCount--;
                 int rnd = Random.Range(0, 3);
                 if (rnd == 0)
                 {

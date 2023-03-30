@@ -29,15 +29,14 @@ public class LevelGeneration : MonoBehaviour
                 {
                     tileRND = 0;
                 }
-                else if (spawnCount < 70)
+                else if (spawnCount < 30)
                 {
                     tileRND = 1;
                     difficulty = 0;
                     //tileRND = Random.Range(1, 4);
                 }
-                else if(spawnCount < 150)
+                else if(spawnCount < 60)
                 {
-                    tileRND = 1;
                     difficulty = 1;
                     //tileRND = Random.Range(1,7);
                 }

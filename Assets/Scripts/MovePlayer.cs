@@ -72,7 +72,7 @@ public class MovePlayer : MonoBehaviour
         SkinChange(skinNum);
         displayCoins = SaveSystem.LoadData("coins");
         coins = 0;
-
+        beenHit = true;
         sparks.Stop();
         shipLightDamage.enabled = false;
         ship.speed = (1 - dodgeSpeed) + 1;

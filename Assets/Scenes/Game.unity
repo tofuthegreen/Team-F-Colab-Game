@@ -7035,6 +7035,7 @@ GameObject:
   m_Component:
   - component: {fileID: 543450651671563407}
   - component: {fileID: 2051696765}
+  - component: {fileID: 919132148003690039}
   - component: {fileID: 2051696766}
   - component: {fileID: 919132148003690038}
   m_Layer: 0
@@ -7060,6 +7061,65 @@ MonoBehaviour:
   normal: 0.5
   fogDark: 0.1
   fogNormal: 0
+--- !u!114 &919132148003690039
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 919132148003690037}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0ee7bf1aa8c96ba45bb49daa3c2e38b1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mesh:
+  - {fileID: 5438533552406472321}
+  - {fileID: 6675710884116685247}
+  - {fileID: 7052491610618067694}
+  - {fileID: 3206545233051386827}
+  - {fileID: 7367068993238043354}
+  - {fileID: 1616997169806796519}
+  - {fileID: 4958033387149538207}
+  - {fileID: 7484468417785857167}
+  - {fileID: 987595975689699251}
+  defaultSkin:
+  - {fileID: 2100000, guid: f47e635f77b3877499a3d04f426eeb09, type: 2}
+  - {fileID: 2100000, guid: 650dfb85e2fa4d74c8085ffc6bb9db1a, type: 2}
+  - {fileID: 2100000, guid: 17e744dfe81d263458cafd27fdfa3ef7, type: 2}
+  - {fileID: 2100000, guid: 23b2e87ae1a46904c8a89e3788acdf63, type: 2}
+  - {fileID: 2100000, guid: 1f3a3fbdf2973054b94228692270f2e5, type: 2}
+  transparentSkin:
+  - {fileID: 2100000, guid: db110af0ba20b124185a02533175f68a, type: 2}
+  - {fileID: 2100000, guid: 63138a44302db9a43b1af2db1c4605cd, type: 2}
+  - {fileID: 2100000, guid: 3dcceced22141f843b5187c10dfbd3b4, type: 2}
+  - {fileID: 2100000, guid: f3652fe029b3d7a40ad7ca3e762257cb, type: 2}
+  - {fileID: 2100000, guid: 470d730532790474bb4226b20e19cef2, type: 2}
+  pinkSkin:
+  - {fileID: 2100000, guid: 505075cc836f795489b1441604230530, type: 2}
+  - {fileID: 2100000, guid: 3217519e6717901499a1fa3604fe353a, type: 2}
+  - {fileID: 2100000, guid: 5993aa166bb49ab49a676173b8288870, type: 2}
+  - {fileID: 2100000, guid: 24b7eef6525d7fb41979607dce820b4f, type: 2}
+  - {fileID: 2100000, guid: cdd30d8b1fb74c142bee0acbd0922f0f, type: 2}
+  midnight:
+  - {fileID: 2100000, guid: 436f8ece53bde524383f7a85e06af51c, type: 2}
+  - {fileID: 2100000, guid: 7a9fcd1e10ce5d641b0eb1cbc8993716, type: 2}
+  - {fileID: 2100000, guid: b1d1f67f84076db4a839d418eb02691b, type: 2}
+  - {fileID: 2100000, guid: 374d855ec621c3947b6a4609050313d1, type: 2}
+  - {fileID: 2100000, guid: 4c4b1e8cf9425cb4487cef76d5193ce5, type: 2}
+  purple:
+  - {fileID: 2100000, guid: a1faee8bbae7d714eb681e718109f9b5, type: 2}
+  - {fileID: 2100000, guid: 4b92b017cb079b24fbaafe5c5bfc42fc, type: 2}
+  - {fileID: 2100000, guid: 7f38e4ab6b1746545b1b4ef28f342bc2, type: 2}
+  - {fileID: 2100000, guid: 84102d5fef7b96a42ac5562e935def48, type: 2}
+  - {fileID: 2100000, guid: 42e93fd72055bbe4db00b881d69c649d, type: 2}
+  gold:
+  - {fileID: 2100000, guid: 718a96a8f4a5e384eabbabe543aea271, type: 2}
+  - {fileID: 2100000, guid: 7b202a7546e00a444a6e360d04d25bd9, type: 2}
+  - {fileID: 2100000, guid: ae9a34ad419d2914f8cb5a3e549fbc19, type: 2}
+  - {fileID: 2100000, guid: ea86f8302aa17974bb29aaa991baaa04, type: 2}
+  - {fileID: 2100000, guid: 0a2fccd9d53f5da428c3c48ae26d06ee, type: 2}
+  skinNum: 0
 --- !u!23 &987595975689699251
 MeshRenderer:
   m_ObjectHideFlags: 0
