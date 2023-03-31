@@ -6,7 +6,7 @@ using UnityEngine.UI;
 
 public class Upgrades : MonoBehaviour
 {
-   public TextMeshProUGUI coinsText,speedText,CostText,noCoins;
+   public TextMeshProUGUI coinsText,speedText,CostText,noCoins,buttonText;
    public bool[] boughtSkin;
    public int[] skinCost;
    public int speedLvl = 1;
@@ -14,15 +14,20 @@ public class Upgrades : MonoBehaviour
    int coins;
    public ChangeSkin skinChanger;
     public DropDown dropDown;
+    public int selectedSkin,currentSkin;
     void Start()
     {
         noCoins.text = "";
         coins = SaveSystem.LoadData("coins");
         coinsText.text = coins.ToString();
         SaveSystem.LoadShop(this);
+        currentSkin = SaveSystem.LoadData("skin");
         dropDown.UpdateList();
         speedText.text = "Speed Level: " + speedLvl;
         CostText.text = "Cost: " + speedCost;
+        boughtSkin[0] = true;
+        dropDown.dropDown.value = currentSkin;
+        HandleInputData(currentSkin);
     }
     public void SpeedUpgrade()
     {
@@ -51,53 +56,49 @@ public class Upgrades : MonoBehaviour
     }
     public void HandleInputData(int val)
     {
-        switch (val)
+        selectedSkin = val;
+        skinChanger.SkinChange(val);
+        if (currentSkin == val)
         {
-            case 0:
-                VariableTransfer.skinnum = val;
-                skinChanger.skinNum = val;
-                break;
-            case 1:
-                BuySkin(val);
-                break;
-            case 2:
-                BuySkin(val);
-                break;
-            case 3:
-                BuySkin(val);
-                break;
-            case 4:
-                BuySkin(val);
-                break;
-            case 5:
-                BuySkin(val);
-                break;
+            buttonText.text = "Equipped";
         }
-        coinsText.text = coins.ToString();
-    }
-    public void BuySkin(int val)
-    {
-        if (boughtSkin[val] == false)
+        else if (boughtSkin[val] == true)
         {
-            if (coins >= skinCost[val])
+            buttonText.text = "Equip Skin";
+        }
+        else
+        {
+            buttonText.text = "Buy!\nCost: " + skinCost[val] ;
+        }
+    }
+    public void BuySkin()
+    {
+        if (boughtSkin[selectedSkin] == false)
+        {
+            if (coins >= skinCost[selectedSkin])
             {
-                boughtSkin[val] = true;
-                coins -= skinCost[val];
-                VariableTransfer.skinnum = val;
-                skinChanger.skinNum = val;
-                dropDown.UpdateList();
+                boughtSkin[selectedSkin] = true;
+                coins -= skinCost[selectedSkin];
+                currentSkin = selectedSkin;
+                VariableTransfer.skinnum = currentSkin;
+                skinChanger.skinNum = currentSkin;
+                buttonText.text = "Equipped";
+                coinsText.text = coins.ToString();
             }
             else
             {
-                StartCoroutine(Duration(noCoins, "Not enough Coins", ""));
-                
+                    StartCoroutine(Duration(buttonText, "Not enough Coins", "Buy!\nCost: " + skinCost[selectedSkin]));
+
             }
         }
         else
         {
-            VariableTransfer.skinnum = val;
-            skinChanger.skinNum = val;
+            currentSkin = selectedSkin;
+            VariableTransfer.skinnum = selectedSkin;
+            skinChanger.skinNum = selectedSkin;
+            buttonText.text = "Equipped";
         }
+        
     }
     public IEnumerator Duration(TextMeshProUGUI text, string str, string strEnd)
     {
@@ -108,6 +109,11 @@ public class Upgrades : MonoBehaviour
     }
     public void OnClose()
     {
+        if(currentSkin != selectedSkin)
+        {
+            skinChanger.SkinChange(SaveSystem.LoadData("skin"));
+            dropDown.dropDown.value = currentSkin;
+        }
         SaveSystem.SavePlayer(VariableTransfer.speed);
         SaveSystem.SaveData(VariableTransfer.skinnum, "skin");
         SaveSystem.SaveData(coins,"coins");

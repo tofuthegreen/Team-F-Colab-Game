@@ -18,10 +18,10 @@ public class ChangeSkin : MonoBehaviour
     public void Start()
     {
         skinNum = SaveSystem.LoadData("skin");
-        SkinChange();
+        SkinChange(skinNum);
     }
 
-    public void SkinChange()
+    public void SkinChange(int skinNum)
     {
         switch (skinNum)
         {

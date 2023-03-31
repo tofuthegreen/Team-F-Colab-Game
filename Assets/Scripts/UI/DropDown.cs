@@ -23,18 +23,7 @@ public class DropDown : MonoBehaviour
         List<string> items = new List<string>();
         for (int i = 0; i < upgrades.boughtSkin.Length; i++)
         {
-            if (i == 0)
-            {
                 items.Add(skinNames[i]);
-            }
-            else if (upgrades.boughtSkin[i] == false && i != 0)
-            {
-                items.Add(skinNames[i] + " Cost:" + upgrades.skinCost[i]);
-            }
-            else
-            {
-                items.Add(skinNames[i]);
-            }
         }
         foreach (var item in items)
         {
