@@ -1129,7 +1129,6 @@ MonoBehaviour:
   rock2: {fileID: 3488885341827510097, guid: 45faad927a6cd16419bc050521df110f, type: 3}
   spike: {fileID: 3179588847852289726, guid: 272d4b6b0a9e44b4db4aa2e595e6fa56, type: 3}
   coins: []
-  currentObstacleCount: 0
   obstaclesSpawn:
   - {fileID: 2401727562265959326}
   - {fileID: 2060840933417372468}
@@ -1149,6 +1148,8 @@ MonoBehaviour:
   nitroSpawns:
   - {fileID: 347698432931687926}
   - {fileID: 843729254090096627}
+  lightOff: {fileID: 0}
+  WindowColour: {fileID: 2100000, guid: 1ecf7a41a34ec154bb135632ae448f55, type: 2}
 --- !u!1001 &1756198108516841484
 PrefabInstance:
   m_ObjectHideFlags: 0

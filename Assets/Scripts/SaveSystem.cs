@@ -40,11 +40,14 @@ public static class SaveSystem
     public static void LoadPlayer(MovePlayer player)
     {
         string path = Application.persistentDataPath + "/player.txt";
+        string path2 = Application.persistentDataPath + "/options.txt";
         if (File.Exists(path))
         {
             BinaryFormatter formatter = new BinaryFormatter();
             FileStream stream = new FileStream(path, FileMode.Open);
+            FileStream stream2 = new FileStream(path2, FileMode.Open);
             player.speed = (float)formatter.Deserialize(stream);
+            player.motionBlurOn = (bool)formatter.Deserialize(stream2);
             stream.Close();
         }
         else
@@ -57,7 +60,6 @@ public static class SaveSystem
         BinaryFormatter formatter = new BinaryFormatter();
         string path = Application.persistentDataPath + "/" + saveType + ".txt";
         FileStream stream = new FileStream(path, FileMode.Create);
-
         formatter.Serialize(stream, value);
         stream.Close();
     }
@@ -91,7 +93,33 @@ public static class SaveSystem
         stream.Close();
         Debug.Log("Saved audio main " + main + " sfx " + sfx + " music " + music);
     }
+    public static void SaveOptions(bool motionBlur, bool toggleOn)
+    {
+        BinaryFormatter formatter = new BinaryFormatter();
+        string path = Application.persistentDataPath + "/options.txt";
+        FileStream stream = new FileStream(path, FileMode.Create);
 
+        formatter.Serialize(stream, motionBlur);
+        formatter.Serialize(stream, toggleOn);
+        stream.Close();
+    }
+    public static void LoadOptions(OptionsMenu options)
+    {
+        string path = Application.persistentDataPath + "/options.txt";
+        if (File.Exists(path))
+        {
+            BinaryFormatter formatter = new BinaryFormatter();
+            FileStream stream = new FileStream(path, FileMode.Open);
+            options.motionBlurOn = (bool)formatter.Deserialize(stream);
+            options.toggle.isOn = (bool)formatter.Deserialize(stream);
+            stream.Close();
+
+        }
+        else
+        {
+            Debug.LogError("No save file in " + path);
+        }
+    }
     public static void LoadAudio(AudioManager audio)
     {
         string path = Application.persistentDataPath + "/audio.txt";

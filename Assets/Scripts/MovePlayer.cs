@@ -57,7 +57,7 @@ public class MovePlayer : MonoBehaviour
     public Volume playerVolume;
     VolumeProfile playerProfile;
     MotionBlur motionBlur;
-
+    public bool motionBlurOn;
     public LevelGeneration levelGenerator;
     // Start is called before the first frame update
     void Start()
