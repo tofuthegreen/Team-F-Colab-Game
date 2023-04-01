@@ -6,14 +6,12 @@ public class Coins : MonoBehaviour
 {
     public MovePlayer player;
     public GameObject playerReference;
-
     public int value = 1;
 
     void Start()
     {
         player = playerReference.GetComponent<MovePlayer>();
     }
-
     void OnTriggerEnter(Collider other)
     {
         player = other.gameObject.GetComponent<MovePlayer>();

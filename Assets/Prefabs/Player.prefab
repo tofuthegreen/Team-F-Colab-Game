@@ -771,7 +771,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8317836302246055345}
-  m_LocalRotation: {x: 0.15339357, y: 0.000000017002748, z: -0.0000000026393487, w: 0.9881652}
+  m_LocalRotation: {x: 0.15339357, y: -0.000000017002744, z: 0.0000000026393483, w: 0.9881652}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -1414,6 +1414,7 @@ GameObject:
   - component: {fileID: 8317836303808653679}
   - component: {fileID: 8317836303808653678}
   - component: {fileID: 8317836303808653673}
+  - component: {fileID: 873024910959316939}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -1460,8 +1461,8 @@ Camera:
     width: 1
     height: 1
   near clip plane: 0.1
-  far clip plane: 180
-  field of view: 100
+  far clip plane: 5000
+  field of view: 90
   orthographic: 0
   orthographic size: 10
   m_Depth: -1
@@ -1521,6 +1522,39 @@ MonoBehaviour:
   m_CameraActivatedEvent:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &873024910959316939
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8317836303808653677}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a79441f348de89743a2939f4d699eac1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_RenderShadows: 1
+  m_RequiresDepthTextureOption: 2
+  m_RequiresOpaqueTextureOption: 2
+  m_CameraType: 0
+  m_Cameras: []
+  m_RendererIndex: -1
+  m_VolumeLayerMask:
+    serializedVersion: 2
+    m_Bits: 1
+  m_VolumeTrigger: {fileID: 0}
+  m_VolumeFrameworkUpdateModeOption: 2
+  m_RenderPostProcessing: 0
+  m_Antialiasing: 0
+  m_AntialiasingQuality: 2
+  m_StopNaN: 0
+  m_Dithering: 0
+  m_ClearDepth: 1
+  m_AllowXRRendering: 1
+  m_RequiresDepthTexture: 0
+  m_RequiresColorTexture: 0
+  m_Version: 2
 --- !u!1 &8317836304112315123
 GameObject:
   m_ObjectHideFlags: 0
@@ -1674,16 +1708,29 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 10
+  skinNum: 0
   movePlayer: 3
   maxSpeed: 50
   dodgeSpeed: 0.3
   playerPos: 1
+  defaultSkin: []
+  transparentSkin: []
   distance: 0
-  movePositions: fdffffff0000000003000000
+  movePositions: []
+  ship: {fileID: 0}
+  mesh: []
+  shipLight: {fileID: 0}
+  shipLightDamage: {fileID: 0}
+  sparks: {fileID: 0}
   coinPickUp: {fileID: 0}
+  hurtSound: {fileID: 0}
   audioSource: {fileID: 0}
   nitroActive: 0
   coins: 0
+  displayCoins: 0
   health: 0
   maxHealth: 0
   beenHit: 0
+  playerVolume: {fileID: 0}
+  motionBlurOn: 0
+  levelGenerator: {fileID: 0}
