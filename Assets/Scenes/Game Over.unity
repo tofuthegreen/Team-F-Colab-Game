@@ -7407,6 +7407,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1256243129}
   - component: {fileID: 1256243128}
+  - component: {fileID: 1256243130}
   m_Layer: 0
   m_Name: UI
   m_TagString: Untagged
@@ -7443,6 +7444,20 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1256243130
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1256243127}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d9ea2861d131b2043a2354f2534b5b43, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  audioSource: {fileID: 5738956170750094435}
+  clickNoise: {fileID: 8300000, guid: c4b706218d9e9c34dbf09b4360d18c3a, type: 3}
 --- !u!1 &1259023224
 GameObject:
   m_ObjectHideFlags: 0
@@ -8442,6 +8457,18 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
+      - m_Target: {fileID: 1256243130}
+        m_TargetAssemblyTypeName: ButtonSound, Assembly-CSharp
+        m_MethodName: ClickSound
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
       - m_Target: {fileID: 1256243128}
         m_TargetAssemblyTypeName: StageSelector, Assembly-CSharp
         m_MethodName: MainMenu
@@ -10421,6 +10448,18 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
+      - m_Target: {fileID: 1256243130}
+        m_TargetAssemblyTypeName: ButtonSound, Assembly-CSharp
+        m_MethodName: ClickSound
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
       - m_Target: {fileID: 1256243128}
         m_TargetAssemblyTypeName: StageSelector, Assembly-CSharp
         m_MethodName: Mainlevel
@@ -15078,7 +15117,7 @@ AudioSource:
   m_GameObject: {fileID: 432356810622847578}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
+  OutputAudioMixerGroup: {fileID: -9171960251298230101, guid: a539881b777285b4a8b36a2cd9c9f41a, type: 2}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 1
   m_Volume: 1
