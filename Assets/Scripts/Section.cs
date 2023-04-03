@@ -8,7 +8,7 @@ public class Section : MonoBehaviour
     public MovePlayer player;
     public bool inTile;
     public GameObject[] coinSpawnPoints;
-    public GameObject coinGroup, coin, nitro, rock, rock2,spike;
+    public GameObject coinGroup, coin,coinGroupBig, nitro, rock, rock2,spike;
     public GameObject[] coins;
 
     public GameObject[] obstaclesSpawn;
@@ -129,10 +129,15 @@ public class Section : MonoBehaviour
                 int rnd = Random.Range(0, 100);
                 if (rnd > 80 + levelGenerator.difficulty)
                 {
-                    int coinRnd = Random.Range(0, 2);
-                    if (coinRnd == 1)
+                    int coinRnd = Random.Range(0, 3);
+                    if (coinRnd == 0)
                     {
                         coins[i] = Instantiate(coinGroup, new Vector3(obstaclesSpawn[i].transform.position.x, obstaclesSpawn[i].transform.position.y + 1f, obstaclesSpawn[i].transform.position.z), Quaternion.identity, coinsParent);
+
+                    }
+                    if (coinRnd == 1)
+                    {
+                        coins[i] = Instantiate(coinGroupBig, new Vector3(obstaclesSpawn[i].transform.position.x, obstaclesSpawn[i].transform.position.y + 1f, obstaclesSpawn[i].transform.position.z), Quaternion.identity, coinsParent);
 
                     }
                     else
@@ -152,7 +157,7 @@ public class Section : MonoBehaviour
         {
             if (obstaclesTest[i] == 0)
             {
-                int rnd = Random.Range(1, 10);
+                int rnd = Random.Range(1, 20);
                 if (rnd < 2)
                 {
                     Instantiate(nitro, new Vector3(obstaclesSpawn[i].transform.position.x, obstaclesSpawn[i].transform.position.y + 1f, obstaclesSpawn[i].transform.position.z), Quaternion.identity, nitroParent);

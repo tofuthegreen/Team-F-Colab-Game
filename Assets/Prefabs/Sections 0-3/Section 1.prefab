@@ -1124,6 +1124,7 @@ MonoBehaviour:
   - {fileID: 1326897081551066392}
   coinGroup: {fileID: 424198541073534025, guid: 65187b6850a97154fb443bfa25ec4fd1, type: 3}
   coin: {fileID: 4041073809281567357, guid: 21704ac9108df1548ac61913b0ee1027, type: 3}
+  coinGroupBig: {fileID: 3289154160779856369, guid: 401b8088c2fcf594bbb5f2bbde14464d, type: 3}
   nitro: {fileID: 2343354839522077488, guid: 026533c5c1306064eae6fc8175d130dd, type: 3}
   rock: {fileID: 8511242091552838057, guid: 5f84e797c2432af4d86ec4a588af5765, type: 3}
   rock2: {fileID: 3488885341827510097, guid: 45faad927a6cd16419bc050521df110f, type: 3}
@@ -1148,8 +1149,6 @@ MonoBehaviour:
   nitroSpawns:
   - {fileID: 347698432931687926}
   - {fileID: 843729254090096627}
-  lightOff: {fileID: 0}
-  WindowColour: {fileID: 2100000, guid: 1ecf7a41a34ec154bb135632ae448f55, type: 2}
 --- !u!1001 &1756198108516841484
 PrefabInstance:
   m_ObjectHideFlags: 0
