@@ -5,6 +5,7 @@ using UnityEngine.Rendering.Universal;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.VFX;
+using UnityEngine.Rendering.Universal;
 public class MovePlayer : MonoBehaviour
 {
     //Calls the character controller functionality
@@ -54,19 +55,18 @@ public class MovePlayer : MonoBehaviour
 
     bool moveInProgress;
 
-    public Volume playerVolume;
-    VolumeProfile playerProfile;
-    MotionBlur motionBlur;
     public bool motionBlurOn;
     public LevelGeneration levelGenerator;
+    public OptionsMenu options;
     // Start is called before the first frame update
     void Start()
     {
+        options.OptionsLoad();
+        options.ChangeAA(options.AAmode);
         Cursor.visible = false;
         Cursor.lockState = CursorLockMode.Locked;
         characterController = GetComponent<CharacterController>();
         startingPos = transform.position;
-        playerProfile = playerVolume.profile;
         SaveSystem.LoadPlayer(this);
         skinNum = SaveSystem.LoadData("skin");
         SkinChange(skinNum);
@@ -85,21 +85,11 @@ public class MovePlayer : MonoBehaviour
 
         if (nitroActive == true)
         {
-            MotionBlur tmp;
-            if (playerProfile.TryGet<MotionBlur>(out tmp))
-            {
-                motionBlur = tmp;
-                motionBlur.active = true;
-            }
+           
         }
         else if (nitroActive == false)
         {
-            MotionBlur tmp;
-            if (playerProfile.TryGet<MotionBlur>(out tmp))
-            {
-                motionBlur = tmp;
-                motionBlur.active = false;
-            }
+            
         }
        
 
@@ -181,7 +171,7 @@ public class MovePlayer : MonoBehaviour
                 Debug.Log("You died");
                 VariableTransfer.distance = distance;
                 SaveGame();
-                Cursor.visible = false;
+                Cursor.visible = true;
                 Cursor.lockState = CursorLockMode.None;
                 SceneManager.LoadScene(2);
             }

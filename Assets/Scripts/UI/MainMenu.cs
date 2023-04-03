@@ -9,8 +9,11 @@ using UnityEngine.SceneManagement;
 /// </summary>
 public class MainMenu : MonoBehaviour
 {
+    public OptionsMenu options;
     private void Start()
     {
+        SaveSystem.LoadOptions(options);
+        options.ChangeAA(options.AAmode);
         Cursor.visible = true;
         Cursor.lockState = CursorLockMode.None;
     }

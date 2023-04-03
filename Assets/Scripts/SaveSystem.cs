@@ -93,14 +93,14 @@ public static class SaveSystem
         stream.Close();
         Debug.Log("Saved audio main " + main + " sfx " + sfx + " music " + music);
     }
-    public static void SaveOptions(bool motionBlur, bool toggleOn)
+    public static void SaveOptions(bool motionBlur, int aaMode)
     {
         BinaryFormatter formatter = new BinaryFormatter();
         string path = Application.persistentDataPath + "/options.txt";
         FileStream stream = new FileStream(path, FileMode.Create);
 
         formatter.Serialize(stream, motionBlur);
-        formatter.Serialize(stream, toggleOn);
+        formatter.Serialize(stream, aaMode);
         stream.Close();
     }
     public static void LoadOptions(OptionsMenu options)
@@ -111,7 +111,7 @@ public static class SaveSystem
             BinaryFormatter formatter = new BinaryFormatter();
             FileStream stream = new FileStream(path, FileMode.Open);
             options.motionBlurOn = (bool)formatter.Deserialize(stream);
-            options.toggle.isOn = (bool)formatter.Deserialize(stream);
+            options.AAmode = (int)formatter.Deserialize(stream);
             stream.Close();
 
         }
