@@ -23,4 +23,9 @@ public class AudioManager : MonoBehaviour
         sfx.value = sfxVolume;
         music.value = musicVolume;
     }
+
+    private void Awake()
+    {
+        
+    }
 }
