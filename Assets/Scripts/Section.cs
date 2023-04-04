@@ -32,6 +32,7 @@ public class Section : MonoBehaviour
         CoinSpawn();
         NitroSpawn();
     }
+    //Generates obstacles depending on the type of tile it is
     public void SpawnObstacles()
     {
         if (carTile == false)
