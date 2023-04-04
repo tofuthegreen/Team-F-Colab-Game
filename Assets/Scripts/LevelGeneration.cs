@@ -25,30 +25,46 @@ public class LevelGeneration : MonoBehaviour
     }
     public void SpawnTile()
     {
-                if(spawnCount < 5)
-                {
-                    tileRND = 0;
-                }
-                else if (spawnCount < 30)
-                {
-                    tileRND = 1;
-                    difficulty = 0;
-                }
-                else if(spawnCount < 60)
-                {
-                    difficulty = 1;
-                    tileRND = Random.Range(1,3);
-                }
-                else
-                {
-                    difficulty = 2;
-                    tileRND = Random.Range(1, 3);
-                }
-            GameObject temp = Instantiate(sections[tileRND], nextSpawnPoint, Quaternion.identity);
-            temp.name = "Section " + spawnCount;
-            nextSpawnPoint = temp.transform.GetChild(currentDirection).transform.position;
-            Debug.Log("Section " + spawnCount + " spawned");
-            spawnCount++;
+        if(spawnCount < 5)
+        {
+        tileRND = 0;
+        }
+        else if (spawnCount < 30)
+        {
+            tileRND = 1;
+            difficulty = 0;
+        }
+        else if(spawnCount < 60)
+        {
+            difficulty = 1;
+            int rnd = Random.Range(0, 100);
+            if(rnd < 80)
+            {
+                tileRND = 1;
+            }
+            else
+            {
+                tileRND = 2;
+            }
+        }
+        else
+        {
+            difficulty = 2;
+            int rnd = Random.Range(0, 100);
+            if (rnd < 70)
+            {
+                tileRND = 1;
+            }
+            else
+            {
+                tileRND = 2;
+            }
+        }
+        GameObject temp = Instantiate(sections[tileRND], nextSpawnPoint, Quaternion.identity);
+        temp.name = "Section " + spawnCount;
+        nextSpawnPoint = temp.transform.GetChild(currentDirection).transform.position;
+        Debug.Log("Section " + spawnCount + " spawned");
+        spawnCount++;
     }
     public void StartTiles()
     {
