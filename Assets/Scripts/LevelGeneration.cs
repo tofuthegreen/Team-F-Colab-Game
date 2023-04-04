@@ -33,18 +33,16 @@ public class LevelGeneration : MonoBehaviour
                 {
                     tileRND = 1;
                     difficulty = 0;
-                    //tileRND = Random.Range(1, 4);
                 }
                 else if(spawnCount < 60)
                 {
                     difficulty = 1;
-                    //tileRND = Random.Range(1,7);
+                    tileRND = Random.Range(1,3);
                 }
                 else
                 {
-                    tileRND = 1;
                     difficulty = 2;
-                    //tileRND = Random.Range(1, sections.Length);
+                    tileRND = Random.Range(1, 3);
                 }
             GameObject temp = Instantiate(sections[tileRND], nextSpawnPoint, Quaternion.identity);
             temp.name = "Section " + spawnCount;

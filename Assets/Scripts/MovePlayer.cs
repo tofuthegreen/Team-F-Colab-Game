@@ -168,16 +168,14 @@ public class MovePlayer : MonoBehaviour
             {
                 audioSource.clip = hurtSound;
                 audioSource.Play();
-                Debug.Log("You died");
-                VariableTransfer.distance = distance;
                 SaveGame();
                 Cursor.visible = true;
                 Cursor.lockState = CursorLockMode.None;
+                VariableTransfer.currentDistance = distance;
                 SceneManager.LoadScene(2);
             }
             else
             {
-                Debug.Log("Been Hit");
                 shipLightDamage.enabled = true;
                 shipLight.enabled = false;
                 sparks.Play();
@@ -211,6 +209,7 @@ public class MovePlayer : MonoBehaviour
     
    public void SaveGame()
     {
+        VariableTransfer.distance = distance;
         SaveSystem.CompareDistance(distance, SaveSystem.LoadData("distance"));
         SaveSystem.AddCoins(coins, SaveSystem.LoadData("coins"));
     }
