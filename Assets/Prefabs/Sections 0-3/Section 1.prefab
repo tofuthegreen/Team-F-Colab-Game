@@ -211,7 +211,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1146076988408422655}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -1.99, y: -5.17, z: 20.78}
+  m_LocalPosition: {x: -2, y: -5.17, z: 20.78}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -287,7 +287,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2060840933417372468}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -1.94, y: -5.17, z: -0.3800001}
+  m_LocalPosition: {x: -2, y: -5.17, z: -0.3800001}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -363,7 +363,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2401727562265959326}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -4.55, y: -5.17, z: -0.38}
+  m_LocalPosition: {x: -4.75, y: -5.17, z: -0.38}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -472,7 +472,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3401430468063591969}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.79, y: -5.17, z: -0.3800001}
+  m_LocalPosition: {x: 0.8, y: -5.17, z: -0.3800001}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -819,7 +819,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7338655287975798952}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.52, y: -5.17, z: 20.78}
+  m_LocalPosition: {x: 0.8, y: -5.17, z: 20.78}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -864,7 +864,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7534392149845219085}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.79, y: -5.17, z: 11.13}
+  m_LocalPosition: {x: 0.8, y: -5.17, z: 11.13}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -909,7 +909,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7791207893918720311}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -2.04, y: -5.17, z: 11.13}
+  m_LocalPosition: {x: -2, y: -5.17, z: 11.13}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1124,11 +1124,13 @@ MonoBehaviour:
   - {fileID: 1326897081551066392}
   coinGroup: {fileID: 424198541073534025, guid: 65187b6850a97154fb443bfa25ec4fd1, type: 3}
   coin: {fileID: 4041073809281567357, guid: 21704ac9108df1548ac61913b0ee1027, type: 3}
+  coinGroupBig: {fileID: 3289154160779856369, guid: 401b8088c2fcf594bbb5f2bbde14464d, type: 3}
   nitro: {fileID: 2343354839522077488, guid: 026533c5c1306064eae6fc8175d130dd, type: 3}
   rock: {fileID: 8511242091552838057, guid: 5f84e797c2432af4d86ec4a588af5765, type: 3}
   rock2: {fileID: 3488885341827510097, guid: 45faad927a6cd16419bc050521df110f, type: 3}
   spike: {fileID: 3179588847852289726, guid: 272d4b6b0a9e44b4db4aa2e595e6fa56, type: 3}
   coins: []
+  cars: []
   obstaclesSpawn:
   - {fileID: 2401727562265959326}
   - {fileID: 2060840933417372468}
@@ -1145,11 +1147,10 @@ MonoBehaviour:
   nitroParent: {fileID: 5704423101374938912}
   obstaclesTest: 000000000000000000000000000000000000000000000000000000000000000000000000
   emptyRoad: 0
+  carTile: 0
   nitroSpawns:
   - {fileID: 347698432931687926}
   - {fileID: 843729254090096627}
-  lightOff: {fileID: 0}
-  WindowColour: {fileID: 2100000, guid: 1ecf7a41a34ec154bb135632ae448f55, type: 2}
 --- !u!1001 &1756198108516841484
 PrefabInstance:
   m_ObjectHideFlags: 0

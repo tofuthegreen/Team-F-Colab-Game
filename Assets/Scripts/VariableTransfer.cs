@@ -8,4 +8,5 @@ public class VariableTransfer : MonoBehaviour
     public static int coins;
     public static int distance;
     public static int skinnum;
+    public static int currentDistance;
 }
