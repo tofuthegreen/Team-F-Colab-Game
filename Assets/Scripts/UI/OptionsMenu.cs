@@ -24,10 +24,7 @@ public class OptionsMenu : MonoBehaviour
     public MotionBlur motionBlur;
     public VolumeProfile playerProfile;
     public Volume playerVolume;
-    /// <summary>
-    /// Methods to allow user to change volumes with sliders
-    /// </summary>
-    /// <param value to pass into audio mixer="volume"></param>
+
     private void Start()
     {
         playerProfile.TryGet<MotionBlur>(out MotionBlur tmp);
@@ -45,8 +42,12 @@ public class OptionsMenu : MonoBehaviour
         mainVolume = volume;
         audioMixer.SetFloat("Volume", mainVolume); ;
         
-    }    
-    
+    }
+
+    /// <summary>
+    /// Methods to allow user to change volumes with sliders
+    /// </summary>
+    /// <param value to pass into audio mixer="volume"></param>
     public void ChangeMusicVolume(float volume)
     {
         musicVolume = volume;
@@ -60,6 +61,15 @@ public class OptionsMenu : MonoBehaviour
         audioMixer.SetFloat("SFXVolume", sfxVolume); ;
         
     }
+
+    /// <summary>
+    /// Method to change music track in game scene
+    /// </summary>
+    public void ChangeMusic(int musicTrack)
+    {
+        audioManager.currentMusicTrack = musicTrack;
+    }
+
     public void ChangeMotionBlur(bool onValueChanged)
     {
         if(onValueChanged == false)
@@ -99,5 +109,6 @@ public class OptionsMenu : MonoBehaviour
     {
         SaveSystem.SaveAudio(mainVolume, sfxVolume, musicVolume);
         SaveSystem.SaveOptions(motionBlurOn,AAmode);
+        SaveSystem.SaveData(audioManager.currentMusicTrack, "currentTrack");
     }
 }
