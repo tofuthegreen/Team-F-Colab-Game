@@ -20,7 +20,7 @@ public class OptionsMenu : MonoBehaviour
     public float mainVolume, sfxVolume, musicVolume;
     public bool motionBlurOn;
     public int AAmode;
-    public TMP_Dropdown dropDown;
+    public TMP_Dropdown dropDown,musicDropDown;
     public MotionBlur motionBlur;
     public VolumeProfile playerProfile;
     public Volume playerVolume;
@@ -32,6 +32,7 @@ public class OptionsMenu : MonoBehaviour
         dropDown.value = AAmode;
         toggle.SetIsOnWithoutNotify(motionBlurOn);
         motionBlur.active = motionBlurOn;
+        musicDropDown.value = SaveSystem.LoadData("currentTrack");
     }
     public void OptionsLoad()
     {
@@ -68,6 +69,7 @@ public class OptionsMenu : MonoBehaviour
     public void ChangeMusic(int musicTrack)
     {
         audioManager.currentMusicTrack = musicTrack;
+        musicDropDown.value = musicTrack;
     }
 
     public void ChangeMotionBlur(bool onValueChanged)
