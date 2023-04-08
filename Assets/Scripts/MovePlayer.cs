@@ -50,7 +50,7 @@ public class MovePlayer : MonoBehaviour
 
     public int health;
     public int maxHealth;
-    public bool beenHit;
+    public bool beenHit,hitInvinc;
     float healTime;
 
     bool moveInProgress;
@@ -111,7 +111,7 @@ public class MovePlayer : MonoBehaviour
 
         
 
-        if(beenHit == true)
+        if(beenHit == true && hitInvinc == false)
         {
             healTime -= Time.deltaTime;
             if(healTime <= 0)
@@ -124,6 +124,16 @@ public class MovePlayer : MonoBehaviour
                 healTime = 3f;
             }
         }
+        else if(hitInvinc == true)
+        {
+            healTime -= Time.deltaTime;
+            if(healTime < 2)
+            {
+                hitInvinc = false;
+                healTime = 3f;
+            }
+        }
+        
 
     }
     // A coroutine function that smoothly interpolates the position of a game object from its current position to a target position over a specified duration, while triggering an animation during the movement.
@@ -173,6 +183,7 @@ public class MovePlayer : MonoBehaviour
             }
             else
             {
+                hitInvinc = true;
                 StartCoroutine(DamageSpeed());
             }
         }

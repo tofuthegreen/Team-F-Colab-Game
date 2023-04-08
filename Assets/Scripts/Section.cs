@@ -39,8 +39,8 @@ public class Section : MonoBehaviour
         {
             for (int i = 0; i < obstaclesTest.Length; i++)
             {
-                int spawnRND = Random.Range(0, 3);
-                if (spawnRND == 0 && obstaclesTest[i] != 1)
+                int spawnRND = Random.Range(0, 100);
+                if (spawnRND < 20 && obstaclesTest[i] != 1)
                 {
                     obstaclesTest[i] = 1;
                 }
@@ -214,7 +214,7 @@ public class Section : MonoBehaviour
         {
             if (obstaclesTest[i] == 0)
             {
-                int rnd = Random.Range(1, 20);
+                int rnd = Random.Range(1, 100);
                 if (rnd < 2)
                 {
                     Instantiate(nitro, new Vector3(obstaclesSpawn[i].transform.position.x, obstaclesSpawn[i].transform.position.y + 1f, obstaclesSpawn[i].transform.position.z), Quaternion.identity, nitroParent);
