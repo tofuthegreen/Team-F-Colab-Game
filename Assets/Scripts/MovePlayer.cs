@@ -79,22 +79,9 @@ public class MovePlayer : MonoBehaviour
         shipLightDamage.enabled = false;
         ship.speed = (1 - dodgeSpeed) + 1;
     }
-
-
     // Update is called once per frame
     void Update()
     {
-
-        if (nitroActive == true)
-        {
-           
-        }
-        else if (nitroActive == false)
-        {
-            
-        }
-       
-
         Vector3 move = new Vector3(0, 0, speed);
         currentPos = transform.position;
         if (moveInProgress == false)
@@ -139,28 +126,36 @@ public class MovePlayer : MonoBehaviour
         }
 
     }
-
+    // A coroutine function that smoothly interpolates the position of a game object from its current position to a target position over a specified duration, while triggering an animation during the movement.
     IEnumerator LerpPosition(Vector3 targetPosition, float duration, string animation)
     {
+        // Set moveInProgress flag to true to indicate that the object is currently moving.
         moveInProgress = true;
+
+        // Trigger the specified animation on the ship object.
         ship.SetTrigger(animation);
+
+        // Initialize time to 0 and startPosition to the current position of the object.
         float time = 0f;
         Vector3 startPosition = transform.position;
+
+        // Loop until the time elapsed since the start of the interpolation reaches the specified duration plus a buffer of 0.03 seconds.
         while (time < duration + 0.03)
         {
-            
+            // Interpolate the position of the object using the Lerp method and update the object's position.
             transform.position = Vector3.Lerp(startPosition, targetPosition, time / duration);
+
+            // Increment the time elapsed since the start of the interpolation by the time since the last frame.
             time += Time.deltaTime;
-            
+
+            // Yield control back to the coroutine scheduler to allow other coroutines to run in the meantime.
             yield return null;
         }
-        
+
+        // Once the interpolation is complete, set the object's position to the target position and set moveInProgress flag to false to indicate that the object has finished moving.
         transform.position = targetPosition;
         moveInProgress = false;
     }
-
-    
-
     private void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Obstacle"))
@@ -178,22 +173,45 @@ public class MovePlayer : MonoBehaviour
             }
             else
             {
-                shipLightDamage.enabled = true;
-                shipLight.enabled = false;
-                sparks.Play();
-                speed /= 2;
-                audioSource.clip = hurtSound;
-                audioSource.Play();
-                ship.SetTrigger("TakesDamage");
-                if (speed < 20f)
-                {
-                    speed = 20f;
-                }
-                beenHit = true;
+                StartCoroutine(DamageSpeed());
             }
         }
 
     }
+
+    // A coroutine that handles the ship taking damage and slowing down temporarily.
+    IEnumerator DamageSpeed()
+    {
+        // Enable the light damage effect and disable the normal ship light.
+        shipLightDamage.enabled = true;
+        shipLight.enabled = false;
+
+        // Play the sparks particle effect and the hurt sound.
+        sparks.Play();
+        audioSource.clip = hurtSound;
+        audioSource.Play();
+
+        // Trigger the TakesDamage animation on the ship.
+        ship.SetTrigger("TakesDamage");
+
+        // Halve the ship's speed and calculate the speed difference.
+        speed /= 2;
+        float speedDifference = speed / 2;
+
+        // If the ship's speed is below a certain threshold, set it to the minimum speed.
+        if (speed < 20f)
+        {
+            speed = 20f;
+        }
+
+        // Wait for 3 seconds before continuing.
+        yield return new WaitForSeconds(3f);
+
+        // Set the "been hit" flag to true and restore the ship's speed.
+        beenHit = true;
+        speed += speedDifference;
+    }
+
     void CheckSpeed()
     {
         if (distance > 0f)
@@ -207,15 +225,13 @@ public class MovePlayer : MonoBehaviour
             
         }
     }
-
-    
    public void SaveGame()
     {
         VariableTransfer.distance = distance;
         SaveSystem.CompareDistance(distance, SaveSystem.LoadData("distance"));
         SaveSystem.AddCoins(coins, SaveSystem.LoadData("coins"));
     }
-    public void SkinChange(int skin)
+   public void SkinChange(int skin)
     {
         switch (skin)
         {
