@@ -40,7 +40,9 @@ public class Section : MonoBehaviour
             for (int i = 0; i < obstaclesTest.Length; i++)
             {
                 int spawnRND = Random.Range(0, 100);
-                if (spawnRND < 20 && obstaclesTest[i] != 1)
+                int obstaclechance = levelGenerator.difficulty * Random.Range(1, 11);
+                Debug.Log(gameObject.name + " ObstacleChance is " + obstaclechance);
+                if (spawnRND < 20 + obstaclechance && obstaclesTest[i] != 1)
                 {
                     obstaclesTest[i] = 1;
                 }
