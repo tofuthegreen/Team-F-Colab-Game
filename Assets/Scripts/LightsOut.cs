@@ -24,6 +24,8 @@ public class LightsOut : MonoBehaviour
     //Lap starts at 25 to give player a period from start to get ready (can be adjusted for difficulty)
     private float lap = 25;
 
+    public float lerp = 0f;
+    public float duration = 2f;
     /// <summary>
     /// Method for triggering lights out after an amount of time and setting a new random time. Sets timer to -5 so it doesn't interupt the delta time timer
     /// </summary>
@@ -56,8 +58,12 @@ public class LightsOut : MonoBehaviour
     /// </summary>
     public void LightsOff()
     {
-        RenderSettings.ambientIntensity = dark;
-        RenderSettings.fogDensity = fogDark;
+        
+        lerp += Time.deltaTime / duration;
+        RenderSettings.ambientIntensity = (float)Mathf.Lerp(RenderSettings.ambientIntensity,dark, lerp);
+        RenderSettings.fogDensity = (float)Mathf.Lerp(RenderSettings.fogDensity, fogDark, lerp);
+        Debug.Log("fog density " + RenderSettings.fogDensity);
+
     }    
     
     public void LightsOn()

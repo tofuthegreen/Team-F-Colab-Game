@@ -6,13 +6,15 @@ using UnityEngine.UI;
 
 public class Upgrades : MonoBehaviour
 {
-   public TextMeshProUGUI coinsText,speedText,CostText,noCoins,buttonText;
-   public bool[] boughtSkin;
-   public int[] skinCost;
-   public int speedLvl = 1;
-   public int speedCost = 100;
-   int coins;
-   public ChangeSkin skinChanger;
+    public TextMeshProUGUI coinsText,speedText,CostText,nitroCostText,noCoins,buttonText,nitroText;
+    public bool[] boughtSkin;
+    public int[] skinCost;
+    public int speedLvl = 1;
+    public int speedCost = 100;
+    public int nitroLvl = 1;
+    public int nitroCost = 200;
+    int coins;
+    public ChangeSkin skinChanger;
     public DropDown dropDown;
     public int selectedSkin,currentSkin;
     void Start()
@@ -25,6 +27,8 @@ public class Upgrades : MonoBehaviour
         dropDown.UpdateList();
         speedText.text = "Speed Level: " + speedLvl;
         CostText.text = "Cost: " + speedCost;
+        nitroText.text = "Boost Level: " + nitroLvl;
+        nitroCostText.text = "Cost: " + nitroCost;
         boughtSkin[0] = true;
         dropDown.dropDown.value = currentSkin;
         HandleInputData(currentSkin);
@@ -53,6 +57,30 @@ public class Upgrades : MonoBehaviour
             CostText.text = "Maxed out"; 
         }
 
+    }
+    public void NitroUpgrade()
+    {
+        costCalculator(nitroCost, nitroLvl);
+
+        if (coins >= nitroCost && nitroLvl != 5)
+        {
+            VariableTransfer.maxDuration += 2;
+            coins -= nitroCost;
+            nitroLvl++;
+            nitroCost *= nitroLvl;
+            coinsText.text = coins.ToString();
+            nitroText.text = "Boost Level: " + nitroLvl;
+            nitroCostText.text = "Cost: " + nitroCost;
+
+        }
+        else if (coins < nitroCost)
+        {
+            StartCoroutine(Duration(nitroCostText, "Not enough Coins", "Cost: " + nitroCost));
+        }
+        else if (nitroLvl == 5)
+        {
+            nitroCostText.text = "Maxed out";
+        }
     }
     public void HandleInputData(int val)
     {
@@ -114,10 +142,10 @@ public class Upgrades : MonoBehaviour
             skinChanger.SkinChange(SaveSystem.LoadData("skin"));
             dropDown.dropDown.value = currentSkin;
         }
-        SaveSystem.SavePlayer(VariableTransfer.speed);
+        SaveSystem.SavePlayer(VariableTransfer.speed,VariableTransfer.maxDuration);
         SaveSystem.SaveData(VariableTransfer.skinnum, "skin");
         SaveSystem.SaveData(coins,"coins");
-        SaveSystem.SaveShop(speedLvl, speedCost,boughtSkin);
+        SaveSystem.SaveShop(speedLvl, speedCost,boughtSkin,nitroLvl,nitroCost);
     }
 
     void costCalculator(float cost, int lvl)

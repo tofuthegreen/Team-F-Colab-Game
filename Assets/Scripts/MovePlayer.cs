@@ -6,6 +6,8 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.VFX;
 using UnityEngine.Rendering.Universal;
+using Cinemachine;
+
 public class MovePlayer : MonoBehaviour
 {
     //Calls the character controller functionality
@@ -14,6 +16,7 @@ public class MovePlayer : MonoBehaviour
     //contains all variables for player movement
     #region playerVariables
     public float speed;
+    public float currentSpeed;
     public int skinNum;
     [SerializeField]
     int movePlayer = 3;
@@ -37,20 +40,22 @@ public class MovePlayer : MonoBehaviour
     Animator ship;
 
     public MeshRenderer[] mesh;
-    public Light shipLight,shipLightDamage;
+    public Light shipLight, shipLightDamage;
 
     public VisualEffect sparks;
 
-    public AudioClip coinPickUp,hurtSound;
+    public AudioClip coinPickUp, hurtSound;
     public AudioSource audioSource;
 
-    public bool nitroActive = false;
-    public int coins,displayCoins;
+    public int coins, displayCoins;
     int value = 1;
 
     public int health;
     public int maxHealth;
-    public bool beenHit,hitInvinc;
+    public bool beenHit, hitInvinc, speedActive;
+    public float duration, maxDuration, speedGain;
+    public GameObject shield;
+    public CinemachineVirtualCamera mainCamera;
     float healTime;
 
     bool moveInProgress;
@@ -58,26 +63,30 @@ public class MovePlayer : MonoBehaviour
     public bool motionBlurOn;
     public LevelGeneration levelGenerator;
     public OptionsMenu options;
+
     // Start is called before the first frame update
     void Start()
     {
-        Time.timeScale = 1f;
 
+        shield.SetActive(false);
+        sparks.Stop();
+        Time.timeScale = 1f;
+        currentSpeed = 20f;
+        speedActive = true;
+        speedGain = 0.0001f;
         options.OptionsLoad();
         options.ChangeAA(options.AAmode);
+        SaveSystem.LoadPlayer(this);
         Cursor.visible = false;
         Cursor.lockState = CursorLockMode.Locked;
         characterController = GetComponent<CharacterController>();
         startingPos = transform.position;
-        SaveSystem.LoadPlayer(this);
         skinNum = SaveSystem.LoadData("skin");
-        SkinChange(skinNum);
         displayCoins = SaveSystem.LoadData("coins");
         coins = 0;
-        beenHit = true;
-        sparks.Stop();
         shipLightDamage.enabled = false;
         ship.speed = (1 - dodgeSpeed) + 1;
+        Debug.Log("Start finished");
     }
     // Update is called once per frame
     void Update()
@@ -103,18 +112,35 @@ public class MovePlayer : MonoBehaviour
                 }
             }
         }
-        
 
 
-        characterController.Move(move * Time.deltaTime);
+
+        characterController.Move(move * Time.deltaTime); 
         distance = (int)(currentPos - startingPos).magnitude;
+        if (Time.timeScale > 0 && beenHit == false && speed != maxSpeed && speedActive == false)
+        {
+            speed += speedGain;
+        }
+        if (speedActive == true)
+        {
+            shield.SetActive(true);
+            StartCoroutine(ChangeFOV(mainCamera, 110, 0.5f));
+            duration -= Time.deltaTime;
+            if (duration <= 0)
+            {
+                StartCoroutine(ChangeFOV(mainCamera, 100, 0.5f));
+                shield.SetActive(false);
+                duration = maxDuration;
+                speedActive = false;
+                speed = currentSpeed;
+                speedActive = false;
+            }
+        }
 
-        
-
-        if(beenHit == true && hitInvinc == false)
+        if (beenHit == true && hitInvinc == false)
         {
             healTime -= Time.deltaTime;
-            if(healTime <= 0)
+            if (healTime <= 0)
             {
                 shipLightDamage.enabled = false;
                 shipLight.enabled = true;
@@ -124,17 +150,19 @@ public class MovePlayer : MonoBehaviour
                 healTime = 3f;
             }
         }
-        else if(hitInvinc == true)
-        {
-            healTime -= Time.deltaTime;
-            if(healTime < 2)
-            {
-                hitInvinc = false;
-                healTime = 3f;
-            }
-        }
-        
 
+
+    }
+    IEnumerator ChangeFOV(CinemachineVirtualCamera cam, float endFOV, float duration)
+    {
+        float startFOV = cam.m_Lens.FieldOfView;
+        float time = 0;
+        while (time < duration)
+        {
+            cam.m_Lens.FieldOfView = Mathf.Lerp(startFOV, endFOV, time / duration);
+            yield return null;
+            time += Time.deltaTime;
+        }
     }
     // A coroutine function that smoothly interpolates the position of a game object from its current position to a target position over a specified duration, while triggering an animation during the movement.
     IEnumerator LerpPosition(Vector3 targetPosition, float duration, string animation)
@@ -168,10 +196,10 @@ public class MovePlayer : MonoBehaviour
     }
     private void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag("Obstacle"))
+        if (other.CompareTag("Obstacle") && speedActive == false && hitInvinc == false)
         {
             health--;
-            if(health <= -1)
+            if (health <= -1)
             {
                 audioSource.clip = hurtSound;
                 audioSource.Play();
@@ -184,6 +212,7 @@ public class MovePlayer : MonoBehaviour
             else
             {
                 hitInvinc = true;
+                beenHit = true;
                 StartCoroutine(DamageSpeed());
             }
         }
@@ -206,6 +235,7 @@ public class MovePlayer : MonoBehaviour
         ship.SetTrigger("TakesDamage");
 
         // Halve the ship's speed and calculate the speed difference.
+        currentSpeed = speed;
         speed /= 2;
         float speedDifference = speed / 2;
 
@@ -216,11 +246,12 @@ public class MovePlayer : MonoBehaviour
         }
 
         // Wait for 3 seconds before continuing.
-        yield return new WaitForSeconds(3f);
-
-        // Set the "been hit" flag to true and restore the ship's speed.
-        beenHit = true;
-        speed += speedDifference;
+        yield return new WaitForSeconds(1f);
+        hitInvinc = false;
+        //yield return new WaitForSeconds(2f);
+        //// Set the "been hit" flag to true and restore the ship's speed.
+        //beenHit = false;
+        //speed += speedDifference;
     }
 
     void CheckSpeed()
@@ -229,45 +260,17 @@ public class MovePlayer : MonoBehaviour
         {
             if (speed < maxSpeed)
             {
-                    float multiplier = (1f + levelGenerator.difficulty)* Time.deltaTime;
-                    speed += multiplier;
+                float multiplier = (1f + levelGenerator.difficulty) * Time.deltaTime;
+                speed += multiplier;
             }
-            
-            
+
+
         }
     }
-   public void SaveGame()
+    public void SaveGame()
     {
         VariableTransfer.distance = distance;
         SaveSystem.CompareDistance(distance, SaveSystem.LoadData("distance"));
         SaveSystem.AddCoins(coins, SaveSystem.LoadData("coins"));
-    }
-   public void SkinChange(int skin)
-    {
-        switch (skin)
-        {
-            case 0:
-                mesh[0].material = defaultSkin[1];
-                mesh[1].material = defaultSkin[4];
-                mesh[2].material = defaultSkin[2];
-                mesh[3].material = defaultSkin[2];
-                mesh[4].material = defaultSkin[3];
-                mesh[5].material = defaultSkin[2];
-                mesh[6].material = defaultSkin[2];
-                mesh[7].material = defaultSkin[1];
-                mesh[8].material = defaultSkin[0];
-                break;
-            case 1:
-                mesh[0].material = transparentSkin[1];
-                mesh[1].material = transparentSkin[4];
-                mesh[2].material = transparentSkin[2];
-                mesh[3].material = transparentSkin[2];
-                mesh[4].material = transparentSkin[3];
-                mesh[5].material = transparentSkin[2];
-                mesh[6].material = transparentSkin[2];
-                mesh[7].material = transparentSkin[1];
-                mesh[8].material = transparentSkin[0];
-                break;
-        }
     }
 }

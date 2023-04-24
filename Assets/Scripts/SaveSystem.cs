@@ -28,24 +28,26 @@ public static class SaveSystem
         SaveData(loadedCoins, savename);
     }
 
-    public static void SavePlayer(float speed)
+    public static void SavePlayer(float speed, float maxDuration)
     {
         BinaryFormatter formatter = new BinaryFormatter();
         string path = Application.persistentDataPath + "/player.txt";
         FileStream stream = new FileStream(path, FileMode.Create);
         formatter.Serialize(stream, speed);
+        formatter.Serialize(stream, maxDuration);
         stream.Close();
     }
     public static void LoadPlayer(MovePlayer player)
     {
         string path = Application.persistentDataPath + "/player.txt";
         string path2 = Application.persistentDataPath + "/options.txt";
-        if (File.Exists(path))
+        if (File.Exists(path) && File.Exists(path2))
         {
             BinaryFormatter formatter = new BinaryFormatter();
             FileStream stream = new FileStream(path, FileMode.Open);
             FileStream stream2 = new FileStream(path2, FileMode.Open);
             player.speed = (float)formatter.Deserialize(stream);
+            player.maxDuration = (float)formatter.Deserialize(stream);
             player.motionBlurOn = (bool)formatter.Deserialize(stream2);
             stream.Close();
         }
@@ -138,7 +140,7 @@ public static class SaveSystem
             Debug.LogError("No save file in " + path);
         }
     }
-    public static void SaveShop(int speedLvl, int speedCost,bool[]boughtskins)
+    public static void SaveShop(int speedLvl, int speedCost,bool[]boughtskins, int nitroLvl, int nitroCost)
     {
         BinaryFormatter formatter = new BinaryFormatter();
         string path = Application.persistentDataPath + "/shop.txt";
@@ -146,6 +148,8 @@ public static class SaveSystem
         formatter.Serialize(stream, speedLvl);
         formatter.Serialize(stream, speedCost);
         formatter.Serialize(stream, boughtskins);
+        formatter.Serialize(stream, nitroLvl);
+        formatter.Serialize(stream, nitroCost);
         stream.Close();
     }
     public static void LoadShop(Upgrades shop)
@@ -158,7 +162,8 @@ public static class SaveSystem
             shop.speedLvl = (int)formatter.Deserialize(stream);
             shop.speedCost = (int)formatter.Deserialize(stream);
             shop.boughtSkin = (bool[])formatter.Deserialize(stream);
-
+            shop.nitroLvl = (int)formatter.Deserialize(stream);
+            shop.nitroCost = (int)formatter.Deserialize(stream);
             stream.Close();
         }
         else

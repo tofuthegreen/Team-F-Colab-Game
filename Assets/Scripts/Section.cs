@@ -217,7 +217,7 @@ public class Section : MonoBehaviour
             if (obstaclesTest[i] == 0)
             {
                 int rnd = Random.Range(1, 100);
-                if (rnd < 2)
+                if (rnd < 10)
                 {
                     Instantiate(nitro, new Vector3(obstaclesSpawn[i].transform.position.x, obstaclesSpawn[i].transform.position.y + 1f, obstaclesSpawn[i].transform.position.z), Quaternion.identity, nitroParent);
                     obstaclesTest[i] = 3;
