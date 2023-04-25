@@ -58,11 +58,8 @@ public class LightsOut : MonoBehaviour
     /// </summary>
     public void LightsOff()
     {
-        
-        lerp += Time.deltaTime / duration;
-        RenderSettings.ambientIntensity = (float)Mathf.Lerp(RenderSettings.ambientIntensity,dark, lerp);
-        RenderSettings.fogDensity = (float)Mathf.Lerp(RenderSettings.fogDensity, fogDark, lerp);
-        Debug.Log("fog density " + RenderSettings.fogDensity);
+        RenderSettings.ambientIntensity = dark;
+        RenderSettings.fogDensity = fogDark;
 
     }    
     
