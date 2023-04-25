@@ -12,6 +12,7 @@ public class ShowDistance : MonoBehaviour
     public double distanceValue,coinsValue;
     double convertedDistance,convertedCoins;
 
+    //Displays the distance and coin value in the correct format depending on its value
     void Start()
     {
         distanceValue = SaveSystem.LoadData("distance");

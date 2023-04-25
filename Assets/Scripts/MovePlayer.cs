@@ -73,7 +73,7 @@ public class MovePlayer : MonoBehaviour
         Time.timeScale = 1f;
         currentSpeed = 20f;
         speedActive = true;
-        speedGain = 0.0001f;
+        speedGain = 0.0003f;
         options.OptionsLoad();
         options.ChangeAA(options.AAmode);
         SaveSystem.LoadPlayer(this);
@@ -117,9 +117,9 @@ public class MovePlayer : MonoBehaviour
 
         characterController.Move(move * Time.deltaTime); 
         distance = (int)(currentPos - startingPos).magnitude;
-        if (Time.timeScale > 0 && beenHit == false && speed != maxSpeed && speedActive == false)
+        if (Time.timeScale != 0 && beenHit == false && speed != maxSpeed && speedActive == false)
         {
-            speed += speedGain;
+            speed += speedGain* levelGenerator.difficulty;
         }
         if (speedActive == true)
         {

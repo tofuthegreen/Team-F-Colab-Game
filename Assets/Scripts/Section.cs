@@ -41,7 +41,6 @@ public class Section : MonoBehaviour
             {
                 int spawnRND = Random.Range(0, 100);
                 int obstaclechance = levelGenerator.difficulty * Random.Range(1, 11);
-                Debug.Log(gameObject.name + " ObstacleChance is " + obstaclechance);
                 if (spawnRND < 20 + obstaclechance && obstaclesTest[i] != 1)
                 {
                     obstaclesTest[i] = 1;
@@ -186,7 +185,8 @@ public class Section : MonoBehaviour
             if (obstaclesTest[i] == 0)
             {
                 int rnd = Random.Range(0, 100);
-                if (rnd > 80 + levelGenerator.difficulty)
+                int coinchance = levelGenerator.difficulty * Random.Range(1, 6);
+                if (rnd < 10 + coinchance)
                 {
                     int coinRnd = Random.Range(0, 3);
                     if (coinRnd == 0)
@@ -217,7 +217,7 @@ public class Section : MonoBehaviour
             if (obstaclesTest[i] == 0)
             {
                 int rnd = Random.Range(1, 100);
-                if (rnd < 10)
+                if (rnd < 5)
                 {
                     Instantiate(nitro, new Vector3(obstaclesSpawn[i].transform.position.x, obstaclesSpawn[i].transform.position.y + 1f, obstaclesSpawn[i].transform.position.z), Quaternion.identity, nitroParent);
                     obstaclesTest[i] = 3;

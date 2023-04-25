@@ -13,6 +13,7 @@ public class LevelGeneration : MonoBehaviour
     public int maxPathLength;
     public int currentDirection;
     public int tileRND;
+    public int carMax;
     public int difficulty;
     // Start is called before the first frame update
     void Start()
@@ -41,23 +42,46 @@ public class LevelGeneration : MonoBehaviour
             if(rnd < 80)
             {
                 tileRND = 1;
+                carMax = 0;
             }
             else
             {
-                tileRND = 2;
+                if (carMax < 5)
+                {
+                    tileRND = 2;
+                    carMax++;
+                }
+                else
+                {
+                    tileRND = 1;
+                    carMax = 0;
+                }
             }
         }
-        else
+        else if(spawnCount % 20 == 0)
         {
-            difficulty = 2;
+            if (difficulty < 7)
+            {
+                difficulty += 1;
+            }
             int rnd = Random.Range(0, 100);
-            if (rnd < 70)
+            if (rnd < 65)
             {
                 tileRND = 1;
+                carMax = 0;
             }
             else
             {
-                tileRND = 2;
+                if (carMax < 5)
+                {
+                    tileRND = 2;
+                    carMax++;
+                }
+                else
+                {
+                    tileRND = 1;
+                    carMax = 0;
+                }
             }
         }
         GameObject temp = Instantiate(sections[tileRND], nextSpawnPoint, Quaternion.identity);

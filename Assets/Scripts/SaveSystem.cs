@@ -4,6 +4,9 @@ using System.IO;
 using System.Runtime.Serialization.Formatters.Binary;
 using UnityEngine;
 
+///Uses serialization to save and load different types of data
+///probably should have found a more efficent way of saving that didnt
+///require me to make separate files of everything
 public static class SaveSystem
 {
     public static bool highscore;
